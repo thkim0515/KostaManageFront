@@ -1,9 +1,9 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
-import * as S from "./Page1.style";
+import * as S from "./FirstPage.style";
 
-const Page1 = () => {
+const FirstPage = () => {
   const count = useSelector((state) => state.counter.count);
   const user = useSelector((state) => state.user.user);
 
@@ -17,4 +17,4 @@ const Page1 = () => {
     </>
   );
 };
-export default Page1;
+export default FirstPage;

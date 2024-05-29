@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import * as S from "./Page2.style";
+import * as S from "./SecondPage.style";
 import useFetchWithAxios from "../../hooks/useFetchWithAxios";
 
-const Page2 = () => {
+const SecondPage = () => {
   const count = useSelector((state) => state.counter.count);
 
   const fetchParams = {
@@ -69,4 +69,4 @@ const Page2 = () => {
   );
 };
 
-export default Page2;
+export default SecondPage;

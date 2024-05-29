@@ -13,10 +13,10 @@ const Header = () => {
               <Link to="/">메인</Link>
             </li>
             <li>
-              <Link to="/Page">서브1</Link>
+              <Link to="/FirstPage">서브1</Link>
             </li>
             <li>
-              <Link to="/Page2">서브2</Link>
+              <Link to="/SecondPage">서브2</Link>
             </li>
           </ul>
         </S.Nav>
