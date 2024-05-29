@@ -1,19 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #f8f9fa;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	background-color: #f8f9fa;
+	width: 100%; // 최상위 컨테이너는 전체 너비 사용
 `;
 
 export const HeaderWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	width: 100%; // 헤더는 전체 너비 사용
 `;
 
 export const SearchWrapper = styled.div`
@@ -23,79 +25,81 @@ export const SearchWrapper = styled.div`
 `;
 
 export const Search = styled.input`
-  flex: 1;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+	flex: 1;
+	padding: 8px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 100%; // 검색 입력 필드 너비는 전체 부모 너비 사용
 `;
 
 export const ContactDetailsHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 16px;
+	display: flex;
+	align-items: center;
+	margin-left: 16px;
 `;
 
 export const ContactDetailsText = styled.div`
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 16px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 16px;
 `;
 
 export const IconWrapper = styled.div`
-  display: flex;
-  gap: 16px;
-  font-size: 18px;
+	display: flex;
+	gap: 16px;
+	font-size: 18px;
 `;
 
 export const MainContent = styled.div`
-  display: flex;
-  flex: 1;
-  overflow: hidden;
+	display: flex;
+	flex: 1;
+	overflow: hidden;
+	width: 100%; // 메인 컨테이너는 전체 너비 사용
 `;
 
 export const StudentList = styled.div`
-  width: 30%;
-  overflow-y: auto;
-  background-color: #fff;
-  border-right: 1px solid #ddd;
+	width: 340px; // 학생 목록의 가로 넓이를 고정
+	overflow-y: auto;
+	background-color: #fff;
+	border-right: 1px solid #ddd;
 `;
 
 export const StudentItem = styled.div`
-  display: flex;
-  padding: 16px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
+	display: flex;
+	padding: 16px;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
 
-  &:hover {
-    background-color: #f0f0f0;
-  }
+	&:hover {
+		background-color: #f0f0f0;
+	}
 `;
 
 export const StudentAvatar = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
 `;
 
 export const StudentInfo = styled.div`
-  margin-left: 16px;
+	margin-left: 16px;
 `;
 
 export const StudentName = styled.div`
-  font-size: 16px;
-  font-weight: bold;
+	font-size: 16px;
+	font-weight: bold;
 `;
 
 export const StudentEmail = styled.div`
-  color: gray;
+	color: gray;
 `;
 
 export const DetailPanel = styled.div`
-  width: 70%;
-  padding: 32px;
-  overflow-y: auto;
-  background-color: #fff;
+	flex: 1; // 남는 공간을 모두 차지
+	padding: 32px;
+	overflow-y: auto;
+	background-color: #fff;
 `;
 
 export const Details = styled.div`
