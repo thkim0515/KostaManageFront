@@ -10,6 +10,13 @@ export const handleLogin = async (getUserName, getUserPassword, dispatch) => {
   dispatch(loginStart());
 
   try {
+    // const response = await axios.post("엔드포인트", {파라미터});
+    // if (response === 200) {
+    //   dispatch(loginSuccess(username));
+    // } else {
+    //    dispatch(loginFail("아이디 패스워드 다름"));
+    // }
+
     // 임시 로그인
     const adminUser = {
       username: "admin",
@@ -29,13 +36,6 @@ export const handleLogin = async (getUserName, getUserPassword, dispatch) => {
     } else {
       dispatch(loginFail("아이디 패스워드 다름"));
     }
-
-    // const response = await axios.post("엔드포인트", {파라미터});
-    // if (response === 200) {
-    //   dispatch(loginSuccess(username));
-    // } else {
-    //    dispatch(loginFail("아이디 패스워드 다름"));
-    // }
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       dispatch(loginFail(error.response.data));

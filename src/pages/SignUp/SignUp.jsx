@@ -18,7 +18,13 @@ const SignUp = () => {
         "http://localhost:8080/users/register",
         userData
       );
-      console.log("User registered:", response.data);
+      console.log(response.status);
+      if (response.status === 200) {
+        console.log("User registered:", response.data);
+        alert("회원가입 성공");
+      } else {
+        alert("회원가입 실패");
+      }
     } catch (error) {
       console.error("There was an error!", error);
     }
