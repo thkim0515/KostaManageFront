@@ -15,9 +15,12 @@ export const Overlay = styled.div`
 export const Modal = styled.div`
   background: white;
   border-radius: 8px;
-  width: 400px;
+  width: 360px;
+  height: 50vh;
   padding: 20px;
-  position: relative;
+  position: absolute;
+  top: 45%;
+  left: 80%;
 `;
 
 export const CloseButton = styled.button`

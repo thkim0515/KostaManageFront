@@ -3,10 +3,10 @@ import React, { useState } from "react";
 const GetValue = () => {
   const [alone, setAlone] = useState();
   const [value, setValue] = useState({
-    Valueb: "1",
-    Valuec: "2",
-    Valued: "3",
-    Valuee: "4",
+    Valueb: "",
+    Valuec: "",
+    Valued: "",
+    Valuee: "",
   });
 
   const handleGetChange = (e) => {
