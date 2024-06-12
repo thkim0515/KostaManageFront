@@ -8,14 +8,9 @@ const SecondPage = () => {
 
   const fetchParams = {
     get: {
-      url: "http://localhost:8080/api/coffee",
+      url: "http://localhost:8080/users/get/qwe123",
       method: "get",
     },
-    // post: {
-    //   url: "https://jsonplaceholder.typicode.com/posts",
-    //   method: "post",
-    //   body: { title: "foo", body: "bar", userId: 1 },
-    // },
   };
 
   const {
@@ -23,12 +18,6 @@ const SecondPage = () => {
     isLoading: getLoading,
     error: getError,
   } = useFetchWithAxios(fetchParams.get);
-
-  // const {
-  //   data: postData,
-  //   isLoading: postLoading,
-  //   error: postError,
-  // } = useFetchWithAxios(fetchParams.post);
 
   function RequestSection({ title, data, isLoading, error }) {
     return (

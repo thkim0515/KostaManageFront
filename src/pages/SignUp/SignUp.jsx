@@ -7,7 +7,7 @@ const SignUp = () => {
     userId: "",
     userPassword: "",
     userNickname: "",
-    // userEmail: "",
+    userEmail: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -22,10 +22,10 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     const newErrors = {
-      userId: Vali.validateUsername(formData.userId),
+      userId: Vali.validateUserId(formData.userId),
       userPassword: Vali.validatePassword(formData.userPassword),
       userNickname: Vali.validateNickname(formData.userNickname),
-      // userEmail: Vali.validateEmail(formData.userEmail),
+      userEmail: Vali.validateEmail(formData.userEmail),
     };
 
     setErrors(newErrors);
@@ -82,7 +82,7 @@ const SignUp = () => {
         />
         {errors.userNickname && <p>{errors.userNickname}</p>}
       </div>
-      {/* <div>
+      <div>
         <input
           type="text"
           name="userEmail"
@@ -91,7 +91,7 @@ const SignUp = () => {
           placeholder="Email"
         />
         {errors.userEmail && <p>{errors.userEmail}</p>}
-      </div> */}
+      </div>
       <button onClick={handleSignUp}>Sign Up</button>
     </div>
   );

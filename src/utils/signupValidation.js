@@ -1,13 +1,13 @@
 /**아이디 : 영어와 숫자로만 구성 (6~14자리)*/
-export function validateUsername(username) {
-  const usernameRegex = /^[a-zA-Z0-9]{6,14}$/;
-  if (!usernameRegex.test(username)) {
+export function validateUserId(userid) {
+  const useridRegex = /^[a-zA-Z0-9]{6,14}$/;
+  if (!useridRegex.test(userid)) {
     return "아이디는 6자리에서 14자리까지 가능합니다.";
   }
   return "";
 }
 
-/**패스워드 : 특문1 대문자1 필수 소문자와 숫자로 구성 (8~16자리) */
+/**패스워드 : 특문1 대문자1 필수 소문자와 숫자로 구성 (8~16자리)*/
 export function validatePassword(password) {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,16}$/;
   if (!passwordRegex.test(password)) {
@@ -25,7 +25,7 @@ export function validateNickname(nickname) {
   return "";
 }
 
-/**이메일 : 이메일 형식에 맞게 구성 */
+/**이메일 : 이메일 형식에 맞게 구성*/
 export function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
