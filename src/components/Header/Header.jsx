@@ -5,27 +5,41 @@ import Login from "../../pages/Login/Login";
 
 const Header = () => {
   return (
-    <S.Container>
-      <S.Wrapper>
-        <S.Nav>
-          <ul>
-            <li>
-              <Link to="/">메인</Link>
-            </li>
-            <li>
-              <Link to="/FirstPage">서브1</Link>
-            </li>
-            <li>
-              <Link to="/SecondPage">서브2</Link>
-            </li>
-          </ul>
-        </S.Nav>
-      </S.Wrapper>
-      <S.Wrapper>
-        <Login />
-      </S.Wrapper>
-    </S.Container>
-  );
+		<S.Container>
+			<S.Wrapper>
+				<S.Logo>
+					<a href="#home">
+						<img src="path/to/logo.png" alt="멍게멍게 로고" />
+					</a>
+				</S.Logo>
+				<S.Nav>
+					<ul>
+						<li>
+							<Link to="/mbti">MBTI</Link>
+						</li>
+						<li>
+							<Link to="/adoption">입양 하기</Link>
+						</li>
+						<li>
+							<Link to="/reviews">입양 후기</Link>
+						</li>
+						<li>
+							<Link to="/inquiry">문의 하기</Link>
+						</li>
+					</ul>
+				</S.Nav>
+			</S.Wrapper>
+			<S.Wrapper>
+				<S.Actions>
+					<Login />
+					<S.Button>회원가입</S.Button>
+					<S.Search>
+						<input type="text" placeholder="Search" />
+					</S.Search>
+				</S.Actions>
+			</S.Wrapper>
+		</S.Container>
+	)
 };
 
 export default Header;
