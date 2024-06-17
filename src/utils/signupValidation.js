@@ -1,3 +1,13 @@
+
+/**닉네임 : 한글,영어,숫자로 구성 (2~10자리)*/
+export function validateNickname(nickname) {
+  const nicknameRegex = /^[가-힣a-zA-Z0-9]{2,10}$/;
+  if (!nicknameRegex.test(nickname)) {
+    return "닉네임은 한글, 영어, 숫자로 구성되며 2자리에서 10자리까지 가능합니다.";
+  }
+  return "";
+}
+
 /**아이디 : 영어와 숫자로만 구성 (6~14자리)*/
 export function validateUserId(userid) {
   const useridRegex = /^[a-zA-Z0-9]{6,14}$/;
@@ -15,14 +25,22 @@ export function validatePassword(password) {
   }
   return "";
 }
-
-/**닉네임 : 한글,영어,숫자로 구성 (2~10자리)*/
-export function validateNickname(nickname) {
-  const nicknameRegex = /^[가-힣a-zA-Z0-9]{2,10}$/;
-  if (!nicknameRegex.test(nickname)) {
-    return "닉네임은 한글, 영어, 숫자로 구성되며 2자리에서 10자리까지 가능합니다.";
+/**이름 : 한글,영어로 구성 (1~10자리) */
+export function validateName (name) {
+  const nameRegex = /^[가-힣a-zA-Z]{1,10}$/;
+  if(!nameRegex.test(name)) {
+    return "이름은 한글 또는 영어로 입력 가능합니다"
   }
-  return "";
+  return ""
+}
+
+/**전화번호 : 000-0000-0000 형태로 입력 */
+export function valdatePhone (phone) {
+  const phoneRegex = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/
+  if(!phoneRegex.test(phone)) {
+    return "000-0000-0000 형태로 입력해주세요"
+  }
+  return ""
 }
 
 /**이메일 : 이메일 형식에 맞게 구성*/
