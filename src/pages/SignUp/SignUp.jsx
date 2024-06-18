@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
 import * as Vali from "../../utils/signupValidation";
+import DaumPostcodeEmbed from "react-daum-postcode";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
     userNickname: "",
     userId: "",
     userPassword: "",
-    userName : "" ,
+    userName: "",
     userPhone: "",
     userEmail: "",
     userAdress: "",
-    passwordCheck: ""
+    userAdressDetail: "",
+    userPasswordCheck: ""
   });
 
   const [errors, setErrors] = useState({});
+  const [idcheckMsg, setIdcheckMsg] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,10 +32,10 @@ const SignUp = () => {
       userNickname: Vali.validateNickname(formData.userNickname),
       userId: Vali.validateUserId(formData.userId),
       userPassword: Vali.validatePassword(formData.userPassword),
-      userName : Vali.validateName(formData.userName),
-      userPhone : Vali.valdatePhone(formData.userPhone),
+      userName: Vali.validateName(formData.userName),
+      userPhone: Vali.valdatePhone(formData.userPhone),
       userEmail: Vali.validateEmail(formData.userEmail),
-      passwordCheck : Vali.validatePassword(formData.passwordCheck),
+      userPasswordCheck: Vali.validatePassword(formData.userPasswordCheck)
     };
 
     setErrors(newErrors);
@@ -57,18 +60,19 @@ const SignUp = () => {
     }
   };
 
-  // axios 이용해서 데이터 베이스 안 중복 확인하기 
-  // const duobleCheck = (e) => {
-  //   const onecheck = /^[a-zA-Z0-9]{6,14}$/;
-  //   if(!onecheck.test(e.target.value)) {
-  //     return("사용 가능한 아이디입니다.")
-  // }
+  const duobleCheck = (e) => {
+    const onecheck = /^[a-zA-Z0-9]{6,14}$/;
+    if (!onecheck.test(e.target.value)) {
+      setIdcheckMsg(errors.userId && <p>{errors.userId}</p>)
+    }
 
-  // APi 필요? 
-  const identifiCation = () => {
-
+    // const res = axios.get(`http://localhost:8080/users/register${id}`)
+    // if(res.status===200){
+    //   setIdcheckMsg("사용 가능한 아이디 입니다")
+    // } else if (res.status === 500){
+    //   setIdcheckMsg("이미 사용한 내용이 있는 아이디 입니다")
+    // }
   }
-  
 
   return (
     <div>
@@ -94,8 +98,8 @@ const SignUp = () => {
         />
         {errors.userId && <p>{errors.userId}</p>}
       </div>
-      <button onClick={""}>중복 확인</button>
-      <div>비밀번호</div> 
+      <button onClick={duobleCheck}>중복 확인</button>
+      <div>비밀번호</div>
       <div>
         <input
           type="password"
@@ -108,24 +112,25 @@ const SignUp = () => {
       </div>
       <div>비밀번호 확인</div>
       <div>
-        <input 
+        <input
           type="password"
-          name="passwordCheck"
-          value={formData.passwordCheck}
+          name="userPasswordCheck"
+          value={formData.userpasswordCheck}
           onChange={handleChange}
           placeholder="Password"
-          />
+        />
+        {formData.userPassword !== formData.userPasswordCheck && <p>비밀번호가 일치하기 않습니다.</p>}
       </div>
       <div>이름</div>
       <div>
-        <input 
+        <input
           type="text"
           name="userName"
           value={formData.userName}
           onChange={handleChange}
           placeholder="Name"
-          />
-          {errors.userName && <p>{errors.userName}</p>}
+        />
+        {errors.userName && <p>{errors.userName}</p>}
       </div>
       <div>휴대폰 번호</div>
       <div>
@@ -135,10 +140,10 @@ const SignUp = () => {
           value={formData.userPhone}
           onChange={handleChange}
           placeholder="Phone"
-          />
-          {errors.userPhone && <p>{errors.userPhone}</p>}
+        />
+        {errors.userPhone && <p>{errors.userPhone}</p>}
       </div>
-      <button onClick={identifiCation}>본인 확인 </button>
+      <button onClick={""}>본인 확인 </button>
       <div>이메일 </div>
       <div>
         <input
@@ -148,8 +153,21 @@ const SignUp = () => {
           onChange={handleChange}
           placeholder="Email"
         />
-        <div>주소</div>
-        {errors.userEmail && <p>{errors.userEmail}</p>}
+      </div>
+      {errors.userEmail && <p>{errors.userEmail}</p>}
+      <div>주소</div>
+      <div>
+        <input
+          type="text"
+          id="sample5_address"
+          placeholder="주소"
+        />
+        <input type="button" onClick={""} value={"주소검색"} />
+        <input
+          type="text"
+          id="sample3_detailAddress"
+          placeholder="상세주소"
+        />
       </div>
       <button onClick={handleSignUp} disabled={!(formData)}>Sign Up</button>
     </div>

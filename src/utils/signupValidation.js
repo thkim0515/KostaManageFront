@@ -22,9 +22,10 @@ export function validatePassword(password) {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,16}$/;
   if (!passwordRegex.test(password)) {
     return "패스워드는 특수문자, 대문자, 소문자, 숫자를 포함하여 8자리에서 16자리여야 합니다.";
-  }
+  } 
   return "";
 }
+
 /**이름 : 한글,영어로 구성 (1~10자리) */
 export function validateName (name) {
   const nameRegex = /^[가-힣a-zA-Z]{1,10}$/;
