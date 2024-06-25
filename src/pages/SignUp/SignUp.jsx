@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import * as Vali from "../../utils/signupValidation";
-import DaumPostcodeEmbed from "react-daum-postcode";
+import * as Vali from "../../utils/signUpValidation";
+import { DaumPostcodeEmbed } from "react-daum-postcode";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -16,14 +16,44 @@ const SignUp = () => {
     userPasswordCheck: ""
   });
 
+  const [showPostCode, setShowPostCode] = useState(false);
   const [errors, setErrors] = useState({});
-  const [idcheckMsg, setIdcheckMsg] = useState("");
+  const [idcheckMsg, setIdCheckMsg] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+  };
+
+  const handleComplete = (data) => {
+    let fullAddress = data.address;
+    let extraAddress = '';
+
+    if (data.addressType === 'R') {
+      if (data.bname !== '') {
+        extraAddress += data.bname;
+      }
+      if (data.buildingName !== '') {
+        extraAddress += extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+      }
+      fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+    }
+    setFormData({ ...formData, userAdress: fullAddress });
+    setShowPostCode(false);
+  };
+
+  const handleClickSearch = () => {
+    setShowPostCode(true);
+  };
+
+  const handleAddressChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
     }));
   };
 
@@ -60,19 +90,28 @@ const SignUp = () => {
     }
   };
 
-  const duobleCheck = (e) => {
+  const duobleCheck = async (e) => {
     const onecheck = /^[a-zA-Z0-9]{6,14}$/;
+    // 변수 값 체크 조건
     if (!onecheck.test(e.target.value)) {
-      setIdcheckMsg(errors.userId && <p>{errors.userId}</p>)
+      setIdCheckMsg(errors.userId && <p>{errors.userId}</p>);
+      return;
     }
 
-    // const res = axios.get(`http://localhost:8080/users/register${id}`)
-    // if(res.status===200){
-    //   setIdcheckMsg("사용 가능한 아이디 입니다")
-    // } else if (res.status === 500){
-    //   setIdcheckMsg("이미 사용한 내용이 있는 아이디 입니다")
-    // }
-  }
+    try {
+      // async/await와 axios get 요청 처리
+      const res = await axios.get(`http://localhost:8080/users/register/${e.target.value}`);
+      if (res.status === 200) {
+        setIdCheckMsg("사용 가능한 아이디 입니다");
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 500) {
+        setIdCheckMsg("이미 등록된 아이디 입니다");
+      } else {
+        console.error("There was an error!", error);
+      }
+    }
+  };
 
   return (
     <div>
@@ -99,6 +138,7 @@ const SignUp = () => {
         {errors.userId && <p>{errors.userId}</p>}
       </div>
       <button onClick={duobleCheck}>중복 확인</button>
+      {idcheckMsg && <p>{idcheckMsg}</p>}
       <div>비밀번호</div>
       <div>
         <input
@@ -115,11 +155,11 @@ const SignUp = () => {
         <input
           type="password"
           name="userPasswordCheck"
-          value={formData.userpasswordCheck}
+          value={formData.userPasswordCheck}
           onChange={handleChange}
           placeholder="Password"
         />
-        {formData.userPassword !== formData.userPasswordCheck && <p>비밀번호가 일치하기 않습니다.</p>}
+        {formData.userPassword !== formData.userPasswordCheck && <p>비밀번호가 일치하지 않습니다.</p>}
       </div>
       <div>이름</div>
       <div>
@@ -159,17 +199,23 @@ const SignUp = () => {
       <div>
         <input
           type="text"
-          id="sample5_address"
+          id="userAdress"
+          value={formData.userAdress}
+          onChange={handleAddressChange}
           placeholder="주소"
         />
-        <input type="button" onClick={""} value={"주소검색"} />
+        <input type="button" onClick={handleClickSearch} value={"주소검색"} />
         <input
           type="text"
-          id="sample3_detailAddress"
+          id="userAdressDetail"
+          value={formData.userAdressDetail}
+          onChange={handleAddressChange}
           placeholder="상세주소"
         />
       </div>
-      <button onClick={handleSignUp} disabled={!(formData)}>Sign Up</button>
+      <button onClick={handleSignUp} disabled={!Object.values(formData).every(value => value)}>Sign Up</button>
+    
+    {showPostCode && <DaumPostcodeEmbed onComplete={handleComplete} />}
     </div>
   );
 };

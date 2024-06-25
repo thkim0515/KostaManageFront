@@ -1,56 +1,72 @@
 import styled from "styled-components";
 
-export const Container = styled.footer`
-  background-color: #005b99;
-  color: #fff;
-  padding: 2rem 0;
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px;
   text-align: center;
 `;
 
 export const Inner = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
 `;
 
 export const Logo = styled.div`
+  margin-bottom: 20px;
+
   img {
     height: 50px;
   }
 `;
 
 export const Info = styled.div`
+  margin-bottom: 20px;
+
   p {
-    margin: 0.5rem 0;
+    margin: 5px 0;
+    color: #333;
   }
 `;
 
 export const Nav = styled.nav`
+  margin-bottom: 20px;
+
   ul {
     list-style: none;
     padding: 0;
     display: flex;
-    gap: 1rem;
-    margin: 1rem 0;
-  }
+    gap: 15px;
 
-  a {
-    color: #fff;
-    text-decoration: none;
+    li {
+      a {
+        text-decoration: none;
+        color: #007bff;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 `;
 
 export const Social = styled.div`
+  display: flex;
+  gap: 10px;
+
   a {
-    color: #fff;
-    margin: 0 0.5rem;
-    font-size: 1.5rem;
+    font-size: 20px;
+    color: #333;
 
     &:hover {
-      color: #ddd;
+      color: #007bff;
     }
   }
 `;
+
