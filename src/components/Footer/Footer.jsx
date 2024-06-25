@@ -1,56 +1,49 @@
 import React from "react";
 import * as S from "./Footer.style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter, faInstagram, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import Logo2 from '../../assets/image/logo.png';
+import { useNavigate } from "react-router-dom";
+
 const Footer = () => {
+	const navigate = useNavigate();
+
+	const goToMainPage = () => {
+		navigate('/mainpage')
+	  };
+
   return (
-		<S.Container>
+		  <S.Container>
 			<S.Inner>
-				<S.Logo>
-					<img src="path/to/logo.png" alt="멍게멍게 로고" />
-				</S.Logo>
-				<S.Info>
-					<p>849 King Street, Mesa, AZ 85301, SEOUL, KOREA</p>
-					<p>info@example.com</p>
-					<p>&copy; 2023 Brand, Inc. • Privacy • Terms • Sitemap</p>
-				</S.Info>
-				<S.Nav>
-					<ul>
-						<li>
-							<a href="#services">Services</a>
-						</li>
-						<li>
-							<a href="#about">About us</a>
-						</li>
-						<li>
-							<a href="#location">Location & hours</a>
-						</li>
-						<li>
-							<a href="#blog">Blog</a>
-						</li>
-						<li>
-							<a href="#contact">Contact</a>
-						</li>
-					</ul>
-				</S.Nav>
-				<S.Social>
-					<a href="#facebook">
-						<i className="fab fa-facebook-f"></i>
-					</a>
-					<a href="#twitter">
-						<i className="fab fa-twitter"></i>
-					</a>
-					<a href="#instagram">
-						<i className="fab fa-instagram"></i>
-					</a>
-					<a href="#youtube">
-						<i className="fab fa-youtube"></i>
-					</a>
-					<a href="#linkedin">
-						<i className="fab fa-linkedin-in"></i>
-					</a>
-				</S.Social>
+			  <S.Logo>
+				<img src={Logo2} alt="멍개멍개 " />
+				<S.Logo onClick={goToMainPage}>멍개멍개</S.Logo>
+			  </S.Logo>
+			  <S.Info>
+				<p>70 Gasandigital1ro, Geumcheongu, 08590, Seoul, KOREA</p>
+				<p>info@KOSTA.com</p>
+				<p>&copy; 2024 Brand, Inc. • Privacy • Terms • Sitemap</p>
+			  </S.Info>
+			  <S.Nav>
+				<ul>
+				  <li><a href="#services">Services</a></li>
+				  <li><a href="#about">About us</a></li>
+				  <li><a href="#location">Location & hours</a></li>
+				  <li><a href="#blog">Blog</a></li>
+				  <li><a href="#contact">Contact</a></li>
+				</ul>
+			  </S.Nav>
+			  <S.Social>
+				<a href="#facebook"><FontAwesomeIcon icon={faFacebook} /></a>
+				<a href="#twitter"><FontAwesomeIcon icon={faTwitter} /></a>
+				<a href="#instagram"><FontAwesomeIcon icon={faInstagram} /></a>
+				<a href="#youtube"><FontAwesomeIcon icon={faYoutube} /></a>
+				<a href="#linkedin"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+			  </S.Social>
 			</S.Inner>
-		</S.Container>
-	) 
-};
+		  </S.Container>
+		);
+	  };
+	  
 
 export default Footer;
