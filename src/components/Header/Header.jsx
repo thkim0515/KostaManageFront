@@ -1,47 +1,41 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"
-import { S } from "./Header.style"
+import { Link, useNavigate } from "react-router-dom";
+import * as S from "./Header.style";
 
 const Header = () => {
-  const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	const goToMainPage = () => {
-		navigate("/mainpage")
-	}
+		navigate("/mainpage");
+	};
 
 	const goToLogin = () => {
-		navigate("/login")
-	}
+		navigate("/login");
+	};
 
 	const goToSignUp = () => {
-		navigate("/signUp")
-	}
+		navigate("/signUp");
+	};
 
-  return (
+	return (
 		<S.Container>
-			<S.InnerContainer>
-				<S.LogoContainer onClick={goToMainPage}>실거래 gogo</S.LogoContainer>
+			<S.Inner>
+				<S.Logo onClick={goToMainPage}>실거래 gogo</S.Logo>
 				<S.HeaderMenu>
-					<S.MenuList>
-						<S.MenuItem>
-							<Link to="/MPrice">시세 보기</Link>
-						</S.MenuItem>
-						<S.MenuItem>
-							<Link to="/FTalk">자유 대화</Link>
-						</S.MenuItem>
-						<S.MenuItem>
-							<Link to="/VTraid">투자 해보기</Link>
-						</S.MenuItem>
-					</S.MenuList>
+					<S.Menu>
+						<Link to="/MPrice">시세 보기</Link>
+					</S.Menu>
+					<S.Menu>
+						<Link to="/FTalk">자유 대화</Link>
+					</S.Menu>
+					<S.Menu>
+						<Link to="/VTraid">투자 해보기</Link>
+					</S.Menu>
 				</S.HeaderMenu>
 				<S.Group>
-					<S.Button onClick={goToLogin} className={S.LoginButton}>
-						로그인
-					</S.Button>
-					<S.Button onClick={goToSignUp} className={S.SignUpButton}>
-						회원가입
-					</S.Button>
-					<S.OverlapGroupWrapper>
+					<S.StyledButton onClick={goToLogin}>로그인</S.StyledButton>
+					<S.StyledButton onClick={goToSignUp}>회원가입</S.StyledButton>
+					<S.Overlap>
 						<S.OverlapGroup>
 							<S.Rectangle
 								name="searchBox"
@@ -50,14 +44,13 @@ const Header = () => {
 							/>
 							<S.SearchWrapper>
 								<S.SearchIcon src="search-normal.svg" alt=" search" />
-								<S.TextWrapper>Search</S.TextWrapper>
 							</S.SearchWrapper>
 						</S.OverlapGroup>
-					</S.OverlapGroupWrapper>
+					</S.Overlap>
 				</S.Group>
-			</S.InnerContainer>
+			</S.Inner>
 		</S.Container>
-	)
+	);
 };
 
 export default Header;

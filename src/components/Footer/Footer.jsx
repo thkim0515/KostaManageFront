@@ -21,7 +21,7 @@ const Footer = () => {
 		<S.Container>
 			<S.Inner>
 				<S.Logo>
-					<S.Logo onClick={goToMainPage}>실거래gogo</S.Logo>
+					<span onClick={goToMainPage}>실거래gogo</span>
 				</S.Logo>
 				<S.Info>
 					<p>70 Gasandigital1ro, Geumcheongu, 08590, Seoul, KOREA</p>
@@ -46,7 +46,6 @@ const Footer = () => {
 							<a href="#contact">Contact</a>
 						</li>
 					</ul>
-				</S.Nav>
 				<S.Social>
 					<a href="#facebook">
 						<FontAwesomeIcon icon={faFacebook} />
@@ -64,6 +63,7 @@ const Footer = () => {
 						<FontAwesomeIcon icon={faLinkedinIn} />
 					</a>
 				</S.Social>
+				</S.Nav>
 			</S.Inner>
 		</S.Container>
 	);
