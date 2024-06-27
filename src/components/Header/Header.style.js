@@ -4,7 +4,7 @@ export const Container = styled.header`
 	background-color: #fbfcff;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: sp;
 	padding: 20px 0;
 	width: 100%;
 	border-bottom: 1px solid #ececec;
@@ -23,8 +23,9 @@ export const Logo = styled.h1`
 	font-size: 32px;
 	font-style: italic;
 	font-weight: bold;
-	cursor: pointer;
 	margin: 0;
+	cursor: pointer;
+	flex-shrink: 0;
 `;
 
 export const HeaderMenu = styled.ul`
@@ -110,4 +111,5 @@ export const SearchWrapper = styled.div`
 export const SearchIcon = styled.img`
 	height: 16px;
 	width: 16px;
+	justify-content: space-between;
 `;
