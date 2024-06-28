@@ -1,7 +1,7 @@
 import React from "react";
-import * as S from "./MainInfoM.style";
+import * as S from "./Middle.style";
 
-const MainInfoM = () => {
+const Middle = () => {
 	return (
 		<S.Container>
 			<h2>차트 들어갈 곳</h2>
@@ -9,4 +9,4 @@ const MainInfoM = () => {
 	);
 };
 
-export default MainInfoM;
+export default Middle;

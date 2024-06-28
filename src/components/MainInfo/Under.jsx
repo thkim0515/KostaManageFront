@@ -1,18 +1,16 @@
 import React from "react";
-import * as S from "./MainInfoU.style"; // 스타일링 파일을 별도로 import
+import * as S from "./Under.style"; // 스타일링 파일을 별도로 import
 
-const MainInfoU = () => (
+const Under = () => (
 	<S.LabelContainer>
-		<S.Text>
-			다양한 게시글을 통해서 서로의 생각을 나누는 소통의 공간
-		</S.Text>
+		<S.Text>다양한 게시글을 통해서 서로의 생각을 나누는 소통의 공간</S.Text>
 		<S.Box>
 			<S.Group>
 				<S.Overlap>
 					<S.Payment>
 						<S.OGroup>
 							<S.List>
-								{Array.from({ length: 4 }, (_, i) => (
+								{Array.from({ length: 4 }, (_, i) =>
 									i !== 0 ? (
 										<S.Element2 key={i}>
 											<S.Icon>
@@ -42,7 +40,7 @@ const MainInfoU = () => (
 											</S.OGroup2>
 										</S.Element>
 									)
-								))}
+								)}
 							</S.List>
 							<S.PostTitle>게시글</S.PostTitle>
 						</S.OGroup>
@@ -57,7 +55,11 @@ const MainInfoU = () => (
 							{Array.from({ length: 3 }, (_, i) => (
 								<S.OWrapper key={i}>
 									<S.Overlap2>
-										{i === 0 ? <S.TextWrapper6>{i + 1}</S.TextWrapper6> : <S.TextWrapper7>{i + 1}</S.TextWrapper7>}
+										{i === 0 ? (
+											<S.TextWrapper6>{i + 1}</S.TextWrapper6>
+										) : (
+											<S.TextWrapper7>{i + 1}</S.TextWrapper7>
+										)}
 									</S.Overlap2>
 								</S.OWrapper>
 							))}
@@ -70,4 +72,4 @@ const MainInfoU = () => (
 	</S.LabelContainer>
 );
 
-export default MainInfoU;
+export default Under;

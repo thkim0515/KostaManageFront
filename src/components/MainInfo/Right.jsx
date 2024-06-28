@@ -1,7 +1,7 @@
 import React from "react";
-import * as S from "./MainInfoR.style";
+import * as S from "./Right.style";
 
-const MainInfoR = () => {
+const Right = () => {
 	return (
 		<S.MainInfoImage>
 			<img
@@ -13,4 +13,4 @@ const MainInfoR = () => {
 	);
 };
 
-export default MainInfoR;
+export default Right;
