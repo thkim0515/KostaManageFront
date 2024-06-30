@@ -1,0 +1,14 @@
+<DataGrid
+  {...data}
+  slots={{
+    toolbar: CustomToolbar,
+  }}
+  initialState={{
+    ...data.initialState,
+    pagination: {
+      paginationModel: {
+        pageSize: 10,
+      },
+    },
+  }}
+/>

@@ -1,0 +1,15 @@
+<DataGridPro
+  columns={columns}
+  rows={rows}
+  initialState={{
+    pinnedColumns: {
+      left: ['day'],
+    },
+  }}
+  autoHeight
+  disableRowSelectionOnClick
+  hideFooter
+  showCellVerticalBorder
+  showColumnVerticalBorder
+  disableColumnReorder
+/>

@@ -7,18 +7,20 @@ import App from "./App";
 import store from "../src/redux/store/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import CommentList from "./components/Comment/CommentList";
 
 const container = document.getElementById("root");
 
 const root = ReactDOM.createRoot(container);
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+	<React.StrictMode>
+		<Provider store={store}>
+			<BrowserRouter>
+				<CommentList />
+				<App />
+			</BrowserRouter>
+		</Provider>
+	</React.StrictMode>,
+	document.getElementById("root")
 );

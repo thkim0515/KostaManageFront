@@ -1,0 +1,11 @@
+<DataGrid
+  pagination
+  slots={{
+    pagination: CustomPagination,
+  }}
+  {...data}
+  initialState={{
+    ...data.initialState,
+    pagination: { paginationModel: { pageSize: 25 } },
+  }}
+/>
