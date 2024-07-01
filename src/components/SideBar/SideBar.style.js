@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SideBarContainer = styled.div`
 	height: 100vh; // viewport height 사용
-	width: 270px;
+	width: 245px;
 	display: flex;
 	flex-direction: column;
   
@@ -11,7 +11,7 @@ export const SideBarContainer = styled.div`
 export const Rectangle = styled.div`
 	background-color: #fbfcff;
 	border-radius: 0px 30px 30px 0px;
-	width: 270px;
+	width: 245px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -19,7 +19,7 @@ export const Rectangle = styled.div`
 
 export const LeftBar = styled.div`
 	background-color: #fbfcff;
-	width: 270px;
+	width: 245px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -29,7 +29,7 @@ export const LeftBar = styled.div`
 export const MenuItem = styled.div`
 	display: flex;
 	align-items: center;
-	height: 60px;
+	height: 85px;
 	padding-left: 20px;
 	cursor: pointer;
 	background-color: ${(props) => (props.selected ? "#e9ecef" : "transparent")};
@@ -46,16 +46,9 @@ export const MenuIcon = styled.div`
 
 export const MenuText = styled.div`
 	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
-	font-size: 18px;
+	font-size: 25px;
 	font-weight: bold;
-`;
-
-export const Badge = styled.div`
-	background-color: #e74c3c;
-	color: #ecf0f1;
-	border-radius: 50%;
-	padding: 5px;
-	font-size: 12px;
+	font-family: "Noto Sans-Regular", Helvetica;;
 `;
 
 export const commonMenuStyles = (top) => `
