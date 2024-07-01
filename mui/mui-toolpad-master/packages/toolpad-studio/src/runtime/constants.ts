@@ -1,1 +1,0 @@
-export const PREVIEW_HEADER_HEIGHT = 52;
