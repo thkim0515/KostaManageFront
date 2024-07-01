@@ -1,2 +1,0 @@
-<BarChart {...barChartsParams} tooltip={{ trigger: 'axis' }} />
-<BarChart {...barChartsParams} tooltip={{ trigger: 'item' }} />

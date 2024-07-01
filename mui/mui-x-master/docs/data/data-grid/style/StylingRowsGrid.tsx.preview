@@ -1,4 +1,0 @@
-<StyledDataGrid
-  {...data}
-  getRowClassName={(params) => `super-app-theme--${params.row.status}`}
-/>
