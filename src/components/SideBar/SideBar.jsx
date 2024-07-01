@@ -19,14 +19,6 @@ const SideBar = () => {
 					<nav>
 						<ul style={{ listStyleType: "none", padding: 0 }}>
 							<li>
-								<Link to="/" onClick={() => handleMenuClick("/")}>
-									<S.MenuItem selected={selectedMenu === "/"}>
-										<S.MenuIcon as={HomeIcon} selected={selectedMenu === "/"} />
-										<S.MenuText active={selectedMenu === "/"}>Home</S.MenuText>
-									</S.MenuItem>
-								</Link>
-							</li>
-							<li>
 								<Link
 									to="/attendance"
 									onClick={() => handleMenuClick("/attendance")}
@@ -154,10 +146,7 @@ const SideBar = () => {
 							<li>
 								<Link to="/faq" onClick={() => handleMenuClick("/faq")}>
 									<S.MenuItem selected={selectedMenu === "/faq"}>
-										<S.MenuIcon
-											as={Info}
-											selected={selectedMenu === "/faq"}
-										/>
+										<S.MenuIcon as={Info} selected={selectedMenu === "/faq"} />
 										<S.MenuText active={selectedMenu === "/faq"}>
 											FAQ게시판
 										</S.MenuText>
