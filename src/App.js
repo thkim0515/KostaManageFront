@@ -6,9 +6,8 @@ import Footer from "./components/Footer/Footer";
 import ChatButton from "./components/Common/ChatButton/ChatButton";
 import SideBar from "./components/SideBar/SideBar";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 
-// 임시 추가된 컴포넌트들 (실제로는 독립된 파일로 구성)
+// 임시 추가된 컴포넌트들
 const StudentList = () => <div>Student List Page</div>;
 const Course = () => <div>Course Page</div>;
 const Batch = () => <div>Batch Page</div>;

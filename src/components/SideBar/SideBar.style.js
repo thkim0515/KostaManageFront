@@ -1,16 +1,14 @@
-import styled from "@emotion/styled";
+import styled from 'styled-components';
 
 export const SideBarContainer = styled.div`
-	position: fixed;
-	width: 270px;
-	height: 100vh;
 	background-color: #ffffff;
+	height: 100vh;
+	width: 270px;
 `;
 
 export const LeftBar = styled.div`
-	background-color: #ffffff;
-	height: 100vh;
-	width: 270px;
+	display: flex;
+	flex-direction: column;
 `;
 
 export const Logo = styled.div`
