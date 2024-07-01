@@ -5,7 +5,7 @@ import * as S from "./Header.style";
 const Header = () => {
 	const navigate = useNavigate();
 
-	const goToMainPage = () => {
+	const goToMain = () => {
 		navigate("/mainpage");
 	};
 

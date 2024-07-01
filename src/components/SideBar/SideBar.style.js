@@ -1,102 +1,63 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SideBarContainer = styled.div`
-	background-color: #ffffff;
-	height: 100vh;
+	height: 100vh; // viewport height 사용
 	width: 270px;
+	display: flex;
+	flex-direction: column;
+  
 `;
 
-export const LeftBar = styled.div`
+export const Rectangle = styled.div`
+	background-color: #fbfcff;
+	border-radius: 0px 30px 30px 0px;
+	width: 270px;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 `;
 
-export const Logo = styled.div`
+export const LeftBar = styled.div`
+	background-color: #fbfcff;
+	width: 270px;
+	height: 100%;
 	display: flex;
-	align-items: center;
-	padding: 51px 0 0 80px;
-`;
-
-export const TextWrapper = styled.div`
-	color: #5285f2;
-	font-family: "Ubuntu-Bold", Helvetica;
-	font-size: 22.7px;
-	font-weight: 700;
-	line-height: normal;
-	margin-left: 5px;
+	flex-direction: column;
+  border-right: 2px solid #ececec;
 `;
 
 export const MenuItem = styled.div`
 	display: flex;
 	align-items: center;
-	position: relative;
-	height: 61px;
-	width: 100%;
-	padding-left: 36px;
-	background-color: ${({ selected }) => (selected ? "#eff6ff" : "#fff")};
+	height: 60px;
+	padding-left: 20px;
 	cursor: pointer;
+	background-color: ${(props) => (props.selected ? "#e9ecef" : "transparent")};
 
 	&:hover {
-		background-color: #eff6ff;
+		background-color: #e9ecef;
 	}
-`;
-
-export const Rectangle = styled.div`
-	background-color: #0077ff;
-	height: 61px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 6px;
 `;
 
 export const MenuIcon = styled.div`
-	height: 27px;
-	width: 27px;
-	margin-right: 20px;
-	color: ${({ selected }) => (selected ? "#0077ff" : "#8a8a8a")};
-
-	&:hover {
-		color: #0077ff;
-	}
+	color: ${(props) => (props.selected ? "#007bff" : "#6c757d")};
+	margin-right: 10px;
 `;
 
 export const MenuText = styled.div`
-	color: ${({ active }) => (active ? "#0077ff" : "#8a8a8a")};
-	font-family: "Open Sans-Bold", Helvetica;
-	font-size: 20px;
-	font-weight: 700;
-	line-height: normal;
-
-	${MenuItem}:hover & {
-		color: #0077ff;
-	}
-`;
-
-export const IconWithBadge = styled.div`
-	display: flex;
-	align-items: center;
-	position: relative;
+	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
+	font-size: 18px;
+	font-weight: bold;
 `;
 
 export const Badge = styled.div`
-	background-color: #0077ff;
-	border-radius: 11px;
-	color: #ffffff;
-	font-family: "Open Sans-Bold", Helvetica;
-	font-size: 15.6px;
-	font-weight: 700;
-	height: 22px;
-	width: 22px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	right: -10px;
-	top: -10px;
+	background-color: #e74c3c;
+	color: #ecf0f1;
+	border-radius: 50%;
+	padding: 5px;
+	font-size: 12px;
 `;
 
-export const MainContent = styled.div`
-	margin-left: 270px;
-	padding: 20px;
+export const commonMenuStyles = (top) => `
+  margin-top: ${top}px; 
 `;

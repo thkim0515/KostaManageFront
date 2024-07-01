@@ -4,9 +4,10 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #f8f9fa;
+	background-color: #fbfcff;
 	padding: 20px;
 	text-align: center;
+	border-top: 2px solid #ececec;
 `;
 
 export const Inner = styled.div`
