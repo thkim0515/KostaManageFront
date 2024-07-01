@@ -1,50 +1,84 @@
 import React from "react";
-import { Home, User, Document, Bookmark, Chat, Setting, Logout } from 'react-iconly';
-import * as S from "././SideBar.style"
+import { Link, useLocation } from "react-router-dom";
+import { Home as HomeIcon, Users, Book, Layers, MessageCircle, Settings, LogOut } from "react-feather"; // 아이콘 라이브러리 사용
+import * as S from "./SideBar.style.js"; // styled-components 파일 임포트
 
-export const SideBar = () => {
-    return (
-        <S.SideBarContainer>
-            <S.LeftBar>
-                <S.Logo>
-                    <img className="group" alt="Group" src="group-1.png" />
-                    <S.TextWrapper>KOSTA</S.TextWrapper>
-                </S.Logo>
-                <S.MenuItem selected>
-                    <S.Rectangle />
-                    <Home set="bold" primaryColor="#0077ff" />
-                    <S.MenuText active>Home</S.MenuText>
+const SideBar = () => {
+  const location = useLocation();
+
+  return (
+    <S.SideBarContainer>
+      <S.LeftBar>
+        <S.Logo>
+          <img src="/logo.png" alt="Logo" />
+          <S.TextWrapper>KOSTA</S.TextWrapper>
+        </S.Logo>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">
+                <S.MenuItem selected={location.pathname === "/"}>
+                  <S.MenuIcon as={HomeIcon} selected={location.pathname === "/"} />
+                  <S.MenuText active={location.pathname === "/"}>Home</S.MenuText>
                 </S.MenuItem>
-                <S.MenuItem>
-                    <User set="bold" primaryColor="#A8A8A8" />
-                    <S.MenuText>Classes</S.MenuText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/student-list">
+                <S.MenuItem selected={location.pathname === "/student-list"}>
+                  <S.MenuIcon as={Users} selected={location.pathname === "/student-list"} />
+                  <S.MenuText active={location.pathname === "/student-list"}>Student List</S.MenuText>
                 </S.MenuItem>
-                <S.MenuItem>
-                    <Document set="bold" primaryColor="#A8A8A8" />
-                    <S.MenuText>Documents</S.MenuText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/course">
+                <S.MenuItem selected={location.pathname === "/course"}>
+                  <S.MenuIcon as={Book} selected={location.pathname === "/course"} />
+                  <S.MenuText active={location.pathname === "/course"}>Course</S.MenuText>
                 </S.MenuItem>
-                <S.MenuItem>
-                    <Bookmark set="bold" primaryColor="#A8A8A8" />
-                    <S.MenuText>Bookmarks</S.MenuText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/batch">
+                <S.MenuItem selected={location.pathname === "/batch"}>
+                  <S.MenuIcon as={Layers} selected={location.pathname === "/batch"} />
+                  <S.MenuText active={location.pathname === "/batch"}>Batch</S.MenuText>
                 </S.MenuItem>
-                <S.MenuItem>
-                    <S.IconWithBadge>
-                        <Chat set="bold" primaryColor="#A8A8A8" />
-                        <S.Badge>4</S.Badge>
-                    </S.IconWithBadge>
-                    <S.MenuText>Messages</S.MenuText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/chat">
+                <S.MenuItem selected={location.pathname === "/chat"}>
+                  <S.IconWithBadge>
+                    <S.MenuIcon as={MessageCircle} selected={location.pathname === "/chat"} />
+                    <S.Badge>4</S.Badge>
+                  </S.IconWithBadge>
+                  <S.MenuText active={location.pathname === "/chat"}>Messages</S.MenuText>
                 </S.MenuItem>
-                <S.MenuItem>
-                    <Setting set="bold" primaryColor="#A8A8A8" />
-                    <S.MenuText>Settings</S.MenuText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/settings">
+                <S.MenuItem selected={location.pathname === "/settings"}>
+                  <S.MenuIcon as={Settings} selected={location.pathname === "/settings"} />
+                  <S.MenuText active={location.pathname === "/settings"}>Settings</S.MenuText>
                 </S.MenuItem>
-                <S.MenuItem>
-                    <Logout set="bold" primaryColor="#E55858" />
-                    <S.MenuText style={{color: '#e55858'}}>Sign Out</S.MenuText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/logout">
+                <S.MenuItem selected={location.pathname === "/logout"}>
+                  <S.MenuIcon as={LogOut} selected={location.pathname === "/logout"} />
+                  <S.MenuText active={location.pathname === "/logout"}>Sign Out</S.MenuText>
                 </S.MenuItem>
-            </S.LeftBar>
-        </S.SideBarContainer>
-    );
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </S.LeftBar>
+    </S.SideBarContainer>
+  );
 };
 
 export default SideBar;
