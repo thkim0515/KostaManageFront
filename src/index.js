@@ -1,17 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client"; // createRoot를 포함한 새로운 API를 사용합니다.
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-ReactDOM.render(
+const rootElement = document.getElementById("root");
+const root = ReactDOM.createRoot(rootElement); // createRoot 사용
+
+root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<App />
 		</BrowserRouter>
-	</React.StrictMode>,
-	document.getElementById("root")
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
