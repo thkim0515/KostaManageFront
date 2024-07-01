@@ -1,8 +1,0 @@
-<DataGridPremium
-  {...data}
-  initialState={initialState}
-  checkboxSelection
-  disableRowSelectionOnClick
-  ignoreValueFormatterDuringExport
-  cellSelection
-/>

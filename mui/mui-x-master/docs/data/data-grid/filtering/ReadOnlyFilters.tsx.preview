@@ -1,9 +1,0 @@
-<DataGrid
-  {...data}
-  columns={columns}
-  slots={{
-    toolbar: GridToolbar,
-  }}
-  filterModel={filterModel}
-  onFilterModelChange={(newFilterModel) => setFilterModel(newFilterModel)}
-/>
