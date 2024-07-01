@@ -30,7 +30,7 @@ export const MenuItem = styled.div`
 	display: flex;
 	align-items: center;
 	height: 85px;
-	padding-left: 20px;
+	padding-left: 30px;
 	cursor: pointer;
 	background-color: ${(props) => (props.selected ? "#e9ecef" : "transparent")};
 
