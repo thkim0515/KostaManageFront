@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import ChatButton from "./components/Common/ChatButton/ChatButton";
-import SideBar from "./components/SideBar/SideBar";
+import SideBar from "./components/SideBar/SideBar"; // SideBar import 추가
 import { Route, Routes } from "react-router-dom";
 
 // 임시 추가된 컴포넌트들
@@ -21,9 +21,9 @@ function App() {
 			<GlobalStyle />
 			<div className="app">
 				<Header />
-				<div className="main-layout">
-					<SideBar />
-					<main className="content">
+				<SideBar /> {/* SideBar 추가 */}
+				<div className="main-layout" style={{ display: "flex" }}>
+					<main className="content" style={{ flex: 1 }}>
 						<Routes>
 							<Route path="/" element={<Main />} />
 							<Route path="/student-list" element={<StudentList />} />

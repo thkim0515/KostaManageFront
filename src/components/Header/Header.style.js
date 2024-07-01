@@ -4,58 +4,53 @@ export const Container = styled.header`
 	background-color: #fbfcff;
 	display: flex;
 	align-items: center;
-	justify-content: sp;
+	justify-content: space-between;
 	padding: 20px 0;
 	width: 100%;
-	border-bottom: 1px solid #ececec;
+	border-bottom: 3px solid #ececec;
 `;
 
-export const Inner = styled.div`
+export const Wrapper = styled.div`
+	display: flex;
+	width: 100%;
+	/*justify-content: center;*/
+`;
+
+export const InnerLeft = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	width: 80%;
+	margin-left: 20px;
 `;
 
-export const Logo = styled.h1`
-	color: #4285f4;
-	font-family: "Poppins-BlackItalic", Helvetica;
-	font-size: 32px;
-	font-style: italic;
-	font-weight: bold;
-	margin: 0;
-	cursor: pointer;
-	flex-shrink: 0;
-`;
-
-export const HeaderMenu = styled.ul`
+export const Logo = styled.div`
 	display: flex;
-	list-style: none;
-	padding: 0;
-	margin: 0;
+	align-items: center;
+	height: 50px;
+	cursor: pointer;
+	justify-content: flex-start;
 `;
 
-export const Menu = styled.li`
-	margin-right: 20px;
-
-	a {
-		color: #4285f4;
-		font-family: "Noto Sans-Regular", Helvetica;
-		font-size: 16px;
-		font-weight: 400;
-		text-decoration: none;
-		padding: 10px 0;
-		transition: color 0.3s;
-
-		&:hover {
-			color: #2a6bb4;
-		}
-	}
+export const TextWrapper = styled.div`
+	font-size: 40px;
+	font-weight: bold;
+	display: flex;
+	color: #4285f4;
 `;
 
 export const Group = styled.div`
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
+`;
+
+export const InnerRight = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 80%;
+	margin-right: 20px;
 `;
 
 export const StyledButton = styled.button`
@@ -63,7 +58,7 @@ export const StyledButton = styled.button`
 	background-color: #4285f4;
 	border-radius: 22px;
 	height: 36px;
-	width: 80px;
+	width: 128px;
 	text-align: center;
 	cursor: pointer;
 	color: #fbfcff;

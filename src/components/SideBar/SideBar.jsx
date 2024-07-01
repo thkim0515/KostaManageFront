@@ -1,65 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as S from "./SideBar.style";
-import { Home, User, Document, Bookmark, Chat, Setting, Logout } from 'react-iconly';
-import { Link } from "react-router-dom";
+import { Home as HomeIcon, Book, FileText, Bookmark, MessageCircle, Settings } from "react-feather";
 
 const SideBar = () => {
-    return (
-        <S.SideBarContainer>
-            <S.LeftBar>
-                <S.Logo>
-                    <img className="group" alt="Group" src="group-1.png" />
-                    <S.TextWrapper>KOSTA</S.TextWrapper>
-                </S.Logo>
-                <S.MenuItem selected>
-                    <S.Rectangle />
-                    <Link to="/">
-                        <Home set="bold" primaryColor="#0077ff" />
-                        <S.MenuText active>Home</S.MenuText>
-                    </Link>
-                </S.MenuItem>
-                <S.MenuItem>
-                    <Link to="/classes">
-                        <User set="bold" primaryColor="#A8A8A8" />
-                        <S.MenuText>Classes</S.MenuText>
-                    </Link>
-                </S.MenuItem>
-                <S.MenuItem>
-                    <Link to="/documents">
-                        <Document set="bold" primaryColor="#A8A8A8" />
-                        <S.MenuText>Documents</S.MenuText>
-                    </Link>
-                </S.MenuItem>
-                <S.MenuItem>
-                    <Link to="/bookmarks">
-                        <Bookmark set="bold" primaryColor="#A8A8A8" />
-                        <S.MenuText>Bookmarks</S.MenuText>
-                    </Link>
-                </S.MenuItem>
-                <S.MenuItem>
-                    <S.IconWithBadge>
-                        <Link to="/messages">
-                            <Chat set="bold" primaryColor="#A8A8A8" />
-                            <S.Badge>4</S.Badge>
-                            <S.MenuText>Messages</S.MenuText>
-                        </Link>
-                    </S.IconWithBadge>
-                </S.MenuItem>
-                <S.MenuItem>
-                    <Link to="/settings">
-                        <Setting set="bold" primaryColor="#A8A8A8" />
-                        <S.MenuText>Settings</S.MenuText>
-                    </Link>
-                </S.MenuItem>
-                <S.MenuItem>
-                    <Link to="/logout">
-                        <Logout set="bold" primaryColor="#E55858" />
-                        <S.MenuText style={{ color: '#e55858' }}>Sign Out</S.MenuText>
-                    </Link>
-                </S.MenuItem>
-            </S.LeftBar>
-        </S.SideBarContainer>
-    );
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [selectedMenu, setSelectedMenu] = useState(location.pathname);
+
+  const handleMenuClick = (path) => {
+    setSelectedMenu(path);
+  };
+
+  const handleLogoClick = () => {
+    setSelectedMenu("/");
+    navigate("/");
+  };
+
+  return (
+    <S.SideBarContainer>
+      <S.Rectangle>
+        <S.LeftBar>
+          <nav>
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
+              <li>
+                <Link to="/" onClick={() => handleMenuClick("/")}>
+                  <S.MenuItem selected={selectedMenu === "/"}>
+                    <S.MenuIcon as={HomeIcon} selected={selectedMenu === "/"} />
+                    <S.MenuText active={selectedMenu === "/"}>Home</S.MenuText>
+                  </S.MenuItem>
+                </Link>
+              </li>
+              <li>
+                <Link to="/classes" onClick={() => handleMenuClick("/classes")}>
+                  <S.MenuItem selected={selectedMenu === "/classes"}>
+                    <S.MenuIcon as={Book} selected={selectedMenu === "/classes"} />
+                    <S.MenuText active={selectedMenu === "/classes"}>Classes</S.MenuText>
+                  </S.MenuItem>
+                </Link>
+              </li>
+              <li>
+                <Link to="/documents" onClick={() => handleMenuClick("/documents")}>
+                  <S.MenuItem selected={selectedMenu === "/documents"}>
+                    <S.MenuIcon as={FileText} selected={selectedMenu === "/documents"} />
+                    <S.MenuText active={selectedMenu === "/documents"}>Documents</S.MenuText>
+                  </S.MenuItem>
+                </Link>
+              </li>
+              <li>
+                <Link to="/bookmarks" onClick={() => handleMenuClick("/bookmarks")}>
+                  <S.MenuItem selected={selectedMenu === "/bookmarks"}>
+                    <S.MenuIcon as={Bookmark} selected={selectedMenu === "/bookmarks"} />
+                    <S.MenuText active={selectedMenu === "/bookmarks"}>Bookmarks</S.MenuText>
+                  </S.MenuItem>
+                </Link>
+              </li>
+              <li>
+                <Link to="/messages" onClick={() => handleMenuClick("/messages")}>
+                  <S.MenuItem selected={selectedMenu === "/messages"}>
+                    <S.MenuIcon as={MessageCircle} selected={selectedMenu === "/messages"} />
+                    <S.MenuText active={selectedMenu === "/messages"}>Messages</S.MenuText>
+                    <S.Badge>4</S.Badge>
+                  </S.MenuItem>
+                </Link>
+              </li>
+              <li>
+                <Link to="/settings" onClick={() => handleMenuClick("/settings")}>
+                  <S.MenuItem selected={selectedMenu === "/settings"}>
+                    <S.MenuIcon as={Settings} selected={selectedMenu === "/settings"} />
+                    <S.MenuText active={selectedMenu === "/settings"}>Settings</S.MenuText>
+                  </S.MenuItem>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </S.LeftBar>
+      </S.Rectangle>
+    </S.SideBarContainer>
+  );
 };
 
 export default SideBar;
