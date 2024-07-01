@@ -1,26 +1,20 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/css/bootstrap.css";
-
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import store from "../src/redux/store/store";
-import { Provider } from "react-redux";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import CommentList from "./components/Comment/CommentList";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const container = document.getElementById("root");
-
-const root = ReactDOM.createRoot(container);
-
-root.render(
+ReactDOM.render(
 	<React.StrictMode>
-		<Provider store={store}>
-			<BrowserRouter>
-				<CommentList />
-				<App />
-			</BrowserRouter>
-		</Provider>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById("root")
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
