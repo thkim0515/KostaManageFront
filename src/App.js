@@ -4,11 +4,12 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import ChatButton from "./components/Common/ChatButton/ChatButton";
-import SideBar from "./components/SideBar/SideBar"; // SideBar import 추가
+import SideBar from "./components/SideBar/SideBar";
 import { Route, Routes } from "react-router-dom";
+import StudentListPage from "./components/StudentListPage/StudentListPage";
+import StudentDetailPage from "./components/StudentDetailPage/StudentDetailPage";
 
 // 임시 추가된 컴포넌트들
-const StudentList = () => <div>Student List Page</div>;
 const Course = () => <div>Course Page</div>;
 const Batch = () => <div>Batch Page</div>;
 const Chat = () => <div>Chat Page</div>;
@@ -21,17 +22,18 @@ function App() {
 			<GlobalStyle />
 			<div className="app">
 				<Header />
-				<SideBar /> {/* SideBar 추가 */}
 				<div className="main-layout" style={{ display: "flex" }}>
-					<main className="content" style={{ flex: 1 }}>
+					<SideBar /> {/* SideBar 추가 */}
+					<main className="content" style={{ display: "flex", flex: 1 }}>
 						<Routes>
 							<Route path="/" element={<Main />} />
-							<Route path="/student-list" element={<StudentList />} />
+							<Route path="/student-list" element={<StudentListPage />} />
 							<Route path="/course" element={<Course />} />
 							<Route path="/batch" element={<Batch />} />
 							<Route path="/chat" element={<Chat />} />
 							<Route path="/settings" element={<Settings />} />
 							<Route path="/logout" element={<Logout />} />
+							<Route path="/students/:id" element={<StudentDetailPage />} />
 						</Routes>
 						<ChatButton />
 					</main>

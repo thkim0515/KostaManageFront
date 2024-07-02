@@ -33,7 +33,7 @@ export const Logo = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-	font-size: 40px;
+	font-size: 37px;
 	font-weight: bold;
 	display: flex;
 	color: #4285f4;

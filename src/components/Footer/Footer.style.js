@@ -25,9 +25,8 @@ export const Logo = styled.div`
 	font-size: 30px;
 	font-style: italic;
 	font-family: "Poppins-BlackItalic", Helvetica;
-	font-weight: 700;
+	font-weight: bold;
 `;
-
 export const Info = styled.div`
 	margin-right: auto;
 	p {
