@@ -1,23 +1,43 @@
 {
-    "boards": [
-      {
-        "post_id": 1,
-        "title": "첫 번째 게시글",
-        "content": "이것은 첫 번째 게시글의 내용입니다.",
-        "post_date": "2022-01-01T10:00:00",
-        "type": "Announcement",
-        "user_id": 1,
-        "cohort_id": 1
-      },
-      {
-        "post_id": 2,
-        "title": "두 번째 게시글",
-        "content": "이것은 두 번째 게시글의 내용입니다.",
-        "post_date": "2022-01-02T11:00:00",
-        "type": "DailyLesson",
-        "user_id": 2,
-        "cohort_id": 1
-      }
-    ]
-  }
-  
+  "boards": [
+    {
+      "userId": 1,
+      "cohortId": "Cohort A",
+      "content": "This is the content of the first post.",
+      "createdAt": "2024-07-01T12:00:00Z",
+      "likes": 10,
+      "postDate": "2024-07-01",
+      "postId": 101,
+      "title": "First Post",
+      "type": "announcement",
+      "updateAt": "2024-07-02T08:00:00Z",
+      "user": "User1"
+    },
+    {
+      "userId": 2,
+      "cohortId": "Cohort B",
+      "content": "This is the content of the second post.",
+      "createdAt": "2024-07-02T14:00:00Z",
+      "likes": 25,
+      "postDate": "2024-07-02",
+      "postId": 102,
+      "title": "Second Post",
+      "type": "discussion",
+      "updateAt": "2024-07-03T09:00:00Z",
+      "user": "User2"
+    },
+    {
+      "userId": 3,
+      "cohortId": "Cohort A",
+      "content": "This is the content of the third post.",
+      "createdAt": "2024-07-03T16:00:00Z",
+      "likes": 5,
+      "postDate": "2024-07-03",
+      "postId": 103,
+      "title": "Third Post",
+      "type": "question",
+      "updateAt": "2024-07-03T17:00:00Z",
+      "user": "User3"
+    }
+  ]
+}
