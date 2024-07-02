@@ -21,7 +21,8 @@ const Footer = () => {
 		<S.Container>
 			<S.Inner>
 				<S.Logo>
-					<span onClick={goToMainPage}>실거래gogo</span>
+				<image src="/logo.png" alt="Logo" style={{ height: "50px" }} />
+					<span onClick={goToMainPage}>KOSTA</span>
 				</S.Logo>
 				<S.Info>
 					<p>70 Gasandigital1ro, Geumcheongu, 08590, Seoul, KOREA</p>
@@ -46,23 +47,23 @@ const Footer = () => {
 							<a href="#contact">Contact</a>
 						</li>
 					</ul>
-				<S.Social>
-					<a href="#facebook">
-						<FontAwesomeIcon icon={faFacebook} />
-					</a>
-					<a href="#twitter">
-						<FontAwesomeIcon icon={faTwitter} />
-					</a>
-					<a href="#instagram">
-						<FontAwesomeIcon icon={faInstagram} />
-					</a>
-					<a href="#youtube">
-						<FontAwesomeIcon icon={faYoutube} />
-					</a>
-					<a href="#linkedin">
-						<FontAwesomeIcon icon={faLinkedinIn} />
-					</a>
-				</S.Social>
+					<S.Social>
+						<a href="#facebook">
+							<FontAwesomeIcon icon={faFacebook} />
+						</a>
+						<a href="#twitter">
+							<FontAwesomeIcon icon={faTwitter} />
+						</a>
+						<a href="#instagram">
+							<FontAwesomeIcon icon={faInstagram} />
+						</a>
+						<a href="#youtube">
+							<FontAwesomeIcon icon={faYoutube} />
+						</a>
+						<a href="#linkedin">
+							<FontAwesomeIcon icon={faLinkedinIn} />
+						</a>
+					</S.Social>
 				</S.Nav>
 			</S.Inner>
 		</S.Container>

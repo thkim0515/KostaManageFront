@@ -23,27 +23,28 @@ const Header = () => {
 				<S.InnerLeft>
 					<S.Logo onClick={goToMain}>
 						<img src="/logo.png" alt="Logo" style={{ height: "60px" }} />
-			<S.TextWrapper>KOSTA</S.TextWrapper>
+						<S.TextWrapper>KOSTA</S.TextWrapper>
 					</S.Logo>
-					</S.InnerLeft>
-					<S.Group>
-						<S.InnerRight>
-
+				</S.InnerLeft>
+				<S.Group>
+					<S.InnerRight>
 						<S.StyledButton onClick={goToLogin}>로그인</S.StyledButton>
 						<S.StyledButton onClick={goToSignUp}>회원가입</S.StyledButton>
-						<S.Overlap>							<S.OverlapGroup>
+						<S.Overlap>
+							{" "}
+							<S.OverlapGroup>
 								<S.Rectangle
 									name="searchBox"
 									alt="SearchIcon"
 									placeholder="검색어를 입력하세요"
-									/>
+								/>
 								<S.SearchWrapper>
-									<S.SearchIcon src="search-normal.svg" alt="search" />
-	</S.SearchWrapper>
+									{/*<S.SearchIcon src="search-normal.svg" alt="search" />*/}
+								</S.SearchWrapper>
 							</S.OverlapGroup>
 						</S.Overlap>
-									</S.InnerRight>
-					</S.Group>
+					</S.InnerRight>
+				</S.Group>
 			</S.Wrapper>
 		</S.Container>
 	);
