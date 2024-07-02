@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const StudyGroups  = () => {
+const CurriculumCalendar = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const StudyGroups  = () => {
                     "#"
                 );
                 console.log(response.status);
-                if (respone.status === 200) {
+                if (response.status === 200) {
                     console.log("회원 정보 전달 한다", response.data);
                     setData(response.data);
                 }
@@ -24,16 +24,16 @@ const StudyGroups  = () => {
 
     return (
         <>
-            {data.map((Groups) => {
-                <div key={Groups.group_id}>
-                    {Groups.cohort_id}
-                    {Groups.title}
-                    {Groups.description}
-                    {Groups.creation_date}
+            {data.map((Calendar) => {
+                <div key={Calendar.calendar_id}>
+                    {Calendar.user_id}
+                    {Calendar.title}
+                    {Calendar.description}
+                    {Calendar.event_date}
                 </div>
             })}
         </>
     );
 }
 
-export default StudyGroups;
+export default CurriculumCalendar;

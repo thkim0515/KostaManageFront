@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const AttedanceSettings = () => {
+const AttendanceSettings = () => {
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const respone = await axios.get(
+                const response = await axios.get(
                     "#"
                 );
-                console.log(respone.status);
-                if (respone.status === 200) {
-                    console.log("회원 정보 전달 한다", respone.data);
+                console.log(response.status);
+                if (response.status === 200) {
+                    console.log("회원 정보 전달 한다", response.data);
+                    setData(response.data);
                 }
             } catch (error) {
                 console.error("에러 발생으로 정보 못 가져옴", error);
@@ -19,19 +21,18 @@ const AttedanceSettings = () => {
         }
         getData();
     }, [])
-    
+
     return (
         <>
-            {getDate.map((AttedanceSettings) => {
-                <div key={AttedanceSettings.setting_id}>
-                    {AttedanceSettings.corhort_id}
-                    {AttedanceSettings.start_day_of_month}
-                    {AttedanceSettings.end_day_of_month}
+            {data.map((AtSetting) => {
+                <div key={AtSetting.setting_id}>
+                    {AtSetting.cohort_id}
+                    {AtSetting.start_day_of_month}
+                    {AtSetting.end_day_of_month}
                 </div>
-    
             })}
         </>
     );
 }
 
-export default AttedanceSettings;
+export default AttendanceSettings;

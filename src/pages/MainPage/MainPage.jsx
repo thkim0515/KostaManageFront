@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease } from "../../redux/actions/counter";
 import * as S from "./MainPage.style";
 import SignModul from "../../components/Sign/SignModul";
+import Board from "../../components/Board/Board";
 
 
 const MainPage = () => {
@@ -17,6 +18,7 @@ const MainPage = () => {
     <S.Container>
       <p>
         {value} - {generationValue} - {user}
+        <Board />
       </p>
       <div>
         <h1>{count}</h1>
