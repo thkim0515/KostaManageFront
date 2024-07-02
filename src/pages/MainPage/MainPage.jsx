@@ -6,7 +6,6 @@ import * as S from "./MainPage.style";
 import SignModul from "../../components/Sign/SignModul";
 import Board from "../../components/Board/Board";
 
-
 const MainPage = () => {
   const count = useSelector((state) => state.counter.count);
   const value = useSelector((state) => state.init.value);
@@ -16,9 +15,9 @@ const MainPage = () => {
 
   return (
     <S.Container>
+      <Board />
       <p>
         {value} - {generationValue} - {user}
-        <Board />
       </p>
       <div>
         <h1>{count}</h1>

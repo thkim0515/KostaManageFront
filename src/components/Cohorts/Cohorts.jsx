@@ -25,13 +25,13 @@ const Cohorts = () => {
     return (
         <>
             {data.map((Cohorts) => {
-                <div key={Cohorts.cohort_id}>
-                    {Cohorts.branch_name}
-                    {Cohorts.branch_location}
+                <div key={Cohorts.cohortId}>
+                    {Cohorts.branchName}
+                    {Cohorts.branchLocation}
                     {Cohorts.generation}
-                    {Cohorts.cohort_number}
-                    {Cohorts.start_date}
-                    {Cohorts.end_date}
+                    {Cohorts.cohortNumber}
+                    {Cohorts.startDate}
+                    {Cohorts.endDate}
                 </div>
             })}
         </>
