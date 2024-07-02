@@ -2,39 +2,30 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Users = () => {
-    const [data , setData] = useState([]);
+    const [testVal, setTestVal] = useState([])
 
     useEffect(() => {
         const getData = async () => {
             try {
                 const response = await axios.get(
-                    "#"
+                    "http://192.168.0.5:8080/users/get/1"
                 );
-                console.log(response.status);
-                if (response.status === 200) {
-                    console.log("회원 정보 전달 한다", response.data);
-                    setData(response.data);
-                }
+                setTestVal(response.data)
+                console.log(response);
+
             } catch (error) {
-                console.error("에러 발생으로 정보 못 가져옴", error);
+                console.error("err", error);
             }
         }
         getData();
     }, [])
-    
+
+    console.log(testVal);
     return (
         <>
-        {data.map((Users) => {
-            <div key={Users.user_id}>
-                {Users.name}  
-                {Users.email}  
-                {Users.phone_number}  
-                {Users.role}  
-                {Users.cohort_id}  
-                {Users.assigned_cohort}  
-                {Users.approval_status}  
-            </div>
-        })}
+            {testVal.map((user) => (
+                console.log(user)
+            ))}
         </>
     );
 }

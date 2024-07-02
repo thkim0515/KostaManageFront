@@ -13,9 +13,9 @@ const MainPage = () => {
 
   return (
     <S.Container>
+      <Board />
       <p>
         {value} - {generationValue} - {user}
-        <Board />
       </p>
       <div>
         <h1>{count}</h1>
