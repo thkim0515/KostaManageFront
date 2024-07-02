@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const StudyGroups  = () => {
-    const [data, setData] = useState([]);
+const Users = () => {
+    const [data , setData] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
@@ -11,7 +11,7 @@ const StudyGroups  = () => {
                     "#"
                 );
                 console.log(response.status);
-                if (respone.status === 200) {
+                if (response.status === 200) {
                     console.log("회원 정보 전달 한다", response.data);
                     setData(response.data);
                 }
@@ -21,19 +21,22 @@ const StudyGroups  = () => {
         }
         getData();
     }, [])
-
+    
     return (
         <>
-            {data.map((Groups) => {
-                <div key={Groups.group_id}>
-                    {Groups.cohort_id}
-                    {Groups.title}
-                    {Groups.description}
-                    {Groups.creation_date}
-                </div>
-            })}
+        {data.map((Users) => {
+            <div key={Users.user_id}>
+                {Users.name}  
+                {Users.email}  
+                {Users.phone_number}  
+                {Users.role}  
+                {Users.cohort_id}  
+                {Users.assigned_cohort}  
+                {Users.approval_status}  
+            </div>
+        })}
         </>
     );
 }
 
-export default StudyGroups;
+export default Users;

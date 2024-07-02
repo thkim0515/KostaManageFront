@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const StudyGroups  = () => {
+const Classes = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const StudyGroups  = () => {
                     "#"
                 );
                 console.log(response.status);
-                if (respone.status === 200) {
+                if (response.status === 200) {
                     console.log("회원 정보 전달 한다", response.data);
                     setData(response.data);
                 }
@@ -24,16 +24,15 @@ const StudyGroups  = () => {
 
     return (
         <>
-            {data.map((Groups) => {
-                <div key={Groups.group_id}>
-                    {Groups.cohort_id}
-                    {Groups.title}
-                    {Groups.description}
-                    {Groups.creation_date}
+            {data.map((Classes) => {
+                <div key={Classes.class_id}>
+                    {Classes.title}
+                    {Classes.description}
+                    {Classes.user_id}
                 </div>
             })}
         </>
     );
 }
 
-export default StudyGroups;
+export default Classes;
