@@ -17,9 +17,9 @@ export const HeaderWrap = styled.div`
 `;
 
 export const SearchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	width: 43%;
 `;
 
 export const Search = styled.input`
