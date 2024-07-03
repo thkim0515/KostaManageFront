@@ -51,6 +51,19 @@ export const MenuText = styled.div`
 	font-family: "Noto Sans-Regular", Helvetica;;
 `;
 
+export const SubMenuItem = styled.div`
+  background-color: #f1f1f1;
+  padding-left: 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  &:hover {
+    background-color: #e9ecef;
+  }
+`;
+
 export const commonMenuStyles = (top) => `
   margin-top: ${top}px; 
 `;
