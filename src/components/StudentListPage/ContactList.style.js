@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	width: 280px;
+	width: 240px;
 	padding: 20px;
 	background-color: #fff;
 	border-right: 1px solid #e0e0e0;
@@ -30,7 +30,7 @@ export const MenuItem = styled.div`
 	padding: 10px 0;
 	cursor: pointer;
 	color: #333;
-	font-size: 20px;
+	font-size: 22px;
 
 	&:hover {
 		color: #4a90e2;
