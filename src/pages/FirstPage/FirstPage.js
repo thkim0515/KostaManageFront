@@ -15,7 +15,8 @@ const FirstPage = () => {
         <div>페이지1</div>
         <h1>{user}</h1>
         <br />
-        <SignUp />
+        {/* <SignUp /> */}
+        <Board />
       </S.Container>
     </>
   );

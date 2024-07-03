@@ -13,7 +13,6 @@ const MainPage = () => {
 
   return (
     <S.Container>
-      <NoticeBoard />
       <p>
         {value} - {generationValue} - {user}
       </p>
