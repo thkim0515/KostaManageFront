@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease } from "../../redux/actions/counter";
 import * as S from "./MainPage.style";
 import SignModul from "../../components/Sign/SignModul";
-import NoticeBoard from "../../components/Board/NoticeBoard";
+import Board from "../../components/Board/Board";
 
 const MainPage = () => {
   const count = useSelector((state) => state.counter.count);
@@ -15,7 +15,6 @@ const MainPage = () => {
 
   return (
     <S.Container>
-      <NoticeBoard />
       <p>
         {value} - {generationValue} - {user}
       </p>
@@ -28,7 +27,6 @@ const MainPage = () => {
           감소
         </Button>{" "}
       </div>
-      <SignModul />
     </S.Container>
   );
 };

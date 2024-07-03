@@ -29,6 +29,7 @@ const Header = () => {
             </li>
             <li>
               <Link to="/SecondPage">서브2</Link>
+              <Link to="/firstPage">테스트</Link>
             </li>
           </ul>
         </S.Nav>
