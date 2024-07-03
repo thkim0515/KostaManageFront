@@ -6,48 +6,48 @@ import { Link } from "react-router-dom";
 const ContactList = () => {
   return (
     <S.Container>
-      <S.Button>Add New Contact</S.Button>
+      <S.Button>새로 추가</S.Button>
       <Link to="/student-list">
         <S.MenuItem>
           <FaUser />
-          All Contacts
+          학생 목록
         </S.MenuItem>
       </Link>
       <Link to="/student-list/starred">
         <S.MenuItem>
           <FaStar />
-          Starred
+          즐겨찾기
         </S.MenuItem>
       </Link>
       <Link to="/student-list/pending">
         <S.MenuItem>
           <FaClock />
-          Pending Approval
+          최근 목록
         </S.MenuItem>
       </Link>
       <Link to="/student-list/blocked">
         <S.MenuItem>
           <FaBan />
-          Blocked
+          차단 목록
         </S.MenuItem>
       </Link>
-      <S.CategoryTitle>CATEGORIES</S.CategoryTitle>
+      <S.CategoryTitle>카테고리</S.CategoryTitle>
       <Link to="/student-list/engineers">
         <S.CategoryItem>
           <FaCircle style={{ color: "#4a90e2" }} />
-          Engineers
+          개발자
         </S.CategoryItem>
       </Link>
       <Link to="/student-list/support">
         <S.CategoryItem>
           <FaCircle style={{ color: "#f5a623" }} />
-          Support Staff
+          연구원
         </S.CategoryItem>
       </Link>
       <Link to="/student-list/sales">
         <S.CategoryItem>
           <FaCircle style={{ color: "#7ed321" }} />
-          Sales Team
+          강사
         </S.CategoryItem>
       </Link>
     </S.Container>
