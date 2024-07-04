@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-<<<<<<< HEAD
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -26,8 +25,9 @@ export const Logo = styled.div`
 	font-size: 30px;
 	font-style: italic;
 	font-family: "Poppins-BlackItalic", Helvetica;
-	font-weight: bold;
+	font-weight: 700;
 `;
+
 export const Info = styled.div`
 	margin-right: auto;
 	p {
@@ -71,12 +71,3 @@ export const Social = styled.div`
 		}
 	}
 `;
-
-=======
-  width: 100%;
-  height: 8vh;
-  display: flex;
-  background-color: orange;
-  opacity: 0.1;
-`;
->>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)
