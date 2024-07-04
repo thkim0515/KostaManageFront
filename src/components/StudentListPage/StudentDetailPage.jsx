@@ -9,18 +9,31 @@ const StudentDetailPage = () => {
 
   useEffect(() => {
     const fetchStudent = async () => {
-      const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-      // 여기서 예시 데이터 형식에 맞춰 변환
-      const studentData = {
-        id: data.id,
-        name: data.title,
-        phone: "N/A", // 실제로 필요한 데이터를 설정
-        address: "N/A",
-        company: "N/A",
-        department: "N/A",
-        email: `${data.title.toLowerCase().replace(/ /g, '.')}@example.com`,
-        notes: data.body,
-      };
+      const { data } = await axios.get(`http://192.168.0.5:8080/users/all`);
+			console.log(data);
+			// 여기서 예시 데이터 형식에 맞춰 변환
+			//const studentData = {
+			//  id: data.id,
+			//  name: data.title,
+			//  phone: "N/A", // 실제로 필요한 데이터를 설정
+			//  address: "N/A",
+			//  company: "N/A",
+			//  department: "N/A",
+			//  email: `${data.title.toLowerCase().replace(/ /g, '.')}@example.com`,
+			//  notes: data.body,
+			//};
+			const studentData = {
+				userId: 1,
+				name: "테스트회원",
+				email: "test@gmail.com",
+				password: "1234",
+				phoneNumber: "123-456-7890",
+				role: "Student",
+				cohortId: 1,
+				assignedCohort: null,
+				approvalStatus: "Pending",
+				profileImg: "profileimg.jpg",
+			};
       setStudent(studentData);
     };
     fetchStudent();
