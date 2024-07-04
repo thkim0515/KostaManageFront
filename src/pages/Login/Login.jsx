@@ -24,13 +24,21 @@ const Login = () => {
         <>
           <input
             type="text"
+<<<<<<< HEAD
             placeholder="아이디"
+=======
+            placeholder="Username"
+>>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
             type="password"
+<<<<<<< HEAD
             placeholder="패스워드"
+=======
+            placeholder="Password"
+>>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
