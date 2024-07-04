@@ -21,6 +21,7 @@ import FAQ from "./pages/FAQ/FAQ";
 import StudyGroups from "./pages/StudyGroups/StudyGroups";
 import Page1 from "./pages/Page1/Page1";
 import Page2 from "./pages/Page2/Page2";
+//import ContactList from './components/StudentListPage/ContactList';
 
 const App = () => {
 	return (
@@ -30,6 +31,7 @@ const App = () => {
 				<Header />
 				<div className="main-layout" style={{ display: "flex" }}>
 					<SideBar />
+					{/*<ContactList />*/}
 					<main
 						className="content"
 						style={{ display: "flex", flexDirection: "column", flex: 1 }}
