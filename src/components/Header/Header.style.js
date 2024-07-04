@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+<<<<<<< HEAD
 export const Container = styled.header`
 	background-color: #fbfcff;
 	display: flex;
@@ -107,4 +108,34 @@ export const SearchIcon = styled.img`
 	height: 16px;
 	width: 16px;
 	justify-content: space-between;
+=======
+export const Container = styled.div`
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0 20px;
+
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0 10px;
+  }
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+>>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)
 `;

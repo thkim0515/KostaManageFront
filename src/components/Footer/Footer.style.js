@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+<<<<<<< HEAD
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -71,3 +72,11 @@ export const Social = styled.div`
 	}
 `;
 
+=======
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  background-color: orange;
+  opacity: 0.1;
+`;
+>>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)

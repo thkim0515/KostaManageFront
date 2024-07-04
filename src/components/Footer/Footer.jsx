@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./Footer.style";
+<<<<<<< HEAD
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faFacebook,
@@ -70,5 +71,14 @@ const Footer = () => {
 	);
 };
 	  
+=======
+const Footer = () => {
+  return (
+    <>
+      <S.Container>푸터</S.Container>
+    </>
+  );
+};
+>>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)
 
 export default Footer;
