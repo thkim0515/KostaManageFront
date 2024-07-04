@@ -22,7 +22,6 @@ export const CustomAccordion = styled(Accordion)`
 	margin-bottom: 10px;
 
 	.accordion-item {
-		border: none;
 	}
 
 	.accordion-button:not(.collapsed) {
@@ -45,7 +44,6 @@ export const AccordionHeader = styled.div`
 	font-size: 24px;
 	font-weight: bold;
 	padding: 10px;
-	border-bottom: 1px solid #dee2e6;
 `;
 
 // 각 Accordion 내용의 스타일

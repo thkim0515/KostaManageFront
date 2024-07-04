@@ -10,7 +10,7 @@ import {
 function FAQ() {
 	return (
 		<FAQWrapper>
-			<CustomAccordion defaultActiveKey={["0"]} alwaysOpen>
+			<CustomAccordion defaultActiveKey={["0"]} flush>
 				<Accordion.Item eventKey="0">
 					<Accordion.Header>
 						<AccordionHeader>

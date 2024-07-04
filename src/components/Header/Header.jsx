@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import * as S from "./Header.style";
 
