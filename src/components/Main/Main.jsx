@@ -16,13 +16,19 @@ import FAQ from "../../pages/FAQ/FAQ";
 import StudyGroups from "../../pages/StudyGroups/StudyGroups";
 import StudentListPage from "../../components/StudentListPage/StudentListPage";
 import StudentDetailPage from "../../components/StudentListPage/StudentDetailPage";
+import SideBar from "../SideBar/SideBar";
 
 const Main = () => {
 	return (
-		<>
-			<S.Container>
+		<S.Container>
+			<S.Wrapper>
+				<SideBar />
+			</S.Wrapper>
+			<S.Content>
 				<Routes>
 					<Route path="/" element={<MainPage />} />
+					<Route path="/firstPage" element={<FirstPage />} />
+					<Route path="/secondPage" element={<SecondPage />} />
 					<Route path="/student-list" element={<StudentListPage />} />
 					<Route path="/attendance" element={<Attendance />} />
 					<Route path="/curriculum" element={<Curriculum />} />
@@ -58,11 +64,9 @@ const Main = () => {
 						path="/student-list/sales"
 						element={<StudentListPage category="sales" />}
 					/>
-					<Route path="/FirstPage" element={<FirstPage />} />
-					<Route path="/SecondPage" element={<SecondPage />} />
 				</Routes>
-			</S.Container>
-		</>
+			</S.Content>
+		</S.Container>
 	);
 };
 

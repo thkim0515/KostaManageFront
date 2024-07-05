@@ -18,12 +18,11 @@ export const Rectangle = styled.div`
 `;
 
 export const LeftBar = styled.div`
-	background-color: #fbfcff;
 	width: 245px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-  border-right: 2px solid #ececec;
+	border-right: 2px solid #ececec;
 `;
 
 export const MenuItem = styled.div`

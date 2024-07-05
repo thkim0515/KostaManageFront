@@ -51,5 +51,6 @@ export const AccordionBody = styled.div`
 	padding: 22px;
 	line-height: 1.5;
 	font-size: 18px;
+	font-weight: bold;
 	background-color: #f8f9fa;
 `;
