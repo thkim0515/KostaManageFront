@@ -22,20 +22,20 @@ const eventStyleGetter = (event) => {
 
 const CalendarComponent = () => {
   return (
-    <div style={{ height: "500px" }}>
-      <Calendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: "100%" }}
-        eventPropGetter={eventStyleGetter}
-        components={{
-          toolbar: CustomToolbar,
-        }}
-      />
-    </div>
-  );
+		<div style={{ height: "700px" }}>
+			<Calendar
+				localizer={localizer}
+				events={events}
+				startAccessor="start"
+				endAccessor="end"
+				style={{ height: "100%" }}
+				eventPropGetter={eventStyleGetter}
+				components={{
+					toolbar: CustomToolbar,
+				}}
+			/>
+		</div>
+	);
 };
 
 export default CalendarComponent;
