@@ -16,7 +16,6 @@ const FirstPage = () => {
         <h1>{user}</h1>
         <br />
         {/* <SignUp /> */}
-        <Board />
       </S.Container>
     </>
   );
