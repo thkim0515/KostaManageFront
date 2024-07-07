@@ -54,3 +54,4 @@ export const AccordionBody = styled.div`
 	font-weight: bold;
 	background-color: #f8f9fa;
 `;
+

@@ -48,9 +48,9 @@ function FAQ() {
 					<Accordion.Body>
 						<AccordionBody>
 							네, 괜찮습니다. KDT는 비전공자도 참여할 수 있도록 기초부터
-							심화까지 체계적으로 구성되어 있습니다. 다만, 과정에 따라
-							사전지식이 요구될 수 있으니 과정별 안내사항을 참고해주시기
-							바랍니다.
+							심화까지 체계적으로 구성되어 있습니다. <br />
+							다만, 과정에 따라 사전지식이 요구될 수 있으니 과정별 안내사항을
+							참고해주시기 바랍니다.
 						</AccordionBody>
 					</Accordion.Body>
 				</Accordion.Item>
@@ -73,8 +73,8 @@ function FAQ() {
 					</Accordion.Header>
 					<Accordion.Body>
 						<AccordionBody>
-							훈련과정 중에 취업이 되면 훈련을 중도에 포기할 수 있습니다. 다만,
-							훈련과정 중 취업이 되더라도 훈련을 끝까지 수료하는 것이
+							훈련과정 중에 취업이 되면 훈련을 중도에 포기할 수 있습니다. <br />
+							다만, 훈련과정 중 취업이 되더라도 훈련을 끝까지 수료하는 것이
 							바람직합니다.
 						</AccordionBody>
 					</Accordion.Body>
@@ -89,7 +89,7 @@ function FAQ() {
 						<AccordionBody>
 							네, 수료 이후에도 한국소프트웨어산업협회(KOSTA)의 취업지원센터가
 							있습니다. 취업지원센터에서는 이력서 및 자기소개서 작성, 면접 준비
-							등 다양한 취업 지원 서비스를 제공하고 있습니다.
+							등 다양한 취업 지원 서비스를 제공하고 있습니다. <br />
 							한국소프트웨어기술진흥협회 031-606-9319
 						</AccordionBody>
 					</Accordion.Body>
