@@ -4,8 +4,26 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	padding: 20px;
-	background-color: #f8f9fa;
-	min-height: 100vh;
+	padding: 2px;
+	width: 100%;
+	height: 100vh; /* 전체 화면 높이 */
+	box-sizing: border-box;
+`;
+
+export const Wrapper = styled.div`
+	display: flex;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+`;
+
+export const Section = styled.div`
+	flex: 1;
+	padding: 10px;
+	box-sizing: border-box;
+	border-right: 1px solid #ddd;
+
+	&:last-child {
+		border-right: none;
+	}
 `;
