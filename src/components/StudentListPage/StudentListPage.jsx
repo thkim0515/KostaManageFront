@@ -12,7 +12,15 @@ const StudentListPage = ({ category }) => {
 	useEffect(() => {
 		const fetchStudents = async () => {
 			try {
-				const { data } = await axios.get("http://192.168.0.5:8080/users/all");
+				//const { data } = await axios.get("http://192.168.0.5:8080/users/all");
+				const JWT_Token =
+					"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDQyNTM0NSwiZXhwIjoxNzIwNDI4OTQ1fQ.o3pdW32RH5j5Bez2YxlPsRVzVLf_0j_xcLryFHuNqNuI2jL5V7jXxFxUgMordHsfZcX4poUtHSXljth11wWJOw";
+
+				const { data } = await axios.get("http://localhost:8080/cohorts/all", {
+					headers: {
+						Authorization: `Bearer ${JWT_Token}`, // JWT 토큰을 요청 헤더에 포함
+					},
+				});
 
 				if (Array.isArray(data)) {
 					setStudents(data);
