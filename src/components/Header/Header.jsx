@@ -1,38 +1,49 @@
-import React , {useState} from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as S from "./Header.style";
-import Login from "../../pages/Login/Login";
-import SignModul from "../Sign/SignModul";
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const openModal = () => {
-      setIsModalOpen(true);
+  const goToMain = () => {
+    navigate("/mainpage");
   };
 
-  const closeModal = () => {
-      setIsModalOpen(false);
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
+  const goToSignUp = () => {
+    navigate("/signUp");
   };
 
   return (
     <S.Container>
       <S.Wrapper>
-        <S.Nav>
-          <ul>
-            <li>
-              <Link to="/">메인</Link>
-            </li>
-            <li>
-            <button onClick={openModal}>Open Modal</button>
-            <SignModul isOpen={isModalOpen} onClose={closeModal} />
-            </li>
-            <li>
-              <Link to="/SecondPage">서브2</Link>
-              <Link to="/firstPage">테스트</Link>
-            </li>
-          </ul>
-        </S.Nav>
+        <S.InnerLeft>
+          <S.Logo onClick={goToMain}>
+            <img src="/logo.png" alt="Logo" style={{ height: "60px" }} />
+            <S.TextWrapper>KOSTA</S.TextWrapper>
+          </S.Logo>
+        </S.InnerLeft>
+        <S.Group>
+          <S.InnerRight>
+            <S.StyledButton onClick={goToLogin}>로그인</S.StyledButton>
+            <S.StyledButton onClick={goToSignUp}>회원가입</S.StyledButton>
+            <S.Overlap>
+              <S.OverlapGroup>
+                <S.Rectangle
+                  name="searchBox"
+                  alt="SearchIcon"
+                  placeholder="검색어를 입력하세요"
+                />
+                <S.SearchWrapper>
+                  {/*<S.SearchIcon src="search-normal.svg" alt="search" />*/}
+                </S.SearchWrapper>
+              </S.OverlapGroup>
+            </S.Overlap>
+          </S.InnerRight>
+        </S.Group>
       </S.Wrapper>
     </S.Container>
   );

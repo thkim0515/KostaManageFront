@@ -1,19 +1,29 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px;
+  width: 100%;
+  height: 100vh; /* 전체 화면 높이 */
+  box-sizing: border-box;
 `;
 
-export const Content = styled.div`
-  text-align: center;
+export const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 `;
 
-// 필요에 따라 추가적인 스타일을 설정할 수 있습니다.
+export const Section = styled.div`
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+
+  &:last-child {
+    border-right: none;
+  }
+`;

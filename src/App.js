@@ -18,8 +18,8 @@ function App() {
           </Routes>
           <ChatButton />
         </main>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }

@@ -13,7 +13,6 @@ const SignUp = () => {
     cohortId: 1,
     assignedCohort: null,
     approvalStatus: "",
-    
   });
 
   const [errors, setErrors] = useState({});
@@ -127,7 +126,9 @@ const SignUp = () => {
             onChange={handleChange}
             placeholder="approvalStatus"
           />
-          {errors.approvalStatus && <S.ErrorMsg>{errors.approvalStatus}</S.ErrorMsg>}
+          {errors.approvalStatus && (
+            <S.ErrorMsg>{errors.approvalStatus}</S.ErrorMsg>
+          )}
         </S.SignUpField>
 
         <S.SignUpField>

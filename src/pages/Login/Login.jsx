@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/userLoginSession";
 import { handleLogin } from "../../utils/login";
-import * as S from "./Login.style"; 
+import { Button } from "react-bootstrap";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -19,34 +19,42 @@ const Login = () => {
   };
 
   return (
-    <S.Container>
+    <div>
       {!user ? (
-        <S.Warrap>
-          <S.Input
+        <>
+          <input
             type="text"
+<<<<<<< HEAD
             placeholder="아이디"
+=======
+            placeholder="Username"
+>>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <S.Input
+          <input
             type="password"
+<<<<<<< HEAD
             placeholder="패스워드"
+=======
+            placeholder="Password"
+>>>>>>> 63d11e362 (ADD:CRA, 라우팅, 리덕스 완성 오브젝트)
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <S.StyledButton onClick={handleLoginClick}>
+          <Button variant="outline-primary" onClick={handleLoginClick}>
             Login
-          </S.StyledButton>
-        </S.Warrap>
+          </Button>
+        </>
       ) : (
-        <S.Warrap>
-          <S.Paragraph>로그인 아이디 : {user}</S.Paragraph>
-          <S.StyledButton onClick={handleLogout}>
+        <>
+          <p>로그인 아이디 : {user}</p>
+          <Button variant="outline-primary" onClick={handleLogout}>
             Logout
-          </S.StyledButton>
-        </S.Warrap>
+          </Button>
+        </>
       )}
-    </S.Container>
+    </div>
   );
 };
 

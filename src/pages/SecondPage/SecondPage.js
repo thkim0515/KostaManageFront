@@ -31,7 +31,7 @@ const SecondPage = () => {
           <pre>{JSON.stringify(data, null, 2)}</pre>
         )}
       </div>
-    )
+    );
   }
 
   return (

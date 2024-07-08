@@ -2,10 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease } from "../../redux/actions/counter";
-import * as S from "./MainPage.style";
-import SignModul from "../../components/Sign/SignModul";
-import Board from "../../components/Board/Board";
 
+import * as S from "./MainPage.style";
 const MainPage = () => {
   const count = useSelector((state) => state.counter.count);
   const value = useSelector((state) => state.init.value);
