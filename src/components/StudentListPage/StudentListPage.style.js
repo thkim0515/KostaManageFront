@@ -85,12 +85,13 @@ export const MainContent = styled.div`
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	padding: 20px;
+	padding: 3px;
 `;
 
 export const HeaderWrap = styled.div`
 	padding: 20px;
 	border-bottom: 1px solid #dee2e6;
+	border-right: 1px solid #dee2e6;
 	background-color: #ffffff;
 `;
 
