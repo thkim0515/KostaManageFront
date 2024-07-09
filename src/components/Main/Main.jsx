@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
 
 import MainPage from "../../pages/MainPage/MainPage";
-// import FirstPage from "../../pages/FirstPage/FirstPage";
+import FirstPage from "../../pages/FirstPage/FirstPage";
 // import SecondPage from "../../pages/SecondPage/SecondPage";
 import SideBar from "../Common/SideBar/SideBar";
 import StudentListPage from "../StudentListPage/StudentListPage";

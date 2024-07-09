@@ -8,18 +8,19 @@ const StudentListPage = ({ category }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [setCopy] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
-
+  const imgUrl =
+    "https://kostamanagebucket.s3.ap-northeast-2.amazonaws.com/kostamanageImage/";
   useEffect(() => {
     const fetchStudents = async () => {
       try {
         const JWT_Token =
-          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDQ4ODA1OCwiZXhwIjoxNzIwNDkxNjU4fQ.KbYN6IXqkaHbthYlyPfiC4eZdi6GPyYGBMmML_F8ml3_517v2TLgJmwXY2vVu8O-Mpx6BpXNfOA6W-NQSFtoew";
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDQ4OTg3NCwiZXhwIjoxNzIwNDkzNDc0fQ.59pyanfMvL0gaxsiPpr9QAsTF3bRYmlxHkb58uJpVCm0Fo2jNwtFOWjIxAtSzVctVwBetfTCcdIfnMW_fC1Pag";
         const { data } = await axios.get("http://localhost:8080/users/all", {
           headers: {
             Authorization: `Bearer ${JWT_Token}`, // JWT 토큰을 요청 헤더에 포함
           },
         });
-
+        console.log(data);
         if (Array.isArray(data)) {
           setStudents(data);
           setCopy(data);
@@ -67,7 +68,7 @@ const StudentListPage = ({ category }) => {
               key={student.id}
               onClick={() => handleStudentClick(student)}
             >
-              <S.StudentAvatar src={student.avatar} alt={student.name} />
+              <img src={imgUrl} {...student.profileImg} alt="test" />
               <S.StudentInfo>
                 <S.StudentName>{student.name}</S.StudentName>
                 <S.StudentEmail>{student.email}</S.StudentEmail>
