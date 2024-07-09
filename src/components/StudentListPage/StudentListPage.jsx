@@ -1,5 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import {
+	FaUser,
+	FaStar,
+	FaClock,
+	FaBan,
+	FaCircle,
+	FaEdit,
+	FaTrashAlt,
+} from "react-icons/fa";
 import * as S from "./StudentListPage.style";
 import { FaStar, FaTrashAlt, FaEdit } from "react-icons/fa";
 import { useSelector } from "react-redux";
@@ -37,13 +47,24 @@ const StudentListPage = ({ category }) => {
     fetchStudents();
   }, [setCopy]);
 
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+	const handleInputChange = (e) => {
+		setSearchTerm(e.target.value);
+	};
 
-  const handleStudentClick = (student) => {
-    setSelectedStudent(student);
-  };
+	const handleStudentClick = (student) => {
+		setSelectedStudent(student);
+	};
+
+	const handleCohortClick = (cohort) => {
+		setExpandedCohortIds((prevState) => ({
+			...prevState,
+			[cohort.id]: !prevState[cohort.id],
+		}));
+	};
+
+	const handleMenuClick = (menuItem) => {
+		setActiveMenu(activeMenu === menuItem ? null : menuItem);
+	};
 
   return (
     <S.Container>
