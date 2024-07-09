@@ -1,13 +1,13 @@
 import React from "react";
-import CalendarComponent from "../../CalendarComponent";
 import * as S from "./Attendance.style";
+import CalendarComponent from "../../components/Common/Calendar/CalendarComponent";
 
 const Attendance = () => {
-	return (
-		<>
-			<CalendarComponent />;
-		</>
-	);
+  return (
+    <>
+      <CalendarComponent />
+    </>
+  );
 };
 
 export default Attendance;

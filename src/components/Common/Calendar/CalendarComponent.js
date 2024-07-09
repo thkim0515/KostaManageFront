@@ -3,7 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import CustomToolbar from "./CustomToolbar";
 import { events } from "./events";
-import "moment/locale/ko"; 
+import "moment/locale/ko";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
@@ -22,20 +22,20 @@ const eventStyleGetter = (event) => {
 
 const CalendarComponent = () => {
   return (
-		<div style={{ height: "700px" }}>
-			<Calendar
-				localizer={localizer}
-				events={events}
-				startAccessor="start"
-				endAccessor="end"
-				style={{ height: "100%" }}
-				eventPropGetter={eventStyleGetter}
-				components={{
-					toolbar: CustomToolbar,
-				}}
-			/>
-		</div>
-	);
+    <div style={{ height: "700px" }}>
+      <Calendar
+        localizer={localizer}
+        events={events}
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: "100%" }}
+        eventPropGetter={eventStyleGetter}
+        components={{
+          toolbar: CustomToolbar,
+        }}
+      />
+    </div>
+  );
 };
 
 export default CalendarComponent;
