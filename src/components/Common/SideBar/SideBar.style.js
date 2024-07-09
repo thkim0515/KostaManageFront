@@ -2,23 +2,22 @@ import styled from "styled-components";
 
 export const SideBarContainer = styled.div`
 	height: 100vh; // viewport height 사용
-	width: 245px;
+	width: 215px;
 	display: flex;
 	flex-direction: column;
-  
 `;
 
 export const Rectangle = styled.div`
 	background-color: #fbfcff;
 	border-radius: 0px 30px 30px 0px;
-	width: 245px;
+	width: 235px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 `;
 
 export const LeftBar = styled.div`
-	width: 245px;
+	width: 235px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;

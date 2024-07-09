@@ -15,8 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  flex: 4;
-  overflow-y: auto;
-  position: right;
-  margin-top: 20px;
+	flex: 4;
+	overflow-y: auto;
+	position: right;
 `;

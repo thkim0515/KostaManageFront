@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2px;
-  width: 100%;
-  height: 100vh; /* 전체 화면 높이 */
-  box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	box-sizing: border-box;
 `;
 
 export const Wrapper = styled.div`
