@@ -3,7 +3,6 @@ import GlobalStyle from "./style/globalStyle";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
-import ChatButton from "./components/Common/ChatButton/ChatButton";
 import { Route, Routes } from "react-router-dom";
 
 function App() {

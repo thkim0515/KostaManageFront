@@ -3,21 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
 
 import MainPage from "../../pages/MainPage/MainPage";
-import FirstPage from "../../pages/FirstPage/FirstPage";
-import SecondPage from "../../pages/SecondPage/SecondPage";
-import Announcements from "../../pages/Announcements/Announcements";
+// import FirstPage from "../../pages/FirstPage/FirstPage";
+// import SecondPage from "../../pages/SecondPage/SecondPage";
+import SideBar from "../Common/SideBar/SideBar";
+import StudentListPage from "../StudentListPage/StudentListPage";
 import Attendance from "../../pages/Attendance/Attendance";
-import Board from "../../pages/Board/Board";
-import ClassContent from "../../pages/ClassContent/ClassContent";
-import Complaints from "../../pages/Complaints/Complaints";
-import Congratulations from "../../pages/Congratulations/Congratulations";
-import Curriculum from "../../pages/Curriculum/Curriculum";
-import FAQ from "../../pages/FAQ/FAQ";
-import StudyGroups from "../../pages/StudyGroups/StudyGroups";
-import StudentListPage from "../../components/StudentListPage/StudentListPage";
-import StudentDetailPage from "../../components/StudentListPage/StudentDetailPage";
-import SideBar from "../SideBar/SideBar";
-
+import FAQPage from "../../pages/FAQ/FAQPage";
 const Main = () => {
 	return (
 		<S.Container>

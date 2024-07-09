@@ -1,9 +1,9 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import RefEditor from '../BoardDetail/RefEditor';
-import * as S from './BoardStart.style';
+import axios from "axios";
+import React, { useState } from "react";
+import RefEditor from "../BoardDetail/RefEditor";
+import * as S from "./BoardCreate.style";
 
-const BoardStart = () => {
+const BoardCreate = () => {
   const [formData, setFormData] = useState({
     title: "",
     type: "",
@@ -35,15 +35,13 @@ const BoardStart = () => {
 
   const handleUpload = async () => {
     const data = new FormData();
-    data.append('title', formData.title);
-    data.append('type', formData.type);
-    data.append('file', formData.file);
-    data.append('content', formData.content);
+    data.append("title", formData.title);
+    data.append("type", formData.type);
+    data.append("file", formData.file);
+    data.append("content", formData.content);
 
     try {
-      const response = await axios.post(
-        "#", data
-      );
+      const response = await axios.post("#", data);
       console.log(response.status);
       if (response.status === 200) {
         console.log("perfect upload", response.data);
@@ -60,28 +58,25 @@ const BoardStart = () => {
   return (
     <S.Container>
       <S.Input
-        type='text'
-        name='title'
+        type="text"
+        name="title"
         value={formData.title}
         onChange={handleChange}
-        placeholder='제목'
+        placeholder="제목"
       />
       <S.Input
-        type='text'
-        name='type'
+        type="text"
+        name="type"
         value={formData.type}
         onChange={handleChange}
-        placeholder='목록 선택'
+        placeholder="목록 선택"
       />
       <S.EditorWrapper>
-        <RefEditor
-          value={formData.content}
-          onChange={handleEditorChange}
-        />
+        <RefEditor value={formData.content} onChange={handleEditorChange} />
       </S.EditorWrapper>
       <S.Button onClick={handleUpload}>업로드</S.Button>
     </S.Container>
   );
 };
 
-export default BoardStart;
+export default BoardCreate;
