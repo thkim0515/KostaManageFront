@@ -16,97 +16,98 @@ export const Sidebar = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	width: 100%;
+	padding: 10px;
+	margin: 5px 10px 20px 0;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 `;
 
 export const MenuItem = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  color: #495057;
-  background-color: ${(props) => (props.selected ? "#e9ecef" : "transparent")};
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #495057;
 
-  &:hover {
-    background-color: #e9ecef;
-  }
+	&:hover {
+		background-color: #e9ecef;
+	}
 `;
 
 export const MenuText = styled.div`
-  color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
-  font-size: 25px;
-  font-weight: bold;
-  font-family: "Noto Sans-Regular", Helvetica;;
+	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
+	font-size: 25px;
+	font-weight: bold;
+	alignitems: center;
+	margin-left: 20px;
+	font-family: "Noto Sans-Regular", Helvetica;
 `;
 
 export const SubMenuItem = styled.div`
-  background-color: #f1f1f1;
-  padding-left: 40px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 20px;
-  &:hover {
-    background-color: #e9ecef;
-  }
+	background-color: #fbfcff;
+	padding-left: 40px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-size: 20px;
+	&:hover {
+		background-color: #e9ecef;
+	}
 `;
 
 export const CategoryTitle = styled.h3`
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #495057;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	font-weight: bold;
+	color: #495057;
 `;
 
 export const CategoryItem = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  color: #495057;
-  &:hover {
-    background-color: #e9ecef;
-  }
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #495057;
+	&:hover {
+		background-color: #e9ecef;
+	}
 `;
 
 export const MainContent = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
 `;
 
 export const HeaderWrap = styled.div`
-  padding: 20px;
-  border-bottom: 1px solid #dee2e6;
-  background-color: #ffffff;
+	padding: 20px;
+	border-bottom: 1px solid #dee2e6;
+	background-color: #ffffff;
 `;
 
 export const SearchWrapper = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 `;
 
 export const Search = styled.input`
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
+	width: 100%;
+	border: 1px solid #dee2e6;
+	border-radius: 4px;
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex: 1;
-  margin-top: 20px;
+	display: flex;
+	flex: 1;
 `;
 
 export const StudentList = styled.div`
