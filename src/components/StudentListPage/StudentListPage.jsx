@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import {
-	FaUser,
-	FaStar,
-	FaClock,
-	FaBan,
+	//FaUser,
+	//FaStar,
+	//FaClock,
+	//FaBan,
 	//FaCircle,
 	FaEdit,
 	FaTrashAlt,
@@ -55,16 +55,30 @@ const StudentListPage = ({ category }) => {
 		setSelectedStudent(student);
 	};
 
-	const handleCohortClick = (cohort) => {
-		setExpandedCohortIds((prevState) => ({
-			...prevState,
-			[cohort.id]: !prevState[cohort.id],
-		}));
-	};
+	const handleCohortClick = async (cohort) => {
+		try {
+			setExpandedCohortIds((prevState) => ({
+				...prevState,
+				[cohort.id]: !prevState[cohort.id],
+			}));
+	
+			const cohortDetails = await fetchCohortDetails(cohort.id);
+			if (cohortDetails) {
+				console.log("Clicked Cohort ID:", cohort.id);
+				console.log("Cohort Details:", cohortDetails);
+				// Update the state or display the cohort details as needed
+			} else {
+				console.log("Failed to fetch cohort details");
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
+	
 
-	const handleMenuClick = (menuItem) => {
-		setActiveMenu(activeMenu === menuItem ? null : menuItem);
-	};
+	//const handleMenuClick = (menuItem) => {
+	//	setActiveMenu(activeMenu === menuItem ? null : menuItem);
+	//};
 
   return (
     <S.Container>
