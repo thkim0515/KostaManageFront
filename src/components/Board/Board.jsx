@@ -11,7 +11,7 @@ const Board = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/boards");
+                const response = await axios.get("http://192.168.0.2:8080/boards/get/{post_id}");
                 console.log("Response data:", response.data);
                 if (response.status === 200) {
                     setData(response.data); // response.data가 배열이라고 가정
