@@ -6,7 +6,7 @@ import {
 	FaStar,
 	FaClock,
 	FaBan,
-	FaCircle,
+	//FaCircle,
 	FaEdit,
 	FaTrashAlt,
 } from "react-icons/fa";
