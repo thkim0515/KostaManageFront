@@ -26,7 +26,8 @@ const StudentListPage = () => {
 	useEffect(() => {
 		const fetchCohorts = async () => {
 			try {
-				const JWT_Token = "your_JWT_Token_here";
+				const JWT_Token =
+					"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDQ4OTg3NCwiZXhwIjoxNzIwNDkzNDc0fQ.59pyanfMvL0gaxsiPpr9QAsTF3bRYmlxHkb58uJpVCm0Fo2jNwtFOWjIxAtSzVctVwBetfTCcdIfnMW_fC1Pag";
 				const { data } = await axios.get("http://localhost:8080/cohorts/all", {
 					headers: {
 						Authorization: `Bearer ${JWT_Token}`,
