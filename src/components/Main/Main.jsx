@@ -19,7 +19,7 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/firstPage" element={<FirstPage />} />
-          {/* <Route path="/secondPage" element={<SecondPage />} /> */}
+          <Route path="/MainPage" element={<MainPage />} />
           <Route path="/student-list" element={<StudentListPage />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/faq" element={<FAQPage />} />
