@@ -6,7 +6,7 @@ import {
 	FaStar,
 	FaClock,
 	FaBan,
-	FaCircle,
+	//FaCircle,
 	FaEdit,
 	FaTrashAlt,
 } from "react-icons/fa";
@@ -98,7 +98,7 @@ const StudentListPage = () => {
 	return (
 		<S.Container>
 			<S.Sidebar>
-				<S.Button>새로 추가</S.Button>
+				{/*<S.Button>새로 추가</S.Button>*/}
 				<S.MenuItem
 					style={{ fontWeight: activeMenu === "교육 기수" ? "bold" : "normal" }}
 					onClick={() => handleMenuClick("교육 기수")}
@@ -185,7 +185,7 @@ const StudentListPage = () => {
 					</>
 				)}
 				<Link to="/student-list/blocked"></Link>
-				<S.CategoryTitle>카테고리</S.CategoryTitle>
+				{/*<S.CategoryTitle>카테고리</S.CategoryTitle>
 				<Link to="/student-list/engineers">
 					<S.CategoryItem>
 						<FaCircle style={{ color: "#4a90e2" }} />
@@ -203,7 +203,7 @@ const StudentListPage = () => {
 						<FaCircle style={{ color: "#7ed321" }} />
 						강사
 					</S.CategoryItem>
-				</Link>
+				</Link>*/}
 			</S.Sidebar>
 			<S.MainContent>
 				<S.HeaderWrap>

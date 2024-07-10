@@ -61,28 +61,27 @@ export const SubMenuItem = styled.div`
 	}
 `;
 
-export const CategoryTitle = styled.h3`
-	margin-top: 20px;
-	margin-bottom: 10px;
-	margin-left: 15px;
-	font-weight: bold;
-	color: #495057;
-`;
-
-export const CategoryItem = styled.div`
-	display: flex;
-	align-items: center;
-	padding: 10px;
-	margin-bottom: 10px;
-	cursor: pointer;
-	color: #495057;
-	&:hover {
-		background-color: #e9ecef;
-	}
-`;
+//export const CategoryTitle = styled.h3`
+//	margin-top: 20px;
+//	margin-bottom: 10px;
+//	margin-left: 15px;
+//	font-weight: bold;
+//	color: #495057;
+//`;
+//
+//export const CategoryItem = styled.div`
+//	display: flex;
+//	align-items: center;
+//	padding: 10px;
+//	margin-bottom: 10px;
+//	cursor: pointer;
+//	color: #495057;
+//	&:hover {
+//		background-color: #e9ecef;
+//	}
+//`;
 
 export const MainContent = styled.div`
-	flex: 1;
 	display: flex;
 	flex-direction: column;
 	padding: 3px;
