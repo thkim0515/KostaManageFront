@@ -26,7 +26,7 @@ export const CustomAccordion = styled(Accordion)`
 
 	.accordion-button:not(.collapsed) {
 		color: #ffffff;
-		background-color: #007bff;
+		background-color: #4285f4;
 		box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 	}
 

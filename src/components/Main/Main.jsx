@@ -9,48 +9,53 @@ import SideBar from "../Common/SideBar/SideBar";
 import StudentListPage from "../StudentListPage/StudentListPage";
 import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
+import Login from "../../pages/Login/Login";
+import SignUp from "../../pages/SignUp/SignUp";
+
 const Main = () => {
-  return (
-    <S.Container>
-      <S.Wrapper>
-        <SideBar />
-      </S.Wrapper>
-      <S.Content>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/firstPage" element={<FirstPage />} />
-          {/* <Route path="/secondPage" element={<SecondPage />} /> */}
-          <Route path="/student-list" element={<StudentListPage />} />
-          <Route path="/attendance" element={<Attendance />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route
-            path="/student-list/starred"
-            element={<StudentListPage category="starred" />}
-          />
-          <Route
-            path="/student-list/pending"
-            element={<StudentListPage category="pending" />}
-          />
-          <Route
-            path="/student-list/blocked"
-            element={<StudentListPage category="blocked" />}
-          />
-          <Route
-            path="/student-list/engineers"
-            element={<StudentListPage category="engineers" />}
-          />
-          <Route
-            path="/student-list/support"
-            element={<StudentListPage category="support" />}
-          />
-          <Route
-            path="/student-list/sales"
-            element={<StudentListPage category="sales" />}
-          />{" "}
-        </Routes>
-      </S.Content>
-    </S.Container>
-  );
+	return (
+		<S.Container>
+			<S.Wrapper>
+				<SideBar />
+			</S.Wrapper>
+			<S.Content>
+				<Routes>
+					<Route path="/" element={<MainPage />} />
+					<Route path="/firstPage" element={<FirstPage />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/signUp" element={<SignUp />} />
+					{/* <Route path="/secondPage" element={<SecondPage />} /> */}
+					<Route path="/student-list" element={<StudentListPage />} />
+					<Route path="/attendance" element={<Attendance />} />
+					<Route path="/faq" element={<FAQPage />} />
+					<Route
+						path="/student-list/starred"
+						element={<StudentListPage category="starred" />}
+					/>
+					<Route
+						path="/student-list/pending"
+						element={<StudentListPage category="pending" />}
+					/>
+					<Route
+						path="/student-list/blocked"
+						element={<StudentListPage category="blocked" />}
+					/>
+					<Route
+						path="/student-list/engineers"
+						element={<StudentListPage category="engineers" />}
+					/>
+					<Route
+						path="/student-list/support"
+						element={<StudentListPage category="support" />}
+					/>
+					<Route
+						path="/student-list/sales"
+						element={<StudentListPage category="sales" />}
+					/>{" "}
+				</Routes>
+			</S.Content>
+		</S.Container>
+	);
 };
 
 export default Main;

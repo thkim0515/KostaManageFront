@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import {
-	FaUser,
-	FaStar,
-	FaClock,
-	FaBan,
+	//FaUser,
+	//FaStar,
+	//FaClock,
+	//FaBan,
 	//FaCircle,
 	FaEdit,
 	FaTrashAlt,
@@ -17,9 +17,10 @@ const StudentListPage = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedStudent, setSelectedStudent] = useState(null);
 	const [cohorts, setCohorts] = useState([]);
-	const [activeMenu, setActiveMenu] = useState(null);
+	//const [activeMenu, setActiveMenu] = useState(null);
 	const [setStudent] = useState(null);
 	const [expandedCohortIds, setExpandedCohortIds] = React.useState({});
+	const [fetchCohortDetails] = useState([]);
 	const imgUrl =
 		"https://kostamanagebucket.s3.ap-northeast-2.amazonaws.com/kostamanageImage/";
 	const { id } = useParams();
@@ -27,12 +28,16 @@ const StudentListPage = () => {
 		const fetchCohorts = async () => {
 			try {
 				const JWT_Token =
-					"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDQ4OTg3NCwiZXhwIjoxNzIwNDkzNDc0fQ.59pyanfMvL0gaxsiPpr9QAsTF3bRYmlxHkb58uJpVCm0Fo2jNwtFOWjIxAtSzVctVwBetfTCcdIfnMW_fC1Pag";
-				const { data } = await axios.get("http://localhost:8080/cohorts/all", {
-					headers: {
-						Authorization: `Bearer ${JWT_Token}`,
-					},
-				});
+					"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDU3NDU5NSwiZXhwIjoxNzIwNjEwNTk1fQ.ZOxkZW_Peos1ERtoKolZAAADURQOsfmFJJKhgtiK4K8DS5p9fQgXkEFnkiwVgQ1Q4mVPdeO4Qb--xUCSuHv4gQ";
+				const { data } = await axios.get(
+					"http://192.168.0.2:8080/cohorts/all",
+					{
+						headers: {
+							Authorization: `Bearer ${JWT_Token}`,
+						},
+					}
+				);
+				console.log(data);
 				if (Array.isArray(data)) {
 					setCohorts(data);
 				} else {
@@ -45,9 +50,8 @@ const StudentListPage = () => {
 
 		const fetchStudent = async (studentId) => {
 			try {
-				const { data } = await axios.get(
-					`http://192.168.0.5:8080/users/${studentId}`
-				);
+				const { data } = await axios.get(`http://192.168.0.2:8080/users/get/1`);
+				console.log(data);
 				const studentData = {
 					userId: data.id,
 					name: data.name,
@@ -69,9 +73,9 @@ const StudentListPage = () => {
 
 		const fetchData = async () => {
 			await fetchCohorts();
-			if (id) {
-				await fetchStudent(id);
-			}
+			//if (id) {
+			await fetchStudent(id);
+			//}
 		};
 
 		fetchData();
@@ -85,22 +89,62 @@ const StudentListPage = () => {
 		setSelectedStudent(student);
 	};
 
-	const handleCohortClick = (cohort) => {
-		setExpandedCohortIds((prevState) => ({
-			...prevState,
-			[cohort.id]: !prevState[cohort.id],
-		}));
-	};
+	const handleCohortClick = async (cohort) => {
+		try {
+			setExpandedCohortIds((prevState) => ({
+				...prevState,
+				[cohort.id]: !prevState[cohort.id],
+			}));
+	
+			const cohortDetails = await fetchCohortDetails(cohort.id);
+			if (cohortDetails) {
+				console.log("Clicked Cohort ID:", cohort.id);
+				console.log("Cohort Details:", cohortDetails);
+				// Update the state or display the cohort details as needed
+			} else {
+				console.log("Failed to fetch cohort details");
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
+	
 
-	const handleMenuClick = (menuItem) => {
-		setActiveMenu(activeMenu === menuItem ? null : menuItem);
-	};
+	//const handleMenuClick = (menuItem) => {
+	//	setActiveMenu(activeMenu === menuItem ? null : menuItem);
+	//};
 
 	return (
 		<S.Container>
 			<S.Sidebar>
+				{cohorts.map((cohort) => (
+					<div key={cohort.id}>
+						<div
+							onClick={() => handleCohortClick(cohort.id)}
+							style={{ cursor: "pointer" }}
+						>
+							<p>{cohort.name}</p>
+						</div>
+						{expandedCohortIds[cohort.id] && (
+							<div>
+								<h3>교육 기수</h3>
+								{students
+									.filter((student) => student.cohortId === cohort.id)
+									.map((student) => (
+										<div key={student.id}>
+											<p>{student.name}</p>
+											<p>{student.phoneNumber}</p>
+											<p>{student.email}</p>
+											<p>{student.address}</p>
+											<p>{student.notes}</p>
+										</div>
+									))}
+							</div>
+						)}
+					</div>
+				))}
 				{/*<S.Button>새로 추가</S.Button>*/}
-				<S.MenuItem
+				{/*<S.MenuItem
 					style={{ fontWeight: activeMenu === "교육 기수" ? "bold" : "normal" }}
 					onClick={() => handleMenuClick("교육 기수")}
 					selected={activeMenu === "교육 기수"}
@@ -185,7 +229,7 @@ const StudentListPage = () => {
 						<S.SubMenuItem>Sub Item 2</S.SubMenuItem>
 					</>
 				)}
-				<Link to="/student-list/blocked"></Link>
+				<Link to="/student-list/blocked"></Link>*/}
 				{/*<S.CategoryTitle>카테고리</S.CategoryTitle>
 				<Link to="/student-list/engineers">
 					<S.CategoryItem>
