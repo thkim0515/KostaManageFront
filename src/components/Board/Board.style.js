@@ -2,20 +2,15 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Container = styled.div`
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   padding: 20px;
-`;
-
-export const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   margin-bottom: 20px;
 `;
 
@@ -34,10 +29,11 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  table-layout: fixed;
 `;
 
 export const TableRow = styled.tr`
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   &:hover {
     background-color: #f1f1f1;
   }
@@ -46,14 +42,16 @@ export const TableRow = styled.tr`
 
 export const TableHeader = styled.th`
   padding: 10px;
-  text-align: left;
-  background-color: #f9f9f9;
-  border-bottom: 2px solid #ccc;
+  text-align: center;
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #ddd;
+  font-weight: bold;
   cursor: default; /* 클릭 이벤트 비활성화 */
 `;
 
 export const TableCell = styled.td`
   padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
 `;

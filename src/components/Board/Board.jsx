@@ -50,40 +50,38 @@ const Board = () => {
 
     return (
         <S.Container>
-            <S.Wrap>
-                <S.SearchContainer>
-                    <S.Input
-                        type="text"
-                        name="Search"
-                        value={search}
-                        onChange={handleSearchChange}
-                        placeholder="검색"
-                    />
-                    <S.SearchIcon icon={faSearch} onClick={handleSearchClick} />
-                </S.SearchContainer>
-                <S.Table>
-                    <thead>
-                        <S.TableRow>
-                            <S.TableHeader>Title</S.TableHeader>
-                            <S.TableHeader>User</S.TableHeader>
-                            <S.TableHeader>Date</S.TableHeader>
-                            <S.TableHeader>Content</S.TableHeader>
-                            <S.TableHeader>Like</S.TableHeader>
+            <S.SearchContainer>
+                <S.Input
+                    type="text"
+                    name="Search"
+                    value={search}
+                    onChange={handleSearchChange}
+                    placeholder="검색"
+                />
+                <S.SearchIcon icon={faSearch} onClick={handleSearchClick} />
+            </S.SearchContainer>
+            <S.Table>
+                <thead>
+                    <S.TableRow>
+                        <S.TableHeader>번호</S.TableHeader>
+                        <S.TableHeader>제목</S.TableHeader>
+                        <S.TableHeader>글쓴이</S.TableHeader>
+                        <S.TableHeader>작성일</S.TableHeader>
+                        <S.TableHeader>추천</S.TableHeader>
+                    </S.TableRow>
+                </thead>
+                <tbody>
+                    {data.map((board, index) => (
+                        <S.TableRow key={board.id} onClick={() => handleRowClick(board.id)}> {/* Row 클릭 이벤트 추가 */}
+                            <S.TableCell>{index + 1}</S.TableCell>
+                            <S.TableCell>{board.title}</S.TableCell>
+                            <S.TableCell>{board.user.userId}</S.TableCell>
+                            <S.TableCell>{new Date(board.createdAt).toLocaleDateString()}</S.TableCell> {/* 날짜만 표시 */}
+                            <S.TableCell>{board.likes}</S.TableCell>
                         </S.TableRow>
-                    </thead>
-                    <tbody>
-                        {data.map((board) => (
-                            <S.TableRow key={board.cohortId} onClick={() => handleRowClick(board.id)}> {/* Row 클릭 이벤트 추가 */}
-                                <S.TableCell>{board.title}</S.TableCell>
-                                <S.TableCell>{board.user.userId}</S.TableCell>
-                                <S.TableCell>{new Date(board.createdAt).toLocaleDateString()}</S.TableCell> {/* 날짜만 표시 */}
-                                <S.TableCell>{board.content}</S.TableCell>
-                                <S.TableCell>{board.likes}</S.TableCell>
-                            </S.TableRow>
-                        ))}
-                    </tbody>
-                </S.Table>
-            </S.Wrap>
+                    ))}
+                </tbody>
+            </S.Table>
         </S.Container>
     );
 };
