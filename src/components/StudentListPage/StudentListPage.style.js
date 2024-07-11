@@ -43,7 +43,7 @@ export const MenuText = styled.div`
 	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
 	font-size: 25px;
 	font-weight: bold;
-	alignitems: center;
+	align-items: center;
 	margin-left: 20px;
 	font-family: "Noto Sans-Regular", Helvetica;
 `;

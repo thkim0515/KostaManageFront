@@ -61,7 +61,7 @@ const StudentListPage = ({ category }) => {
 				...prevState,
 				[cohort.id]: !prevState[cohort.id],
 			}));
-	
+
 			const cohortDetails = await fetchCohortDetails(cohort.id);
 			if (cohortDetails) {
 				console.log("Clicked Cohort ID:", cohort.id);
@@ -73,8 +73,7 @@ const StudentListPage = ({ category }) => {
 		} catch (error) {
 			console.error(error);
 		}
-	}
-	
+	};
 
 	//const handleMenuClick = (menuItem) => {
 	//	setActiveMenu(activeMenu === menuItem ? null : menuItem);
