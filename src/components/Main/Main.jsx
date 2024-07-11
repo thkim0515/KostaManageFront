@@ -21,6 +21,7 @@ const Main = () => {
 					<Route path="/firstPage" element={<FirstPage />} />
 					<Route path="/secondPage" element={<SecondPage />} />
 					<Route path="/student-list" element={<StudentListPage />} />
+					<Route path="/student-managePage" element={<StudentManagePage />} />
 					<Route path="/attendance" element={<Attendance />} />
 					<Route path="/curriculum" element={<Curriculum />} />
 					<Route path="/board" element={<Board />} />
