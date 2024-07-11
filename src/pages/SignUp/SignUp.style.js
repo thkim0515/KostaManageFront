@@ -64,7 +64,6 @@ export const ErrorMsg = styled.div`
 
 export const Button = styled.button`
 	background-color: #0068ff;
-	color: #ffffff;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 8px;

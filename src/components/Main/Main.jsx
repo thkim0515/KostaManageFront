@@ -11,6 +11,7 @@ import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
 import SignUp from "../../pages/SignUp/SignUp";
+import StudentManagePage from "../StudentManagePage/StudentManagePage";
 
 const Main = () => {
 	return (
@@ -26,6 +27,7 @@ const Main = () => {
 					<Route path="/signUp" element={<SignUp />} />
 					{/* <Route path="/secondPage" element={<SecondPage />} /> */}
 					<Route path="/student-list" element={<StudentListPage />} />
+					<Route path="/student-managePage" element={<StudentManagePage />} />
 					<Route path="/attendance" element={<Attendance />} />
 					<Route path="/faq" element={<FAQPage />} />
 					<Route
