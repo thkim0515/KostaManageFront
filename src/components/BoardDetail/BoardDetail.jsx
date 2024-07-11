@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import * as S from './BoardDetail.style';
 
 const BoardDetail = () => {
     const navigate = useNavigate();
@@ -56,20 +57,22 @@ const BoardDetail = () => {
     };
 
     return (
-        <div>
+        <S.Container>
             {Array.isArray(getData) && getData.length > 0 ? (
                 getData.map((board) => (
-                    <div key={board.id}>
-                        <h1>{board.title}</h1>
-                        <p>{board.content}</p>
-                        <button onClick={() => onDeleteClick(board.id)}>삭제</button>
-                        <button onClick={() => onUpdateClick(board)}>수정</button>
-                    </div>
+                    <S.BoardItem key={board.id}>
+                        <S.Title>{board.title}</S.Title>
+                        <S.Content>{board.content}</S.Content>
+                        <S.ButtonContainer>
+                            <S.Button onClick={() => onDeleteClick(board.id)}>삭제</S.Button>
+                            <S.Button onClick={() => onUpdateClick(board)}>수정</S.Button>
+                        </S.ButtonContainer>
+                    </S.BoardItem>
                 ))
             ) : (
-                <p>데이터가 없습니다.</p>
+                <S.NoData>데이터가 없습니다.</S.NoData>
             )}
-        </div>
+        </S.Container>
     );
 };
 

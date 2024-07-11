@@ -31,7 +31,7 @@ const BoardCreate = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://192.168.0.2:8080/boards/create",
+        "http://192.168.19.66:8080/boards/create",
         { ...formData, content: JSON.stringify(formData.content) }, // Delta를 문자열로 변환하여 전송
         {
           headers: {
@@ -55,15 +55,24 @@ const BoardCreate = () => {
           onChange={handleChange}
           placeholder="제목"
         />
-        <S.Input
-          type="text"
+        {/* <S.Select
           name="type"
           value={formData.type}
           onChange={handleChange}
-          placeholder="속성"
-        />
+        >
+          <option value="" disabled>
+            Select a type
+          </option>
+          <option value="Announcement">Announcement</option>
+          <option value="Notice">Notice</option>
+          <option value="Event">Event</option>
+          <option value="Other">Other</option>
+        </S.Select> */}
         <S.EditorWrapper>
-          <QEditor value={formData.content} onChange={handleEditorChange} />
+          <QEditor 
+            value={formData.content} 
+            onChange={handleEditorChange} 
+          />
         </S.EditorWrapper>
         <S.Button type="submit">확인</S.Button>
       </form>

@@ -6,6 +6,7 @@ import BoardDetail from "../../components/BoardDetail/BoardDetail";
 import * as S from "./MainPage.style";
 import BoardUpdate from "../../components/BoardUpdate/BoardUpdate";
 import BoardCreate from "../../components/BoardCreate/BoardCreate";
+import Board from "../../components/Board/Board";
 const MainPage = () => {
   const count = useSelector((state) => state.counter.count);
   const value = useSelector((state) => state.init.value);
@@ -14,12 +15,7 @@ const MainPage = () => {
   const dispatch = useDispatch();
 
   return (
-    <S.Container>
-      <BoardDetail />
-      <pre>
-        
-      </pre>
-    </S.Container>
+    <Board />
   );
 };
 

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import * as S from "./SecondPage.style";
 import useFetchWithAxios from "../../hooks/useFetchWithAxios";
 import GetValue from "../GetValue";
+import BoardCreate from "../../components/BoardCreate/BoardCreate";
 const SecondPage = () => {
   const count = useSelector((state) => state.counter.count);
 
