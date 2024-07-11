@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	min-height: 100vh;
 
 	background-color: #f4f4f4;
@@ -13,7 +12,7 @@ export const Wrapper = styled.div`
 	width: 100%;
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 40px;
+	padding: 30px 210px;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

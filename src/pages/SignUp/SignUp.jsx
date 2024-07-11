@@ -37,7 +37,7 @@ const SignUp = () => {
     if (Object.values(newErrors).every((error) => error === "")) {
       try {
         const response = await axios.post(
-          "http://192.168.0.2:8080/users/register",
+          "http://192.168.19.66:8080/users/register",
           formData
         );
         console.log(response.status);

@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import {
-	//FaUser,
-	//FaStar,
-	//FaClock,
-	//FaBan,
-	//FaCircle,
-	FaEdit,
-	FaTrashAlt,
-} from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import * as S from "./StudentListPage.style";
+import { student } from "./../db/Dummy.json";
 
-const StudentListPage = () => {
+const StudentListPage2 = () => {
 	const [student, setStudent] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedStudent, setSelectedStudent] = useState(null);
 	const [cohorts, setCohorts] = useState([]);
-	//const [activeMenu, setActiveMenu] = useState(null);
 	const [expandedCohortIds, setExpandedCohortIds] = React.useState({});
 	const [fetchCohortDetails] = useState([]);
 	const imgUrl =
@@ -28,16 +20,14 @@ const StudentListPage = () => {
 			try {
 				const JWT_Token =
 					"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDU3NDU5NSwiZXhwIjoxNzIwNjEwNTk1fQ.ZOxkZW_Peos1ERtoKolZAAADURQOsfmFJJKhgtiK4K8DS5p9fQgXkEFnkiwVgQ1Q4mVPdeO4Qb--xUCSuHv4gQ";
-				console.log(1);
 				const { data } = await axios.get(
-					"http://192.168.19.66:8080/cohorts/all"
-					//{
-					//	headers: {
-					//		Authorization: `Bearer ${JWT_Token}`,
-					//	},
-					//}
+					"http://192.168.19.66:8080/cohorts/all",
+					{
+						headers: {
+							Authorization: `Bearer ${JWT_Token}`,
+						},
+					}
 				);
-				console.log(2);
 				console.log(data);
 				if (Array.isArray(data)) {
 					setCohorts(data);
@@ -51,14 +41,13 @@ const StudentListPage = () => {
 
 		const fetchStudent = async (studentId) => {
 			try {
-				const { data } = await axios.get(
-					`http://192.168.19.66:8080/users/get/1`
-				);
-				//console.log(data);
+				const { data } = await axios.get(`http://192.168.0.2:8080/users/get/1`);
+				console.log(data);
 				const studentData = {
 					userId: data.id,
 					name: data.name,
 					email: data.email,
+					password: data.password,
 					phoneNumber: data.phoneNumber,
 					role: data.role,
 					cohortId: data.cohortId,
@@ -73,16 +62,24 @@ const StudentListPage = () => {
 				console.error("Error fetching student data", error);
 			}
 		};
+	});
+	//
+	//		const fetchData = async () => {
+	//			await fetchCohorts();
+	//			await fetchStudent(id);
+	//		};
+	//
+	//		fetchData();
+	//	}, [id]); // id만을 의존성으로 설정
 
-		const fetchData = async () => {
-			await fetchCohorts();
-			//if (id) {
-			await fetchStudent(id);
-			//}
-		};
-
-		fetchData();
-	}, [id]); // id만을 의존성으로 설정
+	useEffect(() => {
+		// 더미 데이터를 바로 import하여 사용
+		const Dummy = require("../db/Dummy.json");
+		console.log(Dummy.student);
+		console.log(Dummy.cohort);
+		setStudent(Dummy.student);
+		setCohorts(Dummy.cohort);
+	}, []);
 
 	const handleInputChange = (e) => {
 		setSearchTerm(e.target.value);
@@ -112,17 +109,13 @@ const StudentListPage = () => {
 		}
 	};
 
-	//const handleMenuClick = (menuItem) => {
-	//	setActiveMenu(activeMenu === menuItem ? null : menuItem);
-	//};
-
 	return (
 		<S.Container>
 			<S.Sidebar>
 				{cohorts.map((cohort) => (
-					<div key={cohort.id}>
+					<div key={cohort.cohortNumber}>
 						<div
-							onClick={() => handleCohortClick(cohort.id)}
+							onClick={() => handleCohortClick(cohort)}
 							style={{ cursor: "pointer" }}
 						>
 							<span style={{ marginRight: "10px" }}>
@@ -149,112 +142,6 @@ const StudentListPage = () => {
 						)}
 					</div>
 				))}
-				{/*<S.Button>새로 추가</S.Button>*/}
-				{/*<S.MenuItem
-					style={{ fontWeight: activeMenu === "교육 기수" ? "bold" : "normal" }}
-					onClick={() => handleMenuClick("교육 기수")}
-					selected={activeMenu === "교육 기수"}
-				>
-					<FaUser />
-					<S.MenuText active={activeMenu === "교육 기수"}>교육 기수</S.MenuText>
-				</S.MenuItem>
-				{activeMenu === "교육 기수" && (
-					<>
-						<S.SubMenuItem>Sub Item 1</S.SubMenuItem>
-						<S.SubMenuItem>Sub Item 2</S.SubMenuItem>
-					</>
-				)}
-				<Link to="/student-list"></Link>
-				{cohorts.map((cohort) => (
-					<div key={cohort.id}>
-						<div
-							onClick={() => handleCohortClick(cohort)}
-							style={{ cursor: "pointer" }}
-						>
-							<p>{cohort.name}</p>
-						</div>
-						{expandedCohortIds[cohort.id] && (
-							<div>
-								<h3>교육 기수</h3>
-								{students
-									.filter((student) => student.cohortId === cohort.id)
-									.map((student) => (
-										<div key={student.id}>
-											<p>{student.name}</p>
-											<p>{student.phoneNumber}</p>
-											<p>{student.email}</p>
-											<p>{student.address}</p>
-											<p>{student.notes}</p>
-										</div>
-									))}
-							</div>
-						)}
-					</div>
-				))}
-				<S.MenuItem
-					style={{ fontWeight: activeMenu === "즐겨찾기" ? "bold" : "normal" }}
-					onClick={() => handleMenuClick("즐겨찾기")}
-					selected={activeMenu === "즐겨찾기"}
-				>
-					<FaStar />
-					<S.MenuText active={activeMenu === "즐겨찾기"}>즐겨찾기</S.MenuText>
-				</S.MenuItem>
-				{activeMenu === "즐겨찾기" && (
-					<>
-						<S.SubMenuItem>Sub Item 1</S.SubMenuItem>
-						<S.SubMenuItem>Sub Item 2</S.SubMenuItem>
-					</>
-				)}
-				<Link to="/student-list/starred"></Link>
-				<S.MenuItem
-					style={{ fontWeight: activeMenu === "최근 목록" ? "bold" : "normal" }}
-					onClick={() => handleMenuClick("최근 목록")}
-					selected={activeMenu === "최근 목록"}
-				>
-					<FaClock />
-					<S.MenuText active={activeMenu === "최근 목록"}>최근 목록</S.MenuText>
-				</S.MenuItem>
-				{activeMenu === "최근 목록" && (
-					<>
-						<S.SubMenuItem>Sub Item 1</S.SubMenuItem>
-						<S.SubMenuItem>Sub Item 2</S.SubMenuItem>
-					</>
-				)}
-				<Link to="/student-list/pending"></Link>
-				<S.MenuItem
-					style={{ fontWeight: activeMenu === "차단 목록" ? "bold" : "normal" }}
-					onClick={() => handleMenuClick("차단 목록")}
-					selected={activeMenu === "차단 목록"}
-				>
-					<FaBan />
-					<S.MenuText active={activeMenu === "차단 목록"}>차단 목록</S.MenuText>
-				</S.MenuItem>
-				{activeMenu === "차단 목록" && (
-					<>
-						<S.SubMenuItem>Sub Item 1</S.SubMenuItem>
-						<S.SubMenuItem>Sub Item 2</S.SubMenuItem>
-					</>
-				)}
-				<Link to="/student-list/blocked"></Link>*/}
-				{/*<S.CategoryTitle>카테고리</S.CategoryTitle>
-				<Link to="/student-list/engineers">
-					<S.CategoryItem>
-						<FaCircle style={{ color: "#4a90e2" }} />
-						개발자
-					</S.CategoryItem>
-				</Link>
-				<Link to="/student-list/support">
-					<S.CategoryItem>
-						<FaCircle style={{ color: "#f5a623" }} />
-						연구원
-					</S.CategoryItem>
-				</Link>
-				<Link to="/student-list/sales">
-					<S.CategoryItem>
-						<FaCircle style={{ color: "#7ed321" }} />
-						강사
-					</S.CategoryItem>
-				</Link>*/}
 			</S.Sidebar>
 			<S.MainContent>
 				<S.HeaderWrap>
@@ -353,4 +240,4 @@ const StudentListPage = () => {
 	);
 };
 
-export default StudentListPage;
+export default StudentListPage2;
