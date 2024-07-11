@@ -25,7 +25,7 @@ export const Group = styled.div`
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	color: #0068ff;
 	font-family: "Noto Sans CJK KR-Bold", Helvetica;
-	font-size: 24px;
+	/*font-size: 40px;*/
 	font-weight: 700;
 	text-align: center;
 	margin: 0 0 20px 260px;
