@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import * as S from "./Board.style";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 
 const Board = () => {
     const [data, setData] = useState([]);
     const [search, setSearch] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("http://192.168.0.2:8080/boards/get/{post_id}");
+                const response = await axios.get(`http://192.168.19.66:8080/boards/all`);
                 console.log("Response data:", response.data);
                 if (response.status === 200) {
                     setData(response.data); // response.data가 배열이라고 가정
@@ -27,40 +28,60 @@ const Board = () => {
         setSearch(e.target.value);
     };
 
-    const handleSearchClick = () => {
-        console.log("Search clicked:", search);
+    const handleSearchClick = async () => {
+        try {
+            const response = await axios.get(`http://192.168.19.66:8080/boards/all`, {
+                params: {
+                    query: search
+                }
+            });
+            if (response.status === 200) {
+                setData(response.data);
+            }
+        } catch (error) {
+            console.log("검색 실패:", error);
+            alert("검색 내용을 찾을 수 없습니다");
+        }
+    };
+
+    const handleRowClick = (id) => {
+        navigate(`/board/${id}`); // 상세 페이지로 이동
     };
 
     return (
         <S.Container>
             <S.Wrap>
-                <S.TableHeader>
-                    <S.List>Title</S.List>
-                    <S.List>User</S.List>
-                    <S.List>Date</S.List>
-                    <S.List>Content</S.List>
-                    <S.List>Like</S.List>
-                    <S.SearchContainer>
-                        <S.Input
-                            type="text"
-                            name="Search"
-                            value={search}
-                            onChange={handleSearchChange}
-                            placeholder="검색"
-                        />
-                        <S.SearchIcon icon={faSearch} onClick={handleSearchClick} />
-                    </S.SearchContainer>
-                </S.TableHeader>
+                <S.SearchContainer>
+                    <S.Input
+                        type="text"
+                        name="Search"
+                        value={search}
+                        onChange={handleSearchChange}
+                        placeholder="검색"
+                    />
+                    <S.SearchIcon icon={faSearch} onClick={handleSearchClick} />
+                </S.SearchContainer>
                 <S.Table>
-                    {data.map((board) => (
-                        <S.TableRow key={board.userId}>
-                            <S.TableCell>{board.title}</S.TableCell>
-                            <S.TableCell>{board.user}</S.TableCell>
-                            <S.TableCell>{board.createdAt}</S.TableCell>
-                            <S.TableCell>{board.content}</S.TableCell>
-                            <S.TableCell>{board.likes}</S.TableCell>
+                    <thead>
+                        <S.TableRow>
+                            <S.TableHeader>Title</S.TableHeader>
+                            <S.TableHeader>User</S.TableHeader>
+                            <S.TableHeader>Date</S.TableHeader>
+                            <S.TableHeader>Content</S.TableHeader>
+                            <S.TableHeader>Like</S.TableHeader>
                         </S.TableRow>
-                    ))}
+                    </thead>
+                    <tbody>
+                        {data.map((board) => (
+                            <S.TableRow key={board.cohortId} onClick={() => handleRowClick(board.id)}> {/* Row 클릭 이벤트 추가 */}
+                                <S.TableCell>{board.title}</S.TableCell>
+                                <S.TableCell>{board.user.userId}</S.TableCell>
+                                <S.TableCell>{new Date(board.createdAt).toLocaleDateString()}</S.TableCell> {/* 날짜만 표시 */}
+                                <S.TableCell>{board.content}</S.TableCell>
+                                <S.TableCell>{board.likes}</S.TableCell>
+                            </S.TableRow>
+                        ))}
+                    </tbody>
                 </S.Table>
             </S.Wrap>
         </S.Container>

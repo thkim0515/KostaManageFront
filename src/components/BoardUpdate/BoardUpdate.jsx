@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import RefEditor from "../BoardCreate/QEditor";
+import QEditor from "../BoardCreate/QEditor"; // 경로를 올바르게 설정
+import * as S from './BoardUpdate.style'; // 스타일 컴포넌트 import
 
 const BoardUpdate = () => {
     const { id } = useParams();
@@ -38,19 +39,11 @@ const BoardUpdate = () => {
             [name]: value,
         }));
     };
-    console.log(formdata);
 
     const handleEditorChange = (value) => {
         setFormdata((prev) => ({
             ...prev,
             content: value,
-        }));
-    };
-
-    const handleFileChange = (e) => {
-        setFormdata((prev) => ({
-            ...prev,
-            file: e.target.files[0],
         }));
     };
 
@@ -85,29 +78,29 @@ const BoardUpdate = () => {
     };
 
     return (
-        <div>
-            <input
+        <S.Container>
+            <S.Input
                 type="text"
                 name="title"
                 value={formdata.title}
                 onChange={handleChange}
                 placeholder="제목"
             />
-            <input
-                type="text"
+            <S.Select
                 name="type"
                 value={formdata.type}
                 onChange={handleChange}
-                placeholder="목록 선택"
-            />
-            <input
-                type="file"
-                name="file"
-                onChange={handleFileChange}
-            />
-            <RefEditor value={formdata.content} onChange={handleEditorChange} />
-            <button onClick={updateBoard}>수정하기</button>
-        </div>
+            >
+                <option value="Announcement">Announcement</option>
+                <option value="Notice">Notice</option>
+                <option value="Event">Event</option>
+                <option value="Other">Other</option>
+            </S.Select>
+            <S.EditorWrapper>
+                <QEditor value={formdata.content} onChange={handleEditorChange} />
+            </S.EditorWrapper>
+            <S.Button onClick={updateBoard}>수정하기</S.Button>
+        </S.Container>
     );
 };
 
