@@ -5,7 +5,7 @@ import QEditor from "../BoardCreate/QEditor"; // 경로를 올바르게 설정
 import * as S from './BoardUpdate.style'; // 스타일 컴포넌트 import
 
 const BoardUpdate = () => {
-    const { id } = useParams();
+    const { id } = useParams(1);
     const [formdata, setFormdata] = useState({
         title: '',
         type: '',
@@ -16,7 +16,7 @@ const BoardUpdate = () => {
     useEffect(() => {
         const fetchBoard = async () => {
             try {
-                const response = await axios.get(`http://192.168.0.2:8080/boards/get/1`);
+                const response = await axios.get(`http://192.168.19.66:8080/boards/get/1`);
                 const board = response.data;
                 setFormdata({
                     title: board.title,
@@ -56,7 +56,7 @@ const BoardUpdate = () => {
 
         if (window.confirm("수정을 완료 하겠습니까?")) {
             try {
-                const response = await axios.put(`http://192.168.0.2:8080/boards/update/1`, updateData,
+                const response = await axios.put(`http://192.168.19.66:8080/boards/update/1`, updateData,
                     {
                         headers: {
                             "Content-Type": "application/json",
@@ -86,7 +86,7 @@ const BoardUpdate = () => {
                 onChange={handleChange}
                 placeholder="제목"
             />
-            <S.Select
+            {/* <S.Select
                 name="type"
                 value={formdata.type}
                 onChange={handleChange}
@@ -95,7 +95,7 @@ const BoardUpdate = () => {
                 <option value="Notice">Notice</option>
                 <option value="Event">Event</option>
                 <option value="Other">Other</option>
-            </S.Select>
+            </S.Select> */}
             <S.EditorWrapper>
                 <QEditor value={formdata.content} onChange={handleEditorChange} />
             </S.EditorWrapper>

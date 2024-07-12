@@ -10,7 +10,7 @@ const BoardDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://192.168.0.2:8080/boards/get/1");
+                const response = await axios.get("http://192.168.0.31:8080/boards/get/2");
                 console.log(response.data);
                 const data = Array.isArray(response.data) ? response.data : [response.data];
                 setGetData(data);
@@ -25,7 +25,7 @@ const BoardDetail = () => {
     const onDeleteClick = async (id) => {
         if (window.confirm("정말로 삭제하시겠습니까?")) {
             try {
-                const response = await axios.delete(`http://192.168.0.2:8080/boards/delete/18`, getData,
+                const response = await axios.put(`http://192.168.0.31:8080/boards/soft-delete/1`, getData,
                     {
                         headers: {
                             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const BoardDetail = () => {
                 }
             } catch (error) {
                 console.log("fail", error);
-                alert("에러가 발생했습니다");
+                alert("에러가 발생했습니다.");
             }
         } else {
             console.log("cancel");
@@ -62,7 +62,11 @@ const BoardDetail = () => {
                 getData.map((board) => (
                     <S.BoardItem key={board.id}>
                         <S.Title>{board.title}</S.Title>
-                        <S.Content>{board.content}</S.Content>
+                        <S.MetaData>
+                            <S.Date>{new Date(board.createdAt).toLocaleDateString()}</S.Date>
+                        </S.MetaData>
+                        <S.Divider />
+                        <S.Content dangerouslySetInnerHTML={{ __html: board.content }} />
                         <S.ButtonContainer>
                             <S.Button onClick={() => onDeleteClick(board.id)}>삭제</S.Button>
                             <S.Button onClick={() => onUpdateClick(board)}>수정</S.Button>

@@ -3,60 +3,87 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center; /* 중앙 정렬 */
-  justify-content: center; /* 세로 중앙 정렬 */
-  height: 800px; /* 높이를 800px로 설정 */
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #000; /* 검은색 테두리 선 */
-  border-radius: 8px;
-  max-width: 700px; /* 가로 너비를 600px로 설정 */
-  margin: 20px auto; /* 가로 중앙 정렬 및 상단 여백 추가 */
+  align-items: center; 
+  justify-content: center; 
+  width: 80%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-export const Input = styled.input`
+export const Header = styled.h1`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+`;
+
+export const TitleInput = styled.input`
   width: 100%;
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 18px;
   box-sizing: border-box;
-  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 입체감 추가 */
 `;
 
-export const Select = styled.select`
+export const EditorWrapper = styled.div`
   width: 100%;
-  padding: 15px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  .ql-editor {
+    min-height: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 입체감 추가 */
+  }
+  .ql-container {
+    height: 500px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 입체감 추가 */
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between; /* 버튼을 양 끝으로 배치 */
+  width: 100%;
+`;
+
+export const BackButton = styled.button`
+  padding: 10px 20px;
   font-size: 16px;
-  box-sizing: border-box;
-  text-align: center;
+  color: white;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: #5a6268;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const Button = styled.button`
-  padding: 20px 50px; /* 버튼 크기를 넓게 설정 */
+  padding: 10px 20px;
   font-size: 16px;
-  color: #fff;
+  color: white;
   background-color: #007bff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  display: block; /* 중앙 정렬을 위해 블록 요소로 변경 */
-  margin: 20px auto; /* 중앙 정렬을 위해 상하 여백 20px, 좌우 자동 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
     background-color: #0056b3;
-  }
-`;
-
-export const EditorWrapper = styled.div`
-  width: 100%; /* 에디터의 너비를 100%로 설정 */
-  .ql-editor {
-    min-height: 400px; /* 에디터의 최소 높이를 설정 */
-  }
-  .ql-container {
-    height: 500px; /* 에디터의 높이를 설정 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 `;
