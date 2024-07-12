@@ -36,7 +36,7 @@ export function validateName (name) {
 }
 
 /**전화번호 : 000-0000-0000 형태로 입력 */
-export function valdatePhone (phone) {
+export function validatePhone (phone) {
   const phoneRegex = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/
   if(!phoneRegex.test(phone)) {
     return "000-0000-0000 형태로 입력해주세요"

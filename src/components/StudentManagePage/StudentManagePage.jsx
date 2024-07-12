@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import * as S from "./StrudentManagePage.style";
+import * as S from "./StudentManagePage.style";
 import { FaCalendarAlt } from "react-icons/fa";
 
 const StudentManagePage = () => {
