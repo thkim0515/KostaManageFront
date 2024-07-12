@@ -66,13 +66,15 @@ export const ManageField = styled.div`
 
 export const Label = styled.label`
 	display: block;
-	margin-bottom: 5px;
+	margin-bottom: 8px;
+	margin-left: -10px;
 	font-weight: bold;
+	color: #555;
 `;
 
 export const NameInput = styled.input`
 	width: 15%;
-	padding: 8px;
+	padding: 7px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
@@ -80,7 +82,7 @@ export const NameInput = styled.input`
 `;
 
 export const Input = styled.input`
-	width: 100%;
+	width: 80%;
 	padding: 8px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -134,6 +136,7 @@ export const CheckboxWrapper = styled.div`
 
 export const CheckboxLabel = styled.label`
 	margin-left: 8px;
+	color: #444;
 `;
 
 export const RadioWrapper = styled.div`
