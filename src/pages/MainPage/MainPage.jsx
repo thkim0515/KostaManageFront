@@ -15,7 +15,7 @@ const MainPage = () => {
   const dispatch = useDispatch();
 
   return (
-    <Board />
+    <BoardDetail />
   );
 };
 
