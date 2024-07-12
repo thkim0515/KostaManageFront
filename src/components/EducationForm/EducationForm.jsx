@@ -19,7 +19,7 @@ const EducationForm = () => {
 				alignItems: "center",
 				cursor: "pointer",
 				border: "1px solid #ccc",
-				padding: "8px",
+				padding: "7px",
 				borderRadius: "4px",
 			}}
 		>
