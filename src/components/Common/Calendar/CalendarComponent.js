@@ -1,55 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "./calendar.css"; // 추가된 CSS 파일 import
+
 import AttendanceStats from "../../Attendance/AttendanceStats";
 import CustomToolbar from "./CustomToolbar";
-import { toKoreanStatus, toEnglishStatus } from "../../../utils/statusUtils";
-import StatusModal from "./StatusModal"; // 새로운 Modal 컴포넌트를 import
+import {
+  toKoreanStatus,
+  toEnglishStatus,
+  getStatusColors,
+} from "../../../utils/statusUtils";
+import StatusModal from "./StatusModal";
 
 const localizer = momentLocalizer(moment);
 
+// 이벤트 스타일을 설정하는 함수
 const eventStyleGetter = (event) => {
-  let backgroundColor;
-  let display = "flex";
-  let justifyContent = "center";
-  let alignItems = "center";
-  let height = "100%";
-  let width = "100%";
-  let color = "#000"; // 날짜 숫자 색상을 위한 변수 추가
-  switch (event.title) {
-    case "출석":
-      backgroundColor = "#a6c8ff";
-      color = "#fff"; // 날짜 숫자 색상을 흰색으로 설정
-      break;
-    case "결석":
-      backgroundColor = "#bfbfbf";
-      break;
-    case "지각":
-      backgroundColor = "#ffd966";
-      break;
-    case "조퇴":
-      backgroundColor = "#a4df9e";
-      break;
-    default:
-      backgroundColor = "#a6c8ff";
-  }
+  const { backgroundColor, color } = getStatusColors(event.title);
 
   const style = {
     backgroundColor,
-    display,
-    justifyContent,
-    alignItems,
-    height,
-    width,
-    color, // 날짜 숫자 색상 스타일 추가
+    color,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    width: "100%",
   };
+
   return {
     style,
   };
 };
 
+// 주말의 배경색을 설정하는 함수
 const dayPropGetter = (date) => {
   const day = date.getDay();
   const style = {
@@ -71,6 +57,7 @@ const CalendarComponent = () => {
   });
   const [currentMonth, setCurrentMonth] = useState(moment().startOf("month"));
 
+  // 초기 로드 시 출석 데이터를 가져오는 useEffect
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/attendance")
@@ -93,10 +80,12 @@ const CalendarComponent = () => {
       });
   }, []);
 
+  // currentMonth와 events 변경 시 출석 통계를 다시 계산하는 useEffect
   useEffect(() => {
     calculateAttendanceStats(events, currentMonth);
   }, [currentMonth, events]);
 
+  // 날짜를 선택했을 때 호출되는 함수
   const handleSelect = (slotInfo) => {
     const day = slotInfo.start.getDay();
     if (day === 0 || day === 6) {
@@ -106,6 +95,7 @@ const CalendarComponent = () => {
     setModalIsOpen(true);
   };
 
+  // 상태 변경 시 호출되는 함수
   const handleStatusChange = (newStatus) => {
     setModalIsOpen(false);
     const existingEvent = events.find(
@@ -127,6 +117,7 @@ const CalendarComponent = () => {
       cohort: { cohortId: 1 },
     };
 
+    // 기존 이벤트가 있는 경우 업데이트, 없는 경우 새로 생성
     if (existingEvent) {
       axios
         .put(
@@ -160,6 +151,7 @@ const CalendarComponent = () => {
     }
   };
 
+  // 출석 통계를 계산하는 함수
   const calculateAttendanceStats = (data, month) => {
     const filteredData = data.filter((attendance) =>
       moment(attendance.start).isSame(month, "month")
@@ -185,10 +177,12 @@ const CalendarComponent = () => {
     });
   };
 
+  // 출석 통계를 업데이트하는 함수
   const updateAttendanceStats = (status, data) => {
     calculateAttendanceStats(data, currentMonth);
   };
 
+  // 달력 이동 시 호출되는 함수
   const onNavigate = (date) => {
     setCurrentMonth(moment(date).startOf("month"));
   };
