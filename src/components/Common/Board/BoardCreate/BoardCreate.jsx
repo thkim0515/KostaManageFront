@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import QEditor from "./QEditor"; // 경로를 올바르게 설정
 import * as S from "./BoardCreate.style";
+import { useSelector } from "react-redux";
 
 const BoardCreate = () => {
   const navigate = useNavigate();
+  const localAddress = useSelector((state) => state.localAddress.value);
+
   const [formData, setFormData] = useState({
     title: "",
     content: "",
@@ -33,7 +36,7 @@ const BoardCreate = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://192.168.0.31:8080/boards/create",
+        `${localAddress}boards/create`,
         { ...formData, content: formData.content }, // HTML 문자열 그대로 전송
         {
           headers: {
@@ -63,13 +66,12 @@ const BoardCreate = () => {
           placeholder="제목을 입력해 주세요."
         />
         <S.EditorWrapper>
-          <QEditor 
-            value={formData.content} 
-            onChange={handleEditorChange} 
-          />
+          <QEditor value={formData.content} onChange={handleEditorChange} />
         </S.EditorWrapper>
         <S.ButtonContainer>
-          <S.BackButton type="button" onClick={handleBackClick}>뒤로가기</S.BackButton>
+          <S.BackButton type="button" onClick={handleBackClick}>
+            뒤로가기
+          </S.BackButton>
           <S.Button type="submit">등록</S.Button>
         </S.ButtonContainer>
       </form>
