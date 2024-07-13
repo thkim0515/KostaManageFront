@@ -11,7 +11,7 @@ import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
 import SignUp from "../../pages/SignUp/SignUp";
 import StudentManagePage from "../StudentManagePage/StudentManagePage";
-import BranchManage from "../BranchManage/BranchManage";
+import BranchManage from "../Common/BranchManage/BranchManage";
 import EducationForm from "../EducationForm/EducationForm";
 
 const Main = () => {

@@ -11,6 +11,7 @@ import {
   FaTrashAlt,
 } from "react-icons/fa";
 import * as S from "./StudentListPage.style";
+import { useSelector } from "react-redux";
 
 const StudentListPage = () => {
   const [student, setStudent] = useState([]);
@@ -20,6 +21,8 @@ const StudentListPage = () => {
   //const [activeMenu, setActiveMenu] = useState(null);
   const [expandedCohortIds, setExpandedCohortIds] = React.useState({});
   const [fetchCohortDetails] = useState([]);
+  const localAddress = useSelector((state) => state.localAddress.value);
+
   const imgUrl =
     "https://kostamanagebucket.s3.ap-northeast-2.amazonaws.com/kostamanageImage/";
   const { id } = useParams();
@@ -28,17 +31,14 @@ const StudentListPage = () => {
       try {
         const JWT_Token =
           "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDU3NDU5NSwiZXhwIjoxNzIwNjEwNTk1fQ.ZOxkZW_Peos1ERtoKolZAAADURQOsfmFJJKhgtiK4K8DS5p9fQgXkEFnkiwVgQ1Q4mVPdeO4Qb--xUCSuHv4gQ";
-        console.log(1);
         const { data } = await axios.get(
-          "http://192.168.19.66:8080/cohorts/all"
+          `${localAddress}cohorts/all`
           //{
           //	headers: {
           //		Authorization: `Bearer ${JWT_Token}`,
           //	},
           //}
         );
-        console.log(2);
-        console.log(data);
         if (Array.isArray(data)) {
           setCohorts(data);
         } else {
@@ -51,10 +51,9 @@ const StudentListPage = () => {
 
     const fetchStudent = async (studentId) => {
       try {
-        const { data } = await axios.get(
-          `http://192.168.19.66:8080/users/get/1`
-        );
-        //console.log(data);
+        const { data } = await axios.get(`${localAddress}users/all`);
+        console.log(data);
+
         const studentData = {
           userId: data.id,
           name: data.name,
@@ -68,7 +67,7 @@ const StudentListPage = () => {
           address: data.address,
           notes: data.notes,
         };
-        setStudent(studentData);
+        setStudent([studentData]);
       } catch (error) {
         console.error("Error fetching student data", error);
       }
@@ -271,14 +270,18 @@ const StudentListPage = () => {
             {student
               .filter(
                 (student) =>
-                  student.name
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase()) ||
-                  student.email.toLowerCase().includes(searchTerm.toLowerCase())
+                  (student.name &&
+                    student.name
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase())) ||
+                  (student.email &&
+                    student.email
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase()))
               )
               .map((student) => (
                 <S.StudentItem
-                  key={student.id}
+                  key={student.userId}
                   onClick={() => handleStudentClick(student)}
                 >
                   <img src={`${imgUrl}${student.profileImg}`} alt="Profile" />
