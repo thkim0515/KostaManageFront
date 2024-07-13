@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
+import { useState } from "react";
 
 import MainPage from "../../pages/MainPage/MainPage";
 import FirstPage from "../../pages/FirstPage/FirstPage";
@@ -13,12 +14,17 @@ import Login from "../../pages/Login/Login";
 import SignUp from "../../pages/SignUp/SignUp";
 
 const Main = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleSideBar = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <S.Container>
       <S.Wrapper>
-        <SideBar />
+        <SideBar isOpen={isOpen} toggleSideBar={toggleSideBar} />
       </S.Wrapper>
-      <S.Content>
+      <S.Content isOpen={isOpen}>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/firstPage" element={<FirstPage />} />

@@ -79,39 +79,36 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* 미디어 쿼리 */
-  /*
+  
   @media (max-width: 600px) {
-    body {
-      background-color: red;
+    html {
+      font-size: 50%;
     }
   }
 
   @media (min-width: 601px) and (max-width: 768px) {
-    body {
-      background-color: blue;
+    html {
+      font-size: 55%;
     }
   }
 
   @media (min-width: 769px) and (max-width: 992px) {
-    body {
-      background-color: green;
+    html {
+      font-size: 60%;
     }
   }
 
   @media (min-width: 993px) and (max-width: 1200px) {
-    body {
-      background-color: yellow;
+    html {
+      font-size: 62.5%;
     }
   }
 
   @media (min-width: 1201px) {
-    body {
-      background-color: orange;
+    html {
+      font-size: 65%;
     }
   }
-  */
-
-  
 `;
 
 export default GlobalStyle;

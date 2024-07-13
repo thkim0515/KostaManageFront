@@ -26,8 +26,11 @@ const eventStyleGetter = (event) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100%",
+    height: "65px",
     width: "100%",
+    borderRadius: "10px",
+    boxSizing: "border-box",
+    pointerEvents: "auto",
   };
 
   return {
@@ -92,6 +95,12 @@ const CalendarComponent = () => {
       return;
     }
     setSelectedDate(slotInfo.start);
+    setModalIsOpen(true);
+  };
+
+  // 이벤트 클릭 시 호출되는 함수
+  const handleEventSelect = (event) => {
+    setSelectedDate(event.start);
     setModalIsOpen(true);
   };
 
@@ -215,6 +224,7 @@ const CalendarComponent = () => {
         style={{ height: 500 }}
         selectable
         onSelectSlot={handleSelect}
+        onSelectEvent={handleEventSelect}
         eventPropGetter={eventStyleGetter}
         dayPropGetter={dayPropGetter}
         onNavigate={onNavigate}
