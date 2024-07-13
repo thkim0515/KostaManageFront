@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
-import { useState } from "react";
 
 import MainPage from "../../pages/MainPage/MainPage";
 import FirstPage from "../../pages/FirstPage/FirstPage";
-// import SecondPage from "../../pages/SecondPage/SecondPage";
 import SideBar from "../Common/SideBar/SideBar";
 import StudentListPage from "../StudentListPage/StudentListPage";
 import Attendance from "../../pages/Attendance/Attendance";
@@ -15,22 +13,34 @@ import SignUp from "../../pages/SignUp/SignUp";
 
 const Main = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const toggleSideBar = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <S.Container>
       <S.Wrapper>
         <SideBar isOpen={isOpen} toggleSideBar={toggleSideBar} />
       </S.Wrapper>
-      <S.Content isOpen={isOpen}>
+      <S.Content isOpen={isOpen} isMobile={isMobile}>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/firstPage" element={<FirstPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
-          {/* <Route path="/secondPage" element={<SecondPage />} /> */}
           <Route path="/student-list" element={<StudentListPage />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/faq" element={<FAQPage />} />
@@ -57,7 +67,7 @@ const Main = () => {
           <Route
             path="/student-list/sales"
             element={<StudentListPage category="sales" />}
-          />{" "}
+          />
         </Routes>
       </S.Content>
     </S.Container>

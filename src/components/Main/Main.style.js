@@ -19,6 +19,7 @@ export const Content = styled.div`
   flex: 4;
   overflow-y: auto;
   position: right;
+
   // margin-left: ${(props) => (props.isOpen ? "0px" : "60px")};
 
   @media (max-width: 768px) {

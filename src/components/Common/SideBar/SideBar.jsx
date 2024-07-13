@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as S from "./SideBar.style";
 import {
@@ -11,16 +11,25 @@ import {
   AlertCircle,
   Folder,
   Gift,
+  ChevronDown,
+  ChevronUp,
+  ChevronLeft,
+  ChevronRight,
 } from "react-feather";
 
 const SideBar = ({ isAdmin }) => {
   const location = useLocation();
   const [selectedMenu, setSelectedMenu] = useState(location.pathname);
   const [isOpen, setIsOpen] = useState(true);
-  const [isFullyOpen, setIsFullyOpen] = useState(true); // 사이드바가 완전히 열렸는지 여부를 나타내는 상태
+  const [isFullyOpen, setIsFullyOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const sidebarRef = useRef(null);
 
   const handleMenuClick = (path) => {
     setSelectedMenu(path);
+    if (isMobile) {
+      setIsOpen(false);
+    }
   };
 
   const handleToggle = () => {
@@ -29,12 +38,43 @@ const SideBar = ({ isAdmin }) => {
 
   useEffect(() => {
     if (isOpen) {
-      const timer = setTimeout(() => setIsFullyOpen(true), 300); // transition 시간과 동일하게 설정
+      const timer = setTimeout(() => setIsFullyOpen(true), 300);
       return () => clearTimeout(timer);
     } else {
       setIsFullyOpen(false);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      if (window.innerWidth > 768) {
+        setIsOpen(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isMobile &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobile]);
 
   const menuItems = isAdmin
     ? [{ path: "/students", icon: Bookmark, label: "학생 관리" }]
@@ -51,13 +91,15 @@ const SideBar = ({ isAdmin }) => {
       ];
 
   return (
-    <S.SideBarContainer isOpen={isOpen}>
+    <S.SideBarContainer ref={sidebarRef} isOpen={isOpen}>
       <S.Rectangle>
         <S.LeftBar>
-          <button onClick={handleToggle}>{isOpen ? "<<" : ">>"}</button>
+          <S.TopToggleButton onClick={handleToggle}>
+            {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </S.TopToggleButton>
           <nav>
             <ul style={{ listStyleType: "none", padding: 0 }}>
-              {menuItems.map((item) => (
+              {menuItems.map((item, index) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
@@ -81,6 +123,17 @@ const SideBar = ({ isAdmin }) => {
                       </S.MenuText>
                     </S.MenuItem>
                   </Link>
+                  {item.path === "/faq" && (
+                    <S.ListItem>
+                      <S.BottomToggleButton onClick={handleToggle}>
+                        {isOpen ? (
+                          <ChevronLeft size={32} />
+                        ) : (
+                          <ChevronRight size={32} />
+                        )}
+                      </S.BottomToggleButton>
+                    </S.ListItem>
+                  )}
                 </li>
               ))}
             </ul>

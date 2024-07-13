@@ -26,7 +26,7 @@ const eventStyleGetter = (event) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "65px",
+    height: "85px",
     width: "100%",
     borderRadius: "10px",
     boxSizing: "border-box",
@@ -221,7 +221,7 @@ const CalendarComponent = () => {
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500 }}
+        style={{ height: 600 }}
         selectable
         onSelectSlot={handleSelect}
         onSelectEvent={handleEventSelect}
