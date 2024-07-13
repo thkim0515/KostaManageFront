@@ -13,7 +13,7 @@ import SignUp from "../../pages/SignUp/SignUp";
 import StudentManagePage from "../StudentManagePage/StudentManagePage";
 import BranchManage from "../Common/BranchManage/BranchManage";
 import EducationForm from "../EducationForm/EducationForm";
-
+import ContentHeader from "../Common/ContentHeader/ContentHeader";
 const Main = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

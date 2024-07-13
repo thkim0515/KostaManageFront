@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
-  token: null, // 토큰 상태 추가
+  token: null,
+  userInfo: null,
   isLoading: false,
   error: null,
 };
 
-// 키 값을 Base64로 인코딩
 const encodedKey = btoa("jwtToken");
 
 export const userSlice = createSlice({
@@ -19,8 +19,8 @@ export const userSlice = createSlice({
     },
     loginSuccess: (state, action) => {
       state.user = action.payload.checkUserName;
-      state.token = action.payload.token; // 토큰 저장
-      console.log(state.token);
+      state.token = action.payload.token;
+      state.userInfo = action.payload.userInfo;
       state.isLoading = false;
       state.error = null;
     },
@@ -30,7 +30,8 @@ export const userSlice = createSlice({
     },
     logout: (state) => {
       state.user = null;
-      state.token = null; // 토큰 제거
+      state.token = null;
+      state.userInfo = null;
       state.error = null;
       localStorage.removeItem(encodedKey);
     },

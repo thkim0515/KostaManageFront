@@ -5,7 +5,7 @@ import axios from "axios";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./calendar.css"; // 추가된 CSS 파일 import
 
-import AttendanceStats from "../../Attendance/AttendanceStats";
+import AttendanceStats from "./../../Common/Attendance/AttendanceStats";
 import CustomToolbar from "./CustomToolbar";
 import {
   toKoreanStatus,

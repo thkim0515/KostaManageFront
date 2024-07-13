@@ -3,7 +3,7 @@ import {
   loginStart,
   loginSuccess,
   loginFail,
-} from "../redux/actions/userLoginSession";
+} from "./../redux/actions/userLoginSession";
 
 /** 로그인 핸들러 */
 export const handleLogin = async (
@@ -28,10 +28,21 @@ export const handleLogin = async (
     // 토큰을 로컬 스토리지에 저장
     localStorage.setItem(encodedKey, token);
 
+    // 사용자 정보 요청
+    const userResponse = await axios.get(
+      `${localAddress}users/name/${getUserName}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
     dispatch(
       loginSuccess({
         checkUserName: getUserName,
-        token: token, // 토큰을 상태로 저장
+        token: token,
+        userInfo: userResponse.data,
       })
     );
   } catch (error) {
