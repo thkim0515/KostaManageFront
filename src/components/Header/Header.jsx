@@ -9,13 +9,13 @@ const Header = () => {
 		navigate("/mainpage");
 	};
 
-	const goToLogin = () => {
-		navigate("/login");
-	};
+  const goToLogin = () => {
+    navigate("/login");
+  };
 
-	const goToSignUp = () => {
-		navigate("/signUp");
-	};
+  const goToSignUp = () => {
+    navigate("/signUp");
+  };
 
   return (
     <S.Container>

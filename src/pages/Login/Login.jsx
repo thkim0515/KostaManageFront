@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/userLoginSession";
 import { handleLogin } from "../../utils/login";
-import * as S from "./Login.style";
 import { Button } from "react-bootstrap";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.token);
-  const dispatch = useDispatch();
   const localAddress = useSelector((state) => state.localAddress.value);
+  const userInfo = useSelector((state) => state.user.userInfo);
 
   const handleLoginClick = () => {
     handleLogin(username, password, dispatch, localAddress);
@@ -44,7 +44,15 @@ const Login = () => {
       ) : (
         <>
           <p>로그인 아이디 : {user}</p>
-          <p>JWT 토큰 : {token}</p> {/* 토큰을 화면에 표시 */}
+          <p>JWT 토큰 : {token}</p>
+          {userInfo && (
+            <div>
+              <p>이메일: {userInfo.email}</p>
+              <p>전화번호: {userInfo.phoneNumber}</p>
+              <p>역할: {userInfo.role}</p>
+              <p>승인 상태: {userInfo.approvalStatus}</p>
+            </div>
+          )}
           <Button variant="outline-primary" onClick={handleLogout}>
             Logout
           </Button>

@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
-  token: null, // 토큰 상태 추가
+  token: null,
+  userInfo: null,
   isLoading: false,
   error: null,
 };
 
-// 키 값을 Base64로 인코딩
 const encodedKey = btoa("jwtToken");
 
 export const userSlice = createSlice({
