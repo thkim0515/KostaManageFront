@@ -8,10 +8,12 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const user = useSelector((state) => state.user.user);
+  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
+  const localAddress = useSelector((state) => state.localAddress.value);
 
   const handleLoginClick = () => {
-    handleLogin(username, password, dispatch);
+    handleLogin(username, password, dispatch, localAddress);
   };
 
   const handleLogout = () => {
@@ -41,6 +43,7 @@ const Login = () => {
       ) : (
         <>
           <p>로그인 아이디 : {user}</p>
+          <p>JWT 토큰 : {token}</p> {/* 토큰을 화면에 표시 */}
           <Button variant="outline-primary" onClick={handleLogout}>
             Logout
           </Button>

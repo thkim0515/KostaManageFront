@@ -2,35 +2,37 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
+  token: null, // 토큰 상태 추가
   isLoading: false,
   error: null,
 };
+
+// 키 값을 Base64로 인코딩
+const encodedKey = btoa("jwtToken");
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     loginStart: (state) => {
-      // console.log("로그인 스타트");
       state.isLoading = true;
     },
     loginSuccess: (state, action) => {
-      // console.log("로그인 성공");
       state.user = action.payload.checkUserName;
+      state.token = action.payload.token; // 토큰 저장
+      console.log(state.token);
       state.isLoading = false;
       state.error = null;
-      // sessionStorage.setItem("userInfo", JSON.stringify(action.payload));
     },
     loginFail: (state, action) => {
-      // console.log("로그인 실패");
       state.isLoading = false;
       state.error = action.payload;
     },
     logout: (state) => {
-      // console.log("로그아웃");
       state.user = null;
+      state.token = null; // 토큰 제거
       state.error = null;
-      // sessionStorage.removeItem("userInfo");
+      localStorage.removeItem(encodedKey);
     },
   },
 });

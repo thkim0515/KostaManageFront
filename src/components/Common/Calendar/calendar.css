@@ -1,0 +1,11 @@
+.rbc-day-bg.rbc-off-range-bg {
+  pointer-events: none;
+}
+
+.rbc-date-cell {
+  pointer-events: none;
+}
+
+.rbc-date-cell div {
+  pointer-events: none;
+}

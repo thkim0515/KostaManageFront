@@ -6,28 +6,34 @@ import {
 } from "../redux/actions/userLoginSession";
 
 /** 로그인 핸들러 */
-export const handleLogin = async (getUserName, getUserPassword, dispatch) => {
+export const handleLogin = async (
+  getUserName,
+  getUserPassword,
+  dispatch,
+  localAddress
+) => {
   dispatch(loginStart());
 
   try {
-    const response = await axios.get(
-      `http://localhost:8080/users/get/${getUserName}`
-    );
-    const userInfo = response.data;
+    const response = await axios.post(`${localAddress}auth/login`, {
+      name: getUserName,
+      password: getUserPassword,
+    });
 
-    if (
-      getUserName === userInfo.userId &&
-      getUserPassword === userInfo.userPassword
-    ) {
-      dispatch(
-        loginSuccess({
-          checkUserName: getUserName,
-          checkUserPassword: getUserPassword,
-        })
-      );
-    } else {
-      dispatch(loginFail("아이디 패스워드 다름"));
-    }
+    const token = response.data;
+
+    // 키 값을 Base64로 인코딩
+    const encodedKey = btoa("jwtToken");
+
+    // 토큰을 로컬 스토리지에 저장
+    localStorage.setItem(encodedKey, token);
+
+    dispatch(
+      loginSuccess({
+        checkUserName: getUserName,
+        token: token, // 토큰을 상태로 저장
+      })
+    );
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       dispatch(loginFail(error.response.data));

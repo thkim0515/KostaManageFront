@@ -5,3 +5,7 @@ export const initialState = {
 export const generation = {
   value: 281,
 };
+
+export const localAddress = {
+  value: "http://localhost:8080/",
+};

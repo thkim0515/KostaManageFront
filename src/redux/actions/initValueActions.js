@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialState, generation } from "../init/initValue";
+import { initialState, generation, localAddress } from "../init/initValue";
 
 const initSlice = createSlice({
   name: "init",
@@ -16,3 +16,11 @@ const generationSlice = createSlice({
 });
 
 export const generationReducer = generationSlice.reducer;
+
+const localAddressSlice = createSlice({
+  name: "localAddress",
+  initialState: localAddress,
+  reducers: {},
+});
+
+export const localAddressReducer = localAddressSlice.reducer;

@@ -2,25 +2,27 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import * as S from "./StudentListPage.style";
 import { FaStar, FaTrashAlt, FaEdit } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const StudentListPage = ({ category }) => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [setCopy] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
+  const localAddress = useSelector((state) => state.localAddress.value);
+
   const imgUrl =
     "https://kostamanagebucket.s3.ap-northeast-2.amazonaws.com/kostamanageImage/";
   useEffect(() => {
     const fetchStudents = async () => {
       try {
         const JWT_Token =
-          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDQ4OTg3NCwiZXhwIjoxNzIwNDkzNDc0fQ.59pyanfMvL0gaxsiPpr9QAsTF3bRYmlxHkb58uJpVCm0Fo2jNwtFOWjIxAtSzVctVwBetfTCcdIfnMW_fC1Pag";
-        const { data } = await axios.get("http://localhost:8080/users/all", {
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiLthYzsiqTtirjtmozsm5AwMCIsImlhdCI6MTcyMDUwMDEzMCwiZXhwIjoxNzIwNTAzNzMwfQ.xJbOOMhRjPOqIRyH0a0XC0XBqLf9pm-3SrMdhZWy3YqxRbpHpGLZlFzNZuBmcwrcI6ZaqhUwpckf8IfRPyxcBw";
+        const { data } = await axios.get(`${localAddress}users/all`, {
           headers: {
             Authorization: `Bearer ${JWT_Token}`, // JWT 토큰을 요청 헤더에 포함
           },
         });
-        console.log(data);
         if (Array.isArray(data)) {
           setStudents(data);
           setCopy(data);
@@ -68,7 +70,10 @@ const StudentListPage = ({ category }) => {
               key={student.id}
               onClick={() => handleStudentClick(student)}
             >
-              <img src={imgUrl} {...student.profileImg} alt="test" />
+              <S.StudentAvatar
+                src={`${imgUrl}${student.profileImg}`}
+                alt={student.name}
+              />
               <S.StudentInfo>
                 <S.StudentName>{student.name}</S.StudentName>
                 <S.StudentEmail>{student.email}</S.StudentEmail>
