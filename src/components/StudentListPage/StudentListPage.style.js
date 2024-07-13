@@ -1,112 +1,156 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  height: 100vh;
+  background-color: #f8f9fa;
+`;
+
+export const Sidebar = styled.div`
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Button = styled.button`
+	width: 100%;
+	padding: 10px;
+	margin: 5px 10px 20px 0;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+`;
+
+export const MenuItem = styled.div`
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #495057;
+
+	&:hover {
+		background-color: #e9ecef;
+	}
+`;
+
+export const MenuText = styled.div`
+	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
+	font-size: 25px;
+	font-weight: bold;
+	align-items: center;
+	margin-left: 20px;
+	font-family: "Noto Sans-Regular", Helvetica;
+`;
+
+export const SubMenuItem = styled.div`
+	background-color: #fbfcff;
+	padding-left: 40px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-size: 20px;
+	&:hover {
+		background-color: #e9ecef;
+	}
+`;
+
+//export const CategoryTitle = styled.h3`
+//	margin-top: 20px;
+//	margin-bottom: 10px;
+//	margin-left: 15px;
+//	font-weight: bold;
+//	color: #495057;
+//`;
+//
+//export const CategoryItem = styled.div`
+//	display: flex;
+//	align-items: center;
+//	padding: 10px;
+//	margin-bottom: 10px;
+//	cursor: pointer;
+//	color: #495057;
+//	&:hover {
+//		background-color: #e9ecef;
+//	}
+//`;
+
+export const MainContent = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
-	background-color: #f8f9fa;
-	width: 100%; // 최상위 컨테이너는 전체 너비 사용
+	padding: 3px;
 `;
 
 export const HeaderWrap = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 16px;
-	background-color: #fff;
-	border-bottom: 1px solid #ddd;
-	width: 100%; // 헤더는 전체 너비 사용
+	padding: 20px;
+	border-bottom: 1px solid #dee2e6;
+	border-right: 1px solid #dee2e6;
+	background-color: #ffffff;
 `;
 
 export const SearchWrapper = styled.div`
 	display: flex;
 	align-items: center;
-	width: 43%;
 `;
 
 export const Search = styled.input`
-	flex: 1;
-	padding: 8px;
-	font-size: 16px;
-	border: 1px solid #ddd;
+	width: 100%;
+	border: 1px solid #dee2e6;
 	border-radius: 4px;
-	width: 100%; // 검색 입력 필드 너비는 전체 부모 너비 사용
 `;
 
-export const ContactDetailsHeader = styled.div`
-	display: flex;
-	align-items: center;
-	margin-left: 16px;
-`;
-
-export const ContactDetailsText = styled.div`
-	font-size: 18px;
-	font-weight: bold;
-	margin-right: 16px;
-`;
-
-export const IconWrapper = styled.div`
-	display: flex;
-	gap: 16px;
-	font-size: 18px;
-`;
-
-export const MainContent = styled.div`
+export const Content = styled.div`
 	display: flex;
 	flex: 1;
-	overflow: hidden;
-	width: 100%; // 메인 컨테이너는 전체 너비 사용
 `;
 
 export const StudentList = styled.div`
-	width: 340px; // 학생 목록의 가로 넓이를 고정
-	overflow-y: auto;
-	background-color: #fff;
-	border-right: 1px solid #ddd;
+  width: 300px;
+  border-right: 1px solid #dee2e6;
+  overflow-y: auto;
+  background-color: #ffffff;
 `;
 
 export const StudentItem = styled.div`
-	display: flex;
-	padding: 16px;
-	border-bottom: 1px solid #ddd;
-	cursor: pointer;
-
-	&:hover {
-		background-color: #f0f0f0;
-	}
-`;
-
-export const StudentAvatar = styled.img`
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e9ecef;
+  }
 `;
 
 export const StudentInfo = styled.div`
-	margin-left: 16px;
+  margin-left: 10px;
 `;
 
 export const StudentName = styled.div`
-	font-size: 16px;
-	font-weight: bold;
+  font-weight: bold;
 `;
 
 export const StudentEmail = styled.div`
-	color: gray;
+  color: #6c757d;
 `;
 
 export const DetailPanel = styled.div`
-	flex: 1; // 남는 공간을 모두 차지
-	padding: 32px;
-	overflow-y: auto;
-	background-color: #fff;
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  margin-left: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const Details = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 16px;
-  font-weight: bold;
 `;
 
 export const ContactDetails = styled.div`
@@ -117,76 +161,73 @@ export const ContactDetails = styled.div`
 export const DetailsHeader = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 `;
 
 export const DetailsAvatar = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  margin-right: 16px;
-`;
-
-export const DetailsInfo = styled.div`
-  display: flex;
-  flex-direction: column;
+  margin-right: 20px;
 `;
 
 export const DetailsBody = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 `;
 
 export const ContactInfo = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
+  flex-direction: column;
+  margin-bottom: 20px;
+`;
 
-  div {
-    flex: 1;
-    &:first-child {
-      margin-right: 16px;
-    }
-  }
+export const ContactInfoItem = styled.div`
+  margin-bottom: 10px;
 `;
 
 export const DetailsButtons = styled.div`
   display: flex;
-  gap: 8px;
-  margin-top: 16px;
+  justify-content: space-between;
 `;
 
 export const EditButton = styled.button`
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  background-color: #007bff;
+  padding: 10px;
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
-  
-  &:hover {
-    background-color: #0056b3;
-  }
-
-  svg {
-    margin-right: 8px;
-  }
+  cursor: pointer;
 `;
 
 export const DeleteButton = styled.button`
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
+  padding: 10px;
   background-color: #dc3545;
   color: white;
   border: none;
   border-radius: 4px;
-  
-  &:hover {
-    background-color: #c82333;
-  }
+  cursor: pointer;
+`;
 
-  svg {
-    margin-right: 8px;
-  }
+export const ContactTitle = styled.h2`
+  margin: 0;
+`;
+
+export const ContactSubtitle = styled.h4`
+  margin: 0;
+  color: #6c757d;
+`;
+
+export const ContactText = styled.p`
+  margin: 0;
+  color: #6c757d;
+`;
+
+export const ContactLabel = styled.strong`
+  display: block;
+  margin-bottom: 5px;
+`;
+
+export const ContactValue = styled.span`
+  display: block;
+  margin-bottom: 10px;
 `;

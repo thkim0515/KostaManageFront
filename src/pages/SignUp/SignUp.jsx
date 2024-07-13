@@ -37,7 +37,7 @@ const SignUp = () => {
     if (Object.values(newErrors).every((error) => error === "")) {
       try {
         const response = await axios.post(
-          "http://192.168.0.5:8080/users/register",
+          "http://192.168.19.66:8080/users/register",
           formData
         );
         console.log(response.status);
@@ -55,98 +55,105 @@ const SignUp = () => {
   };
 
   return (
-    <S.Container>
-      <S.warrap>
-        <S.SignUpField>
-          <label htmlFor="name">이름</label>
-          <S.Input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Name"
-          />
-          {errors.name && <S.ErrorMsg>{errors.name}</S.ErrorMsg>}
-        </S.SignUpField>
+		<S.Container>
+			<S.Wrapper>
+				<S.Group>
+					<h2>회원가입을 위해 정보를 입력 해주세요</h2>
+					<br />
+					<br />
+					<S.SignUpField>
+						<S.Label htmlFor="email">* 이메일</S.Label>
+						<S.Input
+							type="text"
+							name="email"
+							value={formData.email}
+							onChange={handleChange}
+							placeholder="이메일을 입력해주세요"
+						/>
+						{errors.email && <S.ErrorMsg>{errors.email}</S.ErrorMsg>}
+					</S.SignUpField>
 
-        <S.SignUpField>
-          <label htmlFor="email">이메일</label>
-          <S.Input
-            type="text"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-          />
-          {errors.email && <S.ErrorMsg>{errors.email}</S.ErrorMsg>}
-        </S.SignUpField>
+					<S.SignUpField>
+						<S.Label htmlFor="name">* 이름</S.Label>
+						<S.Input
+							type="text"
+							name="name"
+							value={formData.name}
+							onChange={handleChange}
+							placeholder="이름을 입력해주세요"
+						/>
+						{errors.name && <S.ErrorMsg>{errors.name}</S.ErrorMsg>}
+					</S.SignUpField>
 
-        <S.SignUpField>
-          <label htmlFor="password">비밀번호</label>
-          <S.Input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-          {errors.password && <S.ErrorMsg>{errors.password}</S.ErrorMsg>}
-        </S.SignUpField>
+					<S.SignUpField>
+						<S.Label htmlFor="password">* 비밀번호</S.Label>
+						<S.Input
+							type="password"
+							name="password"
+							value={formData.password}
+							onChange={handleChange}
+							placeholder="비밀번호를 입력해주세요"
+						/>
+						{errors.password && <S.ErrorMsg>{errors.password}</S.ErrorMsg>}
+					</S.SignUpField>
 
-        <S.SignUpField>
-          <label htmlFor="phoneNumber">휴대폰 번호</label>
-          <S.Input
-            type="tel"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            placeholder="Phone Number"
-          />
-          {errors.phoneNumber && <S.ErrorMsg>{errors.phoneNumber}</S.ErrorMsg>}
-        </S.SignUpField>
+					<S.SignUpField>
+						<S.Label htmlFor="phoneNumber">* 휴대폰 번호</S.Label>
+						<S.Input
+							type="tel"
+							name="phoneNumber"
+							value={formData.phoneNumber}
+							onChange={handleChange}
+							placeholder="휴대폰 번호를 입력해주세요"
+						/>
+						{errors.phoneNumber && (
+							<S.ErrorMsg>{errors.phoneNumber}</S.ErrorMsg>
+						)}
+					</S.SignUpField>
 
-        <S.SignUpField>
-          <label htmlFor="role">역할</label>
-          <S.Input
-            type="text"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            placeholder="Role"
-          />
-          {errors.role && <S.ErrorMsg>{errors.role}</S.ErrorMsg>}
-        </S.SignUpField>
+					<S.SignUpField>
+						<S.Label htmlFor="role">* 역할</S.Label>
+						<S.Input
+							type="text"
+							name="role"
+							value={formData.role}
+							onChange={handleChange}
+							placeholder="역할을 입력해주세요"
+						/>
+						{errors.role && <S.ErrorMsg>{errors.role}</S.ErrorMsg>}
+					</S.SignUpField>
 
-        <S.SignUpField>
-          <label htmlFor="approvalStatus">에에엘</label>
-          <S.Input
-            type="text"
-            name="approvalStatus"
-            value={formData.approvalStatus}
-            onChange={handleChange}
-            placeholder="approvalStatus"
-          />
-          {errors.approvalStatus && (
-            <S.ErrorMsg>{errors.approvalStatus}</S.ErrorMsg>
-          )}
-        </S.SignUpField>
+					<S.SignUpField>
+						<S.Label htmlFor="approvalStatus">에에엘</S.Label>
+						<S.Input
+							type="text"
+							name="approvalStatus"
+							value={formData.approvalStatus}
+							onChange={handleChange}
+							placeholder="Approval Status"
+						/>
+						{errors.approvalStatus && (
+							<S.ErrorMsg>{errors.approvalStatus}</S.ErrorMsg>
+						)}
+					</S.SignUpField>
 
-        <S.SignUpField>
-          <label htmlFor="cohortId">코호트 ID</label>
-          <S.Input
-            type="number"
-            name="cohortId"
-            value={formData.cohortId}
-            onChange={handleChange}
-            placeholder="Cohort ID"
-          />
-          {errors.cohortId && <S.ErrorMsg>{errors.cohortId}</S.ErrorMsg>}
-        </S.SignUpField>
+					<S.SignUpField>
+						<S.Label htmlFor="cohortId">코호트 ID</S.Label>
+						<S.Input
+							type="number"
+							name="cohortId"
+							value={formData.cohortId}
+							onChange={handleChange}
+							placeholder="Cohort ID"
+						/>
+						{errors.cohortId && <S.ErrorMsg>{errors.cohortId}</S.ErrorMsg>}
+					</S.SignUpField>
 
-        <S.Button onClick={handleSignUp}>Sign Up</S.Button>
-      </S.warrap>
-    </S.Container>
-  );
+					<S.Button onClick={handleSignUp}>가입하기</S.Button>
+				</S.Group>
+			</S.Wrapper>
+		</S.Container>
+	);
 };
 
 export default SignUp;

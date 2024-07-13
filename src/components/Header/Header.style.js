@@ -103,8 +103,3 @@ export const SearchWrapper = styled.div`
   height: 100%;
 `;
 
-export const SearchIcon = styled.img`
-  height: 16px;
-  width: 16px;
-  justify-content: space-between;
-`;

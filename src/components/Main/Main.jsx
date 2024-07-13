@@ -10,6 +10,8 @@ import StudentListPage from "../StudentListPage/StudentListPage";
 import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
+import SignUp from "../../pages/SignUp/SignUp";
+
 const Main = () => {
   return (
     <S.Container>
@@ -20,11 +22,12 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/firstPage" element={<FirstPage />} />
-          <Route path="/MainPage" element={<MainPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+          {/* <Route path="/secondPage" element={<SecondPage />} /> */}
           <Route path="/student-list" element={<StudentListPage />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/faq" element={<FAQPage />} />
-          <Route path="/login" element={<Login />} />
           <Route
             path="/student-list/starred"
             element={<StudentListPage category="starred" />}

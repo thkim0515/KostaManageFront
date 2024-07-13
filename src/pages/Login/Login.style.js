@@ -2,75 +2,65 @@ import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
 export const Container = styled.div`
-  width: 100%;
-  margin: auto;
-  position: relative;
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
-  padding: 20px;
-  background: rgba(40, 57, 101, .9);
-  border-radius: 10px;
+	width: 100%;
+	height: 100vh;
+	margin: auto;
+	position: relative;
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+		0 17px 50px 0 rgba(0, 0, 0, 0.19);
+	padding: 20px;
+	background: #ffffff;
+	border-radius: 10px;
 `;
 
-export const Warrap = styled.div`
-  width: 100%; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center; 
-  padding: 20px; 
+export const Group = styled.div`
+	width: 800px;
+	height: 500px;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	color: #0068ff;
+	font-family: "Noto Sans CJK KR-Bold", Helvetica;
+	font-size: 30px;
+	font-weight: 700;
+	text-align: center;
+	margin: 200px 0 0 330px;
+`;
+
+export const LoginField = styled.div`
+	font-size: 16px;
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  color: #fff;
-  display: block;
-  border: none;
-  padding: 15px 20px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, .1);
-  margin-bottom: 15px;
-  &::placeholder {
-    color: #ddd;
-  }
+	width: 80%;
+	color: #797979;
+	align-items: center;
+	display: center;
+	padding: 15px 20px;
+	border-radius: 25px;
+	background-color: #ffffff;
+	margin-bottom: 30px;
+	&::placeholder {
+		color: #797979;
+	}
 `;
 
 export const Paragraph = styled.p`
-  color: #fff;
+	color: #0068ff;
 `;
 
 export const StyledButton = styled(Button)`
-  background: #1161ee;
-  border: none;
-  padding: 15px 20px;
-  border-radius: 25px;
-  width: 100%;
-  margin-top: 15px;
-  &:hover {
-    background: #0e4eaa;
-  }
-`;
+	background-color: #0068ff;
+	color: #ffffff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 15px;
+	cursor: pointer;
+	font-size: 20px;
+	width: 80%;
+	margin-top: 20px;
 
-export const Tab = styled.div`
-  font-size: 22px;
-  margin-right: 15px;
-  padding-bottom: 5px;
-  margin: 0 15px 10px 0;
-  display: inline-block;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-
-  ${({ selected }) => selected && `
-    color: #fff;
-    border-color: #1161ee;
-  `}
-`;
-
-export const HorizontalRule = styled.hr`
-  height: 2px;
-  margin: 60px 0 50px 0;
-  background: rgba(255, 255, 255, .2);
-`;
-
-export const Link = styled.div`
-  text-align: center;
+	&:hover {
+		background-color: #0056d2;
+	}
 `;
