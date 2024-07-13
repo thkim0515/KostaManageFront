@@ -10,6 +10,9 @@ import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
 import SignUp from "../../pages/SignUp/SignUp";
+import StudentManagePage from "../StudentManagePage/StudentManagePage";
+import BranchManage from "../BranchManage/BranchManage";
+import EducationForm from "../EducationForm/EducationForm";
 
 const Main = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -42,6 +45,9 @@ const Main = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/student-list" element={<StudentListPage />} />
+          <Route path="/student-managePage" element={<StudentManagePage />} />
+          <Route path="/branch-managePage" element={<BranchManage />} />
+          <Route path="/educationForm" element={<EducationForm />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route
