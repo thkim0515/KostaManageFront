@@ -22,21 +22,52 @@ export const Rectangle = styled.div`
   position: relative;
 `;
 
-export const ToggleButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: -20px;
-  background-color: #007bff;
+export const TopToggleButton = styled.button`
+  background-color: #000;
   color: white;
   border: none;
-  border-radius: 0 5px 5px 0;
-  padding: 10px;
+  border-radius: 5px;
+  padding: 5px;
   cursor: pointer;
-  z-index: 1;
+  display: none;
 
   @media (max-width: 768px) {
-    right: -15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
   }
+
+  &:hover {
+    background-color: #000;
+  }
+`;
+
+export const BottomToggleButton = styled.button`
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+export const ListItem = styled.li`
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
 `;
 
 export const LeftBar = styled.div`
@@ -67,7 +98,7 @@ export const MenuIcon = styled.div`
 
 export const MenuText = styled.div`
   color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
-  font-size: 25px;
+  font-size: 2rem;
   font-weight: bold;
   font-family: "Noto Sans-Regular", Helvetica;
   display: ${(props) => (props.isOpen ? "block" : "none")};
@@ -75,6 +106,10 @@ export const MenuText = styled.div`
   opacity: ${(props) => (props.isFullyOpen ? 1 : 0)};
   transition: visibility 0s ${(props) => (props.isFullyOpen ? "0s" : "0.3s")},
     opacity 0.3s;
+
+  // @media (max-width: 768px) {
+  //   font-size: 1.7rem; /* 모바일 버전에서 텍스트 크기 조정 */
+  // }
 `;
 
 export const SubMenuItem = styled.div`
