@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import * as S from "./SecondPage.style";
 import useFetchWithAxios from "../../hooks/useFetchWithAxios";
 import GetValue from "../GetValue";
+
 const SecondPage = () => {
   const count = useSelector((state) => state.counter.count);
-
+  const localAddress = useSelector((state) => state.localAddress.value);
   const fetchParams = {
     get: {
-      url: "http://localhost:8080/users/get/qwe123",
+      url: `${localAddress}users/get/qwe123`,
       method: "get",
     },
   };

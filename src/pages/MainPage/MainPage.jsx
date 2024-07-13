@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease } from "../../redux/actions/counter";
-
+import CommentPage from "../CommentPage/CommentPage";
 import * as S from "./MainPage.style";
 const MainPage = () => {
 	const count = useSelector((state) => state.counter.count);

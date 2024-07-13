@@ -9,6 +9,7 @@ import SideBar from "../Common/SideBar/SideBar";
 import StudentListPage from "../StudentListPage/StudentListPage";
 import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
+import Login from "../../pages/Login/Login";
 const Main = () => {
 	return (
 		<S.Container>
