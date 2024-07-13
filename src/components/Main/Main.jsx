@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
+import { useState } from "react";
 
 import MainPage from "../../pages/MainPage/MainPage";
 import FirstPage from "../../pages/FirstPage/FirstPage";

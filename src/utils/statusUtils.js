@@ -18,7 +18,7 @@ const reverseStatusMap = Object.entries(statusMap).reduce(
 export const toEnglishStatus = (status) => reverseStatusMap[status] || status;
 
 const statusColorsMap = {
-  출석: { backgroundColor: "#a6c8ff", color: "#fff" },
+  출석: { backgroundColor: "#a6c8ff", color: "#000" },
   결석: { backgroundColor: "#bfbfbf", color: "#000" },
   지각: { backgroundColor: "#ffd966", color: "#000" },
   조퇴: { backgroundColor: "#a4df9e", color: "#000" },
