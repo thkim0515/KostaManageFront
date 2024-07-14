@@ -5,26 +5,25 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const BoardList = () => {
+const BoardList = ({ BoardType }) => {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  const navigate = useNavigate();
   const localAddress = useSelector((state) => state.localAddress.value);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`${localAddress}boards/all`);
-        console.log("Response data:", response.data);
+        const response = await axios.get(
+          `${localAddress}boards/type/${BoardType}`
+        );
         if (response.status === 200) {
-          setData(response.data); // response.data가 배열이라고 가정
+          setData(response.data);
         }
-      } catch (error) {
-        console.error("에러 발생으로 정보 못 가져옴", error);
-      }
+      } catch (error) {}
     };
     getData();
-  }, []);
+  }, [BoardType]);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -41,13 +40,16 @@ const BoardList = () => {
         setData(response.data);
       }
     } catch (error) {
-      console.log("검색 실패:", error);
       alert("검색 내용을 찾을 수 없습니다");
     }
   };
 
   const handleRowClick = (id) => {
     navigate(`/board/${id}`); // 상세 페이지로 이동
+  };
+
+  const handleCreateClick = () => {
+    navigate(`/board/create?boardType=${BoardType}`);
   };
 
   return (
@@ -62,6 +64,9 @@ const BoardList = () => {
         />
         <S.SearchIcon icon={faSearch} onClick={handleSearchClick} />
       </S.SearchContainer>
+      <S.ButtonContainer>
+        <S.CreateButton onClick={handleCreateClick}>작성하기</S.CreateButton>
+      </S.ButtonContainer>
       <S.Table>
         <thead>
           <S.TableRow>

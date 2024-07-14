@@ -4,13 +4,15 @@ import * as S from "./Main.style";
 import { useSelector } from "react-redux";
 
 import Board from "../../pages/Board/Board";
+import BoardCreate from "./../Common/Board/BoardCreate/BoardCreate";
 import MainPage from "../../pages/MainPage/MainPage";
 import SideBar from "../Common/SideBar/SideBar";
 import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
 import SignUp from "../Common/SignUp/SignUp";
-import BranchManage from "./../Common/BranchManage/BranchManage";
+import ResearcherMenu from "../Common/ResearcherMenu/ResearcherMenu";
+
 const Main = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -46,8 +48,10 @@ const Main = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/researchermenu" element={<ResearcherMenu />} />
           <Route path="/attendance" element={<Attendance />} />
-          <Route path="/branchManage" element={<BranchManage />} />
+
+          <Route path="/board/create" element={<BoardCreate />} />
 
           <Route
             path="/board/curriculum"

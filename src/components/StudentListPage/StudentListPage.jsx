@@ -52,7 +52,6 @@ const StudentListPage = () => {
     const fetchStudent = async (studentId) => {
       try {
         const { data } = await axios.get(`${localAddress}users/all`);
-        console.log(data);
 
         const studentData = {
           userId: data.id,
@@ -99,13 +98,6 @@ const StudentListPage = () => {
       }));
 
       const cohortDetails = await fetchCohortDetails(cohort.id);
-      if (cohortDetails) {
-        console.log("Clicked Cohort ID:", cohort.id);
-        console.log("Cohort Details:", cohortDetails);
-        // Update the state or display the cohort details as needed
-      } else {
-        console.log("Failed to fetch cohort details");
-      }
     } catch (error) {
       console.error(error);
     }

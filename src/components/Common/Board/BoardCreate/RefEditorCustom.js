@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
-import ReactQuill, { Quill } from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import React, { useState, useRef } from "react";
+import ReactQuill, { Quill } from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 // Custom Toolbar Component
 export const RefEditorCustom = () => (
-    <div id="toolbar">
+  <div id="toolbar">
     <select className="ql-header" defaultValue="" onChange={(e) => e.persist()}>
       <option value="1"></option>
       <option value="2"></option>
@@ -33,7 +33,12 @@ export const RefEditorCustom = () => (
     <button className="ql-link"></button>
     <button className="ql-image"></button>
     <button className="ql-clean"></button>
-    <input type="file" id="file-upload" style={{ display: 'none' }} onChange={(e) => handleFileUpload(e)} />
+    <input
+      type="file"
+      id="file-upload"
+      style={{ display: "none" }}
+      onChange={(e) => handleFileUpload(e)}
+    />
     <button className="ql-fileUpload">📁</button>
   </div>
 );
@@ -43,19 +48,21 @@ const handleFileUpload = (e) => {
   const file = e.target.files[0];
   if (file) {
     // 여기에 파일 업로드 로직을 추가하세요
-    console.log('File uploaded:', file);
+    console.log("File uploaded:", file);
   }
 };
 
 // Register custom file upload button
 const CustomFileUpload = () => {
   const handleClick = () => {
-    document.getElementById('file-upload').click();
+    document.getElementById("file-upload").click();
   };
 
   return (
     <span className="ql-formats">
-      <button className="ql-fileUpload" onClick={handleClick}>📁</button>
+      <button className="ql-fileUpload" onClick={handleClick}>
+        📁
+      </button>
     </span>
   );
 };

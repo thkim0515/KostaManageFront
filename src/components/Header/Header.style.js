@@ -103,3 +103,15 @@ export const SearchWrapper = styled.div`
   height: 100%;
 `;
 
+export const UserInfo = styled.div`
+  display: flex;
+
+  margin-left: 40px;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #333;
+
+  span {
+    margin: 2px 0;
+  }
+`;

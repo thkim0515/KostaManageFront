@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Container = styled.div`
   width: 90%;
@@ -23,6 +23,26 @@ export const Input = styled.input`
 
 export const SearchIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+`;
+
+export const CreateButton = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
 `;
 
 export const Table = styled.table`

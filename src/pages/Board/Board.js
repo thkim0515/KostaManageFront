@@ -7,12 +7,14 @@ import boardTypeMapper from "../../utils/boardTypeMapper";
 const Board = ({ BoardType }) => {
   const boardName = boardTypeMapper(BoardType);
 
+  //boardName >> boardTypeMapper 함수를 통해 한글로 매핑
+  //BoardType (props) >> 데이터베이스 컬럼 설정
+
   return (
     <S.Container>
       <S.Wrapper>
-        <div>{BoardType}</div>
         <ContentHeader boardName={boardName} />
-        <BoardList />
+        <BoardList BoardType={BoardType} />
       </S.Wrapper>
     </S.Container>
   );

@@ -5,44 +5,44 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt } from "react-icons/fa";
 
 const EducationForm = () => {
-	const [agreed, setAgreed] = useState(false);
+  const [agreed, setAgreed] = useState(false);
 
-	const handleAgreeChange = () => {
-		setAgreed(!agreed);
-	};
+  const handleAgreeChange = () => {
+    setAgreed(!agreed);
+  };
 
-	const CustomDatePickerInput = ({ value, onClick, placeholder }) => (
-		<div
-			onClick={onClick}
-			style={{
-				display: "flex",
-				alignItems: "center",
-				cursor: "pointer",
-				border: "1px solid #ccc",
-				padding: "7px",
-				borderRadius: "4px",
-			}}
-		>
-			<FaCalendarAlt style={{ marginRight: "8px", color: "#ccc" }} />
-			<input
-				type="text"
-				value={value}
-				readOnly
-				placeholder={placeholder}
-				style={{
-					border: "none",
-					backgroundColor: "transparent",
-					outline: "none",
-					width: "100%",
-					color: "#555",
-				}}
-			/>
-		</div>
-	);
+  const CustomDatePickerInput = ({ value, onClick, placeholder }) => (
+    <div
+      onClick={onClick}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        cursor: "pointer",
+        border: "1px solid #ccc",
+        padding: "7px",
+        borderRadius: "4px",
+      }}
+    >
+      <FaCalendarAlt style={{ marginRight: "8px", color: "#ccc" }} />
+      <input
+        type="text"
+        value={value}
+        readOnly
+        placeholder={placeholder}
+        style={{
+          border: "none",
+          backgroundColor: "transparent",
+          outline: "none",
+          width: "100%",
+          color: "#555",
+        }}
+      />
+    </div>
+  );
 
-	const textareaRef = React.useRef();
+  const textareaRef = React.useRef();
 
-	const text = `한국소프트웨어기술진흥협회가 취급하는 모든 개인정보는 관련법령에 근거하거나 정보주체의 동의에 의하여 수집·보유 및 처리되고 있습니다. 한국소프트웨어기술진흥협회는 개인정보보호법 제30조에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같이 개인정보 처리방침을 두고 있습니다. 한국소프트웨어기술진흥협회는 개인정보처리방침을 개정하는 경우 웹사이트를 통하여 공지할 예정입니다.
+  const text = `한국소프트웨어기술진흥협회가 취급하는 모든 개인정보는 관련법령에 근거하거나 정보주체의 동의에 의하여 수집·보유 및 처리되고 있습니다. 한국소프트웨어기술진흥협회는 개인정보보호법 제30조에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같이 개인정보 처리방침을 두고 있습니다. 한국소프트웨어기술진흥협회는 개인정보처리방침을 개정하는 경우 웹사이트를 통하여 공지할 예정입니다.
 
 제1조 개인정보의 처리 목적
 한국소프트웨어기술진흥협회는 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적 이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 예정입니다.
@@ -149,199 +149,199 @@ const EducationForm = () => {
 제11조 개인정보 처리방침 변경
 이 개인정보 처리방침은 시행일부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 가능한 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다."
 `;
-	return (
-		<S.Container>
-			<S.Wrapper>
-				<S.LeftColumn>
-					<S.Image src="kosta.png" alt="KOSTA" />
-				</S.LeftColumn>
-				<S.RightColumn>
-					<S.TitleWrapper>
-						<h1>2024년 KOSTA 교육 신청서</h1>
-						<p>* 개인정보 수집 및 이용 동의</p>
-						<S.TextAreaWrapper>
-							<S.TextArea
-								ref={textareaRef}
-								value={text}
-								style={{
-									border: "1px solid #666",
-									padding: "10px",
-									width: "80%",
-									color: "#444",
-									margin: "20px auto",
-								}}
-							/>
-						</S.TextAreaWrapper>
-						<label>
-							<input
-								type="checkbox"
-								checked={agreed}
-								onChange={handleAgreeChange}
-							/>
-							본인은 귀하의 개인정보를 다음과 같이 수집·이용하는 것에
-							동의합니다.
-						</label>
-					</S.TitleWrapper>
-					<form>
-						<S.ManageField>
-							<S.Label>1. 이름</S.Label>
-							<S.NameInput type="text" placeholder="홍길동" />
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>2. 생년월일</S.Label>
-							<DatePicker
-								selected={new Date()}
-								onChange={(date) => console.log(date)}
-								dateFormat="yyyy/MM/dd"
-								customInput={<CustomDatePickerInput />}
-							/>
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>3. 연락처</S.Label>
-							<S.PhoneInputWrapper>
-								<S.PhoneInput type="tel" maxLength="3" placeholder="010" />
-								<span>-</span>
-								<S.PhoneInput type="tel" maxLength="4" />
-								<span>-</span>
-								<S.PhoneInput type="tel" maxLength="4" />
-							</S.PhoneInputWrapper>
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>4. 이메일 </S.Label>
-							<S.Input
-								type="email"
-								placeholder="hanmail/daum/gmail은 메일발송이 불가하오니 다른 메일주소를 적어주시기 바랍니다."
-							/>
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>5. 거주지 주소</S.Label>
-							<S.Input type="text" placeholder="주소" />
-							<S.Input type="text" placeholder="상세주소" />
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>6. 최종학력 </S.Label>
-							<S.Input
-								type="text"
-								placeholder="학교명/전공/졸업구분/졸업년도"
-							/>
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>7. 신청하시는 과정을 선택해주세요.</S.Label>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="course1" />
-								<S.CheckboxLabel htmlFor="course1">
-									[285기] JavaScript기반 Full-Stack 개발자 양성 과정
-									(종로교육센터)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="course2" />
-								<S.CheckboxLabel htmlFor="course2">
-									[286기] Java기반 클라우드 개발자 양성 과정 (종로교육센터)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="course3" />
-								<S.CheckboxLabel htmlFor="course3">
-									[287기] Java기반 클라우드 개발자 양성 과정 (강남교육센터)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="course4" />
-								<S.CheckboxLabel htmlFor="course4">
-									[290기] IT 시스템 엔지니어 양성 과정 (강남교육센터)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="course5" />
-								<S.CheckboxLabel htmlFor="course5">
-									[291기] JavaScript기반 Full-Stack 개발자 양성 과정
-									(강남교육센터)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="course6" />
-								<S.CheckboxLabel htmlFor="course6">
-									[292기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정
-									(강남교육센터)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="course7" />
-								<S.CheckboxLabel htmlFor="course7">
-									[293기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정
-									(종로교육센터)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>
-								8. 코딩경험 (있을 경우 사용했던 언어를 기타란에 기재)
-							</S.Label>
-							<S.RadioWrapper>
-								<input type="radio" id="codingYes" name="codingExperience" />
-								<S.RadioLabel htmlFor="codingYes">있다</S.RadioLabel>
-							</S.RadioWrapper>
-							<S.RadioWrapper>
-								<input type="radio" id="codingNo" name="codingExperience" />
-								<S.RadioLabel htmlFor="codingNo">없다</S.RadioLabel>
-							</S.RadioWrapper>
-							<S.Input type="text" placeholder="기타: 직업경험 여부" />
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>9. 직장경력 및 직업관련 경험 여부</S.Label>
-							<S.RadioWrapper>
-								<input type="radio" id="jobYes" name="jobExperience" />
-								<S.RadioLabel htmlFor="jobYes">있다</S.RadioLabel>
-							</S.RadioWrapper>
-							<S.RadioWrapper>
-								<input type="radio" id="jobNo" name="jobExperience" />
-								<S.RadioLabel htmlFor="jobNo">없다</S.RadioLabel>
-							</S.RadioWrapper>
-							<S.Input
-								type="text"
-								placeholder="* 직장경력이 있을 경우 주요경력사항과 재직기관을 함께 기재해 주시기 바랍니다."
-							/>
-						</S.ManageField>
-						<S.ManageField>
-							<S.Label>10. 교육정보 기입 여부</S.Label>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="info1" />
-								<S.CheckboxLabel htmlFor="info1">
-									KOSTA 홈페이지
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="info2" />
-								<S.CheckboxLabel htmlFor="info2">
-									지인추천(친구, 가족, 학교)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="info3" />
-								<S.CheckboxLabel htmlFor="info3">
-									SNS(Facebook, 인스타그램)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="info4" />
-								<S.CheckboxLabel htmlFor="info4">
-									포털사이트(네이버, 다음)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-							<S.CheckboxWrapper>
-								<input type="checkbox" id="info5" />
-								<S.CheckboxLabel htmlFor="info5">
-									오프라인(학원방문, 대학 특강)
-								</S.CheckboxLabel>
-							</S.CheckboxWrapper>
-						</S.ManageField>
-						<S.Button type="submit">신청서 제출</S.Button>
-					</form>
-				</S.RightColumn>
-			</S.Wrapper>
-		</S.Container>
-	);
+  return (
+    <S.Container>
+      <S.Wrapper>
+        <S.LeftColumn>
+          <S.Image src="kosta.png" alt="KOSTA" />
+        </S.LeftColumn>
+        <S.RightColumn>
+          <S.TitleWrapper>
+            <h1>2024년 KOSTA 교육 신청서</h1>
+            <p>* 개인정보 수집 및 이용 동의</p>
+            <S.TextAreaWrapper>
+              <S.TextArea
+                ref={textareaRef}
+                value={text}
+                style={{
+                  border: "1px solid #666",
+                  padding: "10px",
+                  width: "80%",
+                  color: "#444",
+                  margin: "20px auto",
+                }}
+              />
+            </S.TextAreaWrapper>
+            <label>
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={handleAgreeChange}
+              />
+              본인은 귀하의 개인정보를 다음과 같이 수집·이용하는 것에
+              동의합니다.
+            </label>
+          </S.TitleWrapper>
+          <form>
+            <S.ManageField>
+              <S.Label>1. 이름</S.Label>
+              <S.NameInput type="text" placeholder="홍길동" />
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>2. 생년월일</S.Label>
+              <DatePicker
+                selected={new Date()}
+                // onChange={(date) => console.log(date)}
+                dateFormat="yyyy/MM/dd"
+                customInput={<CustomDatePickerInput />}
+              />
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>3. 연락처</S.Label>
+              <S.PhoneInputWrapper>
+                <S.PhoneInput type="tel" maxLength="3" placeholder="010" />
+                <span>-</span>
+                <S.PhoneInput type="tel" maxLength="4" />
+                <span>-</span>
+                <S.PhoneInput type="tel" maxLength="4" />
+              </S.PhoneInputWrapper>
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>4. 이메일 </S.Label>
+              <S.Input
+                type="email"
+                placeholder="hanmail/daum/gmail은 메일발송이 불가하오니 다른 메일주소를 적어주시기 바랍니다."
+              />
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>5. 거주지 주소</S.Label>
+              <S.Input type="text" placeholder="주소" />
+              <S.Input type="text" placeholder="상세주소" />
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>6. 최종학력 </S.Label>
+              <S.Input
+                type="text"
+                placeholder="학교명/전공/졸업구분/졸업년도"
+              />
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>7. 신청하시는 과정을 선택해주세요.</S.Label>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="course1" />
+                <S.CheckboxLabel htmlFor="course1">
+                  [285기] JavaScript기반 Full-Stack 개발자 양성 과정
+                  (종로교육센터)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="course2" />
+                <S.CheckboxLabel htmlFor="course2">
+                  [286기] Java기반 클라우드 개발자 양성 과정 (종로교육센터)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="course3" />
+                <S.CheckboxLabel htmlFor="course3">
+                  [287기] Java기반 클라우드 개발자 양성 과정 (강남교육센터)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="course4" />
+                <S.CheckboxLabel htmlFor="course4">
+                  [290기] IT 시스템 엔지니어 양성 과정 (강남교육센터)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="course5" />
+                <S.CheckboxLabel htmlFor="course5">
+                  [291기] JavaScript기반 Full-Stack 개발자 양성 과정
+                  (강남교육센터)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="course6" />
+                <S.CheckboxLabel htmlFor="course6">
+                  [292기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정
+                  (강남교육센터)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="course7" />
+                <S.CheckboxLabel htmlFor="course7">
+                  [293기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정
+                  (종로교육센터)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>
+                8. 코딩경험 (있을 경우 사용했던 언어를 기타란에 기재)
+              </S.Label>
+              <S.RadioWrapper>
+                <input type="radio" id="codingYes" name="codingExperience" />
+                <S.RadioLabel htmlFor="codingYes">있다</S.RadioLabel>
+              </S.RadioWrapper>
+              <S.RadioWrapper>
+                <input type="radio" id="codingNo" name="codingExperience" />
+                <S.RadioLabel htmlFor="codingNo">없다</S.RadioLabel>
+              </S.RadioWrapper>
+              <S.Input type="text" placeholder="기타: 직업경험 여부" />
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>9. 직장경력 및 직업관련 경험 여부</S.Label>
+              <S.RadioWrapper>
+                <input type="radio" id="jobYes" name="jobExperience" />
+                <S.RadioLabel htmlFor="jobYes">있다</S.RadioLabel>
+              </S.RadioWrapper>
+              <S.RadioWrapper>
+                <input type="radio" id="jobNo" name="jobExperience" />
+                <S.RadioLabel htmlFor="jobNo">없다</S.RadioLabel>
+              </S.RadioWrapper>
+              <S.Input
+                type="text"
+                placeholder="* 직장경력이 있을 경우 주요경력사항과 재직기관을 함께 기재해 주시기 바랍니다."
+              />
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>10. 교육정보 기입 여부</S.Label>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="info1" />
+                <S.CheckboxLabel htmlFor="info1">
+                  KOSTA 홈페이지
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="info2" />
+                <S.CheckboxLabel htmlFor="info2">
+                  지인추천(친구, 가족, 학교)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="info3" />
+                <S.CheckboxLabel htmlFor="info3">
+                  SNS(Facebook, 인스타그램)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="info4" />
+                <S.CheckboxLabel htmlFor="info4">
+                  포털사이트(네이버, 다음)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+              <S.CheckboxWrapper>
+                <input type="checkbox" id="info5" />
+                <S.CheckboxLabel htmlFor="info5">
+                  오프라인(학원방문, 대학 특강)
+                </S.CheckboxLabel>
+              </S.CheckboxWrapper>
+            </S.ManageField>
+            <S.Button type="submit">신청서 제출</S.Button>
+          </form>
+        </S.RightColumn>
+      </S.Wrapper>
+    </S.Container>
+  );
 };
 
 export default EducationForm;

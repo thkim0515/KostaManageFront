@@ -77,7 +77,7 @@ const SideBar = ({ isAdmin }) => {
   }, [isMobile]);
 
   const menuItems = isAdmin
-    ? [{ path: "/students", icon: Bookmark, label: "학생 관리" }]
+    ? [{ path: "/researchermenu", icon: Bookmark, label: "학생 관리" }]
     : [{ path: "/attendance", icon: Bluetooth, label: "출결" }];
 
   const commonMenuItems = [

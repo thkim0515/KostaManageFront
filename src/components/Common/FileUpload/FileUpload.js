@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const FileUploadComponent = () => {
   const [boardId, setBoardId] = useState("");
   const [files, setFiles] = useState([]);
-
+  const localAddress = useSelector((state) => state.localAddress.value);
   const handleFileChange = (e) => {
     setFiles(e.target.files);
   };
@@ -20,19 +21,12 @@ const FileUploadComponent = () => {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/posts",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log("File upload successful:", response.data);
-    } catch (error) {
-      console.error("File upload failed:", error);
-    }
+      const response = await axios.post(`${localAddress}api/posts`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    } catch (error) {}
   };
 
   return (
