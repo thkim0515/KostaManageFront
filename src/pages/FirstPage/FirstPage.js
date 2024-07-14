@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./FirstPage.style";
-
+import BranchManage from "../../components/Common/BranchManage/BranchManage";
 const FirstPage = () => {
 	const count = useSelector((state) => state.counter.count);
 	const user = useSelector((state) => state.user.user);

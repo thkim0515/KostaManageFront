@@ -2,18 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
 
+import Board from "../../pages/Board/Board";
 import MainPage from "../../pages/MainPage/MainPage";
-import FirstPage from "../../pages/FirstPage/FirstPage";
 import SideBar from "../Common/SideBar/SideBar";
-import StudentListPage from "../StudentListPage/StudentListPage";
 import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
-import SignUp from "../../pages/SignUp/SignUp";
-import StudentManagePage from "../StudentManagePage/StudentManagePage";
-import BranchManage from "../Common/BranchManage/BranchManage";
-import EducationForm from "../EducationForm/EducationForm";
-import ContentHeader from "../Common/ContentHeader/ContentHeader";
+import SignUp from "../Common/SignUp/SignUp";
+
 const Main = () => {
 	return (
 		<S.Container>

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import * as S from "./Board.style";
+import * as S from "./BoardList.style";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Board = () => {
+const BoardList = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
@@ -93,4 +93,4 @@ const Board = () => {
   );
 };
 
-export default Board;
+export default BoardList;
