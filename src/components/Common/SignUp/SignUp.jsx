@@ -127,7 +127,7 @@ const SignUp = () => {
     role: "",
     cohortId: 1,
     assignedCohort: null,
-    approvalStatus: "",
+    approvalStatus: "Pending",
   });
 
   const [errors, setErrors] = useState({});
@@ -149,24 +149,25 @@ const SignUp = () => {
 
     setErrors(newErrors);
 
-    if (Object.values(newErrors).every((error) => error === "")) {
-      try {
-        const response = await axios.post(
-          `${localAddress}users/register`,
-          formData
-        );
-        console.log(response.status);
-        if (response.status === 200) {
-          console.log("User registered:", response.data);
-          alert("회원가입 성공");
-        } else {
-          alert("회원가입 실패");
-        }
-      } catch (error) {
-        console.error("There was an error!", error);
-        alert("회원가입 중 오류가 발생했습니다.");
-      }
-    }
+    console.log(formData);
+    // if (Object.values(newErrors).every((error) => error === "")) {
+    //   try {
+    //     const response = await axios.post(
+    //       `${localAddress}users/register`,
+    //       formData
+    //     );
+    //     console.log(response.status);
+    //     if (response.status === 200) {
+    //       console.log("User registered:", response.data);
+    //       alert("회원가입 성공");
+    //     } else {
+    //       alert("회원가입 실패");
+    //     }
+    //   } catch (error) {
+    //     console.error("There was an error!", error);
+    //     alert("회원가입 중 오류가 발생했습니다.");
+    //   }
+    // }
   };
 
   return (
@@ -176,17 +177,6 @@ const SignUp = () => {
           <h2>회원가입을 위해 정보를 입력 해주세요</h2>
           <br />
           <br />
-          <S.SignUpField>
-            <S.Label htmlFor="email">* 이메일</S.Label>
-            <S.Input
-              type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="이메일을 입력해주세요"
-            />
-            {errors.email && <S.ErrorMsg>{errors.email}</S.ErrorMsg>}
-          </S.SignUpField>
 
           <S.SignUpField>
             <S.Label htmlFor="name">* 이름</S.Label>
@@ -198,6 +188,18 @@ const SignUp = () => {
               placeholder="이름을 입력해주세요"
             />
             {errors.name && <S.ErrorMsg>{errors.name}</S.ErrorMsg>}
+          </S.SignUpField>
+
+          <S.SignUpField>
+            <S.Label htmlFor="email">* 이메일</S.Label>
+            <S.Input
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="이메일을 입력해주세요"
+            />
+            {errors.email && <S.ErrorMsg>{errors.email}</S.ErrorMsg>}
           </S.SignUpField>
 
           <S.SignUpField>
@@ -236,20 +238,6 @@ const SignUp = () => {
               placeholder="역할을 입력해주세요"
             />
             {errors.role && <S.ErrorMsg>{errors.role}</S.ErrorMsg>}
-          </S.SignUpField>
-
-          <S.SignUpField>
-            <S.Label htmlFor="approvalStatus">에에엘</S.Label>
-            <S.Input
-              type="text"
-              name="approvalStatus"
-              value={formData.approvalStatus}
-              onChange={handleChange}
-              placeholder="Approval Status"
-            />
-            {errors.approvalStatus && (
-              <S.ErrorMsg>{errors.approvalStatus}</S.ErrorMsg>
-            )}
           </S.SignUpField>
 
           <S.SignUpField>
