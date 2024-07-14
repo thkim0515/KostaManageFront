@@ -13,6 +13,7 @@ import {
   getStatusColors,
 } from "../../../utils/statusUtils";
 import StatusModal from "./StatusModal";
+import { useSelector } from "react-redux";
 
 const localizer = momentLocalizer(moment);
 
@@ -59,11 +60,20 @@ const CalendarComponent = () => {
     absentsFromLateEarly: 0,
   });
   const [currentMonth, setCurrentMonth] = useState(moment().startOf("month"));
+  const userInfo_id = useSelector((state) => state.user?.userInfo?.userId);
+  const cohorts_id = useSelector(
+    (state) => state.user?.userInfo?.cohort?.cohortId
+  );
+  const localAddress = useSelector((state) => state.localAddress?.value);
 
   // 초기 로드 시 출석 데이터를 가져오는 useEffect
   useEffect(() => {
+    if (!userInfo_id) {
+      console.error("User ID is not available!");
+      return;
+    }
     axios
-      .get("http://localhost:8080/api/attendance")
+      .get(`${localAddress}api/attendance/user/${userInfo_id}`)
       .then((response) => {
         const eventsFromDB = response.data.map((attendance) => ({
           id: attendance.attendanceId,
@@ -81,7 +91,7 @@ const CalendarComponent = () => {
           error
         );
       });
-  }, []);
+  }, [userInfo_id, localAddress, currentMonth]);
 
   // currentMonth와 events 변경 시 출석 통계를 다시 계산하는 useEffect
   useEffect(() => {
@@ -122,15 +132,15 @@ const CalendarComponent = () => {
     const attendanceData = {
       date: selectedDate,
       status: toEnglishStatus(newStatus),
-      user: { userId: 1 },
-      cohort: { cohortId: 1 },
+      user: { userId: userInfo_id },
+      cohort: { cohortId: cohorts_id },
     };
 
     // 기존 이벤트가 있는 경우 업데이트, 없는 경우 새로 생성
     if (existingEvent) {
       axios
         .put(
-          `http://localhost:8080/api/attendance/${existingEvent.id}`,
+          `${localAddress}api/attendance/${existingEvent.id}`,
           attendanceData
         )
         .then((response) => {
@@ -147,7 +157,7 @@ const CalendarComponent = () => {
         });
     } else {
       axios
-        .post("http://localhost:8080/api/attendance", attendanceData)
+        .post(`${localAddress}api/attendance`, attendanceData)
         .then((response) => {
           newEvent.id = response.data.attendanceId;
           const updatedEvents = [...events, newEvent];

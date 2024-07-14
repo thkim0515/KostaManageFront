@@ -4,13 +4,15 @@ import * as S from "./Main.style";
 import { useSelector } from "react-redux";
 
 import Board from "../../pages/Board/Board";
+import BoardCreate from "./../Common/Board/BoardCreate/BoardCreate";
 import MainPage from "../../pages/MainPage/MainPage";
 import SideBar from "../Common/SideBar/SideBar";
 import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
 import SignUp from "../Common/SignUp/SignUp";
-import BranchManage from "./../Common/BranchManage/BranchManage";
+import ResearcherMenu from "../Common/ResearcherMenu/ResearcherMenu";
+
 const Main = () => {
 	return (
 		<S.Container>

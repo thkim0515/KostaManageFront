@@ -34,12 +34,10 @@ const CommentForm = ({ boardId, parentId, addComment }) => {
 
     const newComment = {
       board: { postId: boardId },
-      user: { userId: 1 }, // 사용자 ID는 인증 시스템에 따라 다르게 설정해야 함
+      user: { userId: 1 },
       content: content,
       parent: parentId ? { commentId: parentId } : null,
     };
-
-    console.log(newComment);
 
     axios
       .post(`${localAddress}comments/create`, newComment)

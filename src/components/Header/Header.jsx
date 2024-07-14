@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/actions/userLoginSession";
 import * as S from "./Header.style";
 
 const Header = () => {
@@ -15,6 +17,10 @@ const Header = () => {
 
   const goToSignUp = () => {
     navigate("/signUp");
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (

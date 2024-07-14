@@ -149,25 +149,22 @@ const SignUp = () => {
 
     setErrors(newErrors);
 
-    console.log(formData);
-    // if (Object.values(newErrors).every((error) => error === "")) {
-    //   try {
-    //     const response = await axios.post(
-    //       `${localAddress}users/register`,
-    //       formData
-    //     );
-    //     console.log(response.status);
-    //     if (response.status === 200) {
-    //       console.log("User registered:", response.data);
-    //       alert("회원가입 성공");
-    //     } else {
-    //       alert("회원가입 실패");
-    //     }
-    //   } catch (error) {
-    //     console.error("There was an error!", error);
-    //     alert("회원가입 중 오류가 발생했습니다.");
-    //   }
-    // }
+    if (Object.values(newErrors).every((error) => error === "")) {
+      try {
+        const response = await axios.post(
+          `${localAddress}users/register`,
+          formData
+        );
+        if (response.status === 200) {
+          alert("회원가입 성공");
+        } else {
+          alert("회원가입 실패");
+        }
+      } catch (error) {
+        console.error("There was an error!", error);
+        alert("회원가입 중 오류가 발생했습니다.");
+      }
+    }
   };
 
   return (

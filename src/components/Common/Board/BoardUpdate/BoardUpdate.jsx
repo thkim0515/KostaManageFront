@@ -70,15 +70,12 @@ const BoardUpdate = () => {
         );
 
         if (response.status === 200) {
-          console.log("update", response.data);
           alert("수정이 완료되었습니다.");
         }
       } catch (error) {
-        console.log("error", error);
         alert("수정 중 오류가 발생했습니다.");
       }
     } else {
-      console.log("cancel");
     }
   };
 

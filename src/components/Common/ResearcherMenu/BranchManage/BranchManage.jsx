@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
-import * as Vali from "../../../utils/signupValidation";
-import * as S from "./BranchManage.style";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import * as Vali from "../../../../utils/signupValidation";
+import * as S from "./BranchManage.style";
 
 const BranchManage = () => {
   const localAddress = useSelector((state) => state.localAddress.value);
+
   const [formData, setFormData] = useState({
     branchName: "",
     branchLocation: "",
@@ -55,16 +56,14 @@ const BranchManage = () => {
           `${localAddress}users/register`,
           formData
         );
-        console.log(response.status);
         if (response.status === 200) {
-          console.log("User registered:", response.data);
-          alert("지점등록 성공");
+          alert("회원가입 성공");
         } else {
-          alert("지점등록 실패");
+          alert("회원가입 실패");
         }
       } catch (error) {
         console.error("There was an error!", error);
-        alert("지점등록 중 오류가 발생했습니다.");
+        alert("회원가입 중 오류가 발생했습니다.");
       }
     }
   };

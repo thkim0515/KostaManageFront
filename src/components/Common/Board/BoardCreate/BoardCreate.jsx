@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import QEditor from "./QEditor"; // 경로를 올바르게 설정
 import * as S from "./BoardCreate.style";
@@ -7,12 +7,16 @@ import { useSelector } from "react-redux";
 
 const BoardCreate = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const localAddress = useSelector((state) => state.localAddress.value);
+
+  const searchParams = new URLSearchParams(location.search);
+  const boardType = searchParams.get("boardType");
 
   const [formData, setFormData] = useState({
     title: "",
     content: "",
-    type: "Announcement",
+    type: boardType,
     user: { userId: 1 },
     cohortId: 1,
   });

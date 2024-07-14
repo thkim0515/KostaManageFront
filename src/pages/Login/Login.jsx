@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/actions/userLoginSession";
+import { logout } from "../../redux/actions/userLoginSession";
 import { handleLogin } from "../../utils/login";
 import * as S from "./Login.style"; // 스타일 임포트
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.token);
   const localAddress = useSelector((state) => state.localAddress.value);

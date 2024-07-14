@@ -1,9 +1,9 @@
 import axios from "axios";
 import {
-	loginStart,
-	loginSuccess,
-	loginFail,
-} from "../pages/redux/actions/userLoginSession";
+  loginStart,
+  loginFail,
+  loginSuccess,
+} from "../redux/actions/userLoginSession";
 
 /** 로그인 핸들러 */
 export const handleLogin = async (
@@ -22,13 +22,10 @@ export const handleLogin = async (
 
     const token = response.data;
 
-    // 키 값을 Base64로 인코딩
     const encodedKey = btoa("jwtToken");
 
-    // 토큰을 로컬 스토리지에 저장
     localStorage.setItem(encodedKey, token);
 
-    // 사용자 정보 요청
     const userResponse = await axios.get(
       `${localAddress}users/name/${getUserName}`,
       {
@@ -38,6 +35,18 @@ export const handleLogin = async (
       }
     );
 
+    // const cohort_id = userResponse.data.cohortId;
+
+    // const cohortsResponse = await axios.get(
+    //   `${localAddress}cohorts/get/${cohort_id}`,
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   }
+    // );
+
+    // console.log(cohortsResponse.data);
     const isAdmin =
       userResponse.data.role === "Admin" ||
       userResponse.data.role === "Researcher";

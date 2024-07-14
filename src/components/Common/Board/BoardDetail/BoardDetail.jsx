@@ -13,7 +13,6 @@ const BoardDetail = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${localAddress}boards/get/2`);
-        console.log(response.data);
         const data = Array.isArray(response.data)
           ? response.data
           : [response.data];
@@ -39,18 +38,15 @@ const BoardDetail = () => {
           }
         );
         if (response.status === 200) {
-          console.log("success delete", response.status);
           alert("삭제 완료 했습니다");
           setGetData(getData.filter((board) => board.id !== id));
         } else {
           alert("삭제 실패");
         }
       } catch (error) {
-        console.log("fail", error);
         alert("에러가 발생했습니다.");
       }
     } else {
-      console.log("cancel");
     }
   };
 
@@ -58,7 +54,6 @@ const BoardDetail = () => {
     if (window.confirm("정말로 수정하시겠습니까?")) {
       navigate(`/update/${board.id}`);
     } else {
-      console.log("cancel");
     }
   };
 
