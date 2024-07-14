@@ -11,7 +11,7 @@ const Board = ({ BoardType }) => {
     <S.Container>
       <S.Wrapper>
         <ContentHeader boardName={boardName} />
-        <BoardList />/
+        <BoardList />
       </S.Wrapper>
     </S.Container>
   );

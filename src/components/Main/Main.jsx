@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
+import { useSelector } from "react-redux";
 
 import Board from "../../pages/Board/Board";
 import MainPage from "../../pages/MainPage/MainPage";
@@ -9,7 +10,7 @@ import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
 import SignUp from "../Common/SignUp/SignUp";
-
+import BranchManage from "./../Common/BranchManage/BranchManage";
 const Main = () => {
 	return (
 		<S.Container>

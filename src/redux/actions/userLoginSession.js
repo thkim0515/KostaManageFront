@@ -6,6 +6,7 @@ const initialState = {
   userInfo: null,
   isLoading: false,
   error: null,
+  isAdmin: false,
 };
 
 const encodedKey = btoa("jwtToken");
