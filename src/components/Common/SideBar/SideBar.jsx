@@ -80,13 +80,13 @@ const SideBar = ({ isAdmin }) => {
     ? [{ path: "/students", icon: Bookmark, label: "학생 관리" }]
     : [
         { path: "/attendance", icon: Bluetooth, label: "출결" },
-        { path: "/curriculum", icon: Flag, label: "커리큘럼" },
-        { path: "/board", icon: Folder, label: "통합게시판" },
-        { path: "/class-content", icon: Code, label: "수업내용" },
-        { path: "/congratulations", icon: Gift, label: "축하해주세요!" },
-        { path: "/announcements", icon: AlertCircle, label: "공지사항" },
-        { path: "/complaints", icon: MessageCircle, label: "민원게시판" },
-        { path: "/study-groups", icon: Bookmark, label: "스터디모집" },
+        { path: "/board/curriculum", icon: Flag, label: "커리큘럼" },
+        { path: "/board/general", icon: Folder, label: "통합게시판" },
+        { path: "/board/classContents", icon: Code, label: "수업내용" },
+        { path: "/board/congratulations", icon: Gift, label: "축하해주세요!" },
+        { path: "/board/announcements", icon: AlertCircle, label: "공지사항" },
+        { path: "/board/complaints", icon: MessageCircle, label: "민원게시판" },
+        { path: "/board/studyGroup", icon: Bookmark, label: "스터디모집" },
         { path: "/faq", icon: Info, label: "FAQ게시판" },
       ];
 

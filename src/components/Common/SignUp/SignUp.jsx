@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import * as Vali from "../../utils/signupValidation";
+import * as Vali from "../../../utils/signupValidation";
 import * as S from "./SignUp.style";
 import { useSelector } from "react-redux";
 

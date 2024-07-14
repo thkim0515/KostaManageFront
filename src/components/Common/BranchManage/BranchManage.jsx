@@ -58,13 +58,13 @@ const BranchManage = () => {
         console.log(response.status);
         if (response.status === 200) {
           console.log("User registered:", response.data);
-          alert("회원가입 성공");
+          alert("지점등록 성공");
         } else {
-          alert("회원가입 실패");
+          alert("지점등록 실패");
         }
       } catch (error) {
         console.error("There was an error!", error);
-        alert("회원가입 중 오류가 발생했습니다.");
+        alert("지점등록 중 오류가 발생했습니다.");
       }
     }
   };
