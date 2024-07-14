@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/actions/userLoginSession";
+import { logout } from "../redux/actions/userLoginSession";
 import { handleLogin } from "../../utils/login";
-import { Button } from "react-bootstrap";
+import * as S from "./Login.style"; // 스타일 임포트
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -22,43 +22,49 @@ const Login = () => {
   };
 
   return (
-    <div>
-      {!user ? (
-        <>
-          <input
-            type="text"
-            placeholder="아이디"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="패스워드"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button variant="outline-primary" onClick={handleLoginClick}>
-            Login
-          </Button>
-        </>
-      ) : (
-        <>
-          <p>로그인 아이디 : {user}</p>
-          <p>JWT 토큰 : {token}</p>
-          {userInfo && (
-            <div>
-              <p>이메일: {userInfo.email}</p>
-              <p>전화번호: {userInfo.phoneNumber}</p>
-              <p>역할: {userInfo.role}</p>
-              <p>승인 상태: {userInfo.approvalStatus}</p>
-            </div>
-          )}
-          <Button variant="outline-primary" onClick={handleLogout}>
-            Logout
-          </Button>
-        </>
-      )}
-    </div>
+    <S.Container>
+      <S.Group>
+        {!user ? (
+          <>
+            <S.LoginField>
+              <S.Input
+                type="text"
+                placeholder="아이디"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </S.LoginField>
+            <S.LoginField>
+              <S.Input
+                type="password"
+                placeholder="패스워드"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </S.LoginField>
+            <S.StyledButton onClick={handleLoginClick}>
+              Login
+            </S.StyledButton>
+          </>
+        ) : (
+          <>
+            <S.Paragraph>로그인 아이디 : {user}</S.Paragraph>
+            <S.Paragraph>JWT 토큰 : {token}</S.Paragraph>
+            {userInfo && (
+              <div>
+                <S.Paragraph>이메일: {userInfo.email}</S.Paragraph>
+                <S.Paragraph>전화번호: {userInfo.phoneNumber}</S.Paragraph>
+                <S.Paragraph>역할: {userInfo.role}</S.Paragraph>
+                <S.Paragraph>승인 상태: {userInfo.approvalStatus}</S.Paragraph>
+              </div>
+            )}
+            <S.StyledButton onClick={handleLogout}>
+              Logout
+            </S.StyledButton>
+          </>
+        )}
+      </S.Group>
+    </S.Container>
   );
 };
 

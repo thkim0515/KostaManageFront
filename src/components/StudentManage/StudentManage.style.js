@@ -10,9 +10,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
 	width: 100%;
-	/*max-width: 800px;*/
 	margin: 0 auto;
-	padding: 50px;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -35,7 +33,6 @@ export const Group = styled.div`
 	padding: 90px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	margin: 50px 0 0 400px;
 `;
 export const Row = styled.div`
 	display: flex;
