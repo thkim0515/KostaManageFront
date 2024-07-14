@@ -4,14 +4,11 @@ export const Container = styled.div`
 	width: 100%;
 	height: 100%;
 	background-color: #f4f4f4;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 `;
 
 export const Wrapper = styled.div`
 	width: 100%;
-	margin: 0 auto;
+	margin: 0 0 30px 0;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,7 +22,6 @@ export const Group = styled.div`
 	padding: 60px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	/*margin: 50px 0;*/
 `;
 
 export const TitleWrapper = styled.div`
@@ -65,21 +61,23 @@ export const DateLabel = styled.label`
 	margin: 10px 28px 0 -12px;
 	text-align: left;
 	width: 100%;
+	color: #797979;
 `;
 
 export const DateInput = styled.input`
 	padding: 8px;
 	width: 150%;
-	color: #555;
+	color: #797979;
 	margin-top: 5px;
 	border-radius: 8px;
-	border: 1px solid #888;
+	border: 1px solid #dcdcdc;
 `;
 
 export const Label = styled.label`
 	margin: 10px 28px 0 0;
 	text-align: left;
 	width: 100%;
+	color: #797979;
 `;
 
 export const Input = styled.input`
@@ -87,7 +85,7 @@ export const Input = styled.input`
 	width: 100%;
 	margin-top: 5px;
 	border-radius: 8px;
-	border: 1px solid #777;
+	border: 1px solid #dcdcdc;
 `;
 
 export const Select = styled.select`
@@ -95,6 +93,7 @@ export const Select = styled.select`
 	width: 100%;
 	margin-top: 5px;
 	color: #666;
+	border: 1px solid #dcdcdc;
 	border-radius: 8px;
 `;
 
@@ -103,6 +102,7 @@ export const TextArea = styled.textarea`
 	width: 100%;
 	margin-top: 5px;
 	border-radius: 8px;
+	border: 1px solid #dcdcdc;
 `;
 
 export const ErrorMsg = styled.div`
