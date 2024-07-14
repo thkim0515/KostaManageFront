@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/actions/userLoginSession";
+import { logout } from "../redux/actions/userLoginSession";
 import { handleLogin } from "../../utils/login";
-import { Button } from "react-bootstrap";
+import * as S from "./Login.style"; // 스타일 임포트
 
 const Login = () => {
   const [username, setUsername] = useState("");

@@ -52,3 +52,15 @@ export function validateEmail(email) {
   }
   return "";
 }
+// 날짜 유효성 검사 함수
+export const validateDate = (date) => {
+	const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+	if (!dateRegex.test(date)) return "유효한 날짜를 입력해주세요.";
+	return "";
+};
+
+// 숫자 유효성 검사 함수
+export const validateNumber = (number) => {
+	if (isNaN(number)) return "숫자를 입력해주세요.";
+	return "";
+};

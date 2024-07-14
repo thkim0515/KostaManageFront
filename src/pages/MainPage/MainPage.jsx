@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./MainPage.style";
+import Settings from "../Settings/Settings";
 
 const MainPage = () => {
 	const count = useSelector((state) => state.counter.count);
