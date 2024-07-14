@@ -1,10 +1,6 @@
 import React from "react";
 import * as S from "./MainPage.style";
-import StudentManagePage from "../../components/StudentManagePage/StudentManagePage";
-import CommentComponent from "../../components/Common/Comment/CommentComponent";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+
 const MainPage = () => {
 	const count = useSelector((state) => state.counter.count);
 	const value = useSelector((state) => state.init.value);
