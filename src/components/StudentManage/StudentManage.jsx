@@ -105,10 +105,7 @@ const StudentManage = () => {
 		<S.Container>
 			<S.Wrapper>
 				<S.Group>
-					<S.TitleWrapper>
-						학생 등록을 위해 <br />
-						정보를 입력 해주세요
-					</S.TitleWrapper>
+					<S.TitleWrapper>학생 등록을 위해 정보를 입력 해주세요</S.TitleWrapper>
 					<S.Row>
 						<S.GenerationField>
 							<S.Label htmlFor="branchName">* 해당 지점</S.Label>
@@ -165,17 +162,17 @@ const StudentManage = () => {
 					<S.SecRow>
 						<S.FullWidthBox>
 							<S.GenerationField>
-								<S.Label htmlFor="generation">* 해당 강의</S.Label>
-								<S.Select
+								<S.GeneLabel htmlFor="generation">* 해당 강의</S.GeneLabel>
+								<S.GeneSelect
 									name="generation"
 									value={generationData.generation}
 									onChange={(e) => handleChange("generation", e.target.value)}
 								>
-									<S.Option value="">반 선택</S.Option>
+									<S.Option value="">해당하는 반 선택</S.Option>
 									<S.Option value="class1">Class 1</S.Option>
 									<S.Option value="class2">Class 2</S.Option>
 									<S.Option value="class3">Class 3</S.Option>
-								</S.Select>
+								</S.GeneSelect>
 								{errors.generation && (
 									<S.ErrorMsg>{errors.generation}</S.ErrorMsg>
 								)}
@@ -183,7 +180,7 @@ const StudentManage = () => {
 						</S.FullWidthBox>
 					</S.SecRow>
 					<S.DateBox>
-						<S.Label htmlFor="startDate">* 시작 날짜 *</S.Label>
+						<S.DateLabel htmlFor="startDate">* 시작 날짜 *</S.DateLabel>
 						<DatePicker
 							selected={generationData.startDate}
 							onChange={handleStartDateChange}
@@ -195,7 +192,7 @@ const StudentManage = () => {
 					</S.DateBox>
 
 					<S.DateBox>
-						<S.Label htmlFor="endDate">* 종료 날짜 *</S.Label>
+						<S.DateLabel htmlFor="endDate">* 종료 날짜 *</S.DateLabel>
 						<DatePicker
 							selected={generationData.endDate}
 							onChange={handleEndDateChange}
