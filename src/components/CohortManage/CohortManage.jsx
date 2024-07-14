@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import * as Vali from "../../utils/signupValidation";
 import * as S from "./CohortManage.style";
+import { Date } from "../Common/Board/BoardDetail/BoardDetail.style";
 
 const CohortManage = () => {
 	const [formData, setFormData] = useState({
@@ -144,27 +145,29 @@ const CohortManage = () => {
 						)}
 					</S.ManageField>
 
-					<S.ManageField>
-						<S.Label htmlFor="startDate">* 강의 시작 날짜</S.Label>
-						<S.Input
-							type="date"
-							name="startDate"
-							value={formData.startDate}
-							onChange={handleChange}
-						/>
-						{errors.startDate && <S.ErrorMsg>{errors.startDate}</S.ErrorMsg>}
-					</S.ManageField>
+					<S.ManageDateFieldsContainer>
+						<S.ManageDateField>
+							<S.DateLabel htmlFor="startDate">* 강의 시작 날짜</S.DateLabel>
+							<S.DateInput
+								type="date"
+								name="startDate"
+								value={formData.startDate}
+								onChange={handleChange}
+							/>
+							{errors.startDate && <S.ErrorMsg>{errors.startDate}</S.ErrorMsg>}
+						</S.ManageDateField>
 
-					<S.ManageField>
-						<S.Label htmlFor="endDate">* 강의 종료 날짜</S.Label>
-						<S.Input
-							type="date"
-							name="endDate"
-							value={formData.endDate}
-							onChange={handleChange}
-						/>
-						{errors.endDate && <S.ErrorMsg>{errors.endDate}</S.ErrorMsg>}
-					</S.ManageField>
+						<S.ManageDateField>
+							<S.DateLabel htmlFor="endDate">* 강의 종료 날짜</S.DateLabel>
+							<S.DateInput
+								type="date"
+								name="endDate"
+								value={formData.endDate}
+								onChange={handleChange}
+							/>
+							{errors.endDate && <S.ErrorMsg>{errors.endDate}</S.ErrorMsg>}
+						</S.ManageDateField>
+					</S.ManageDateFieldsContainer>
 
 					<S.ManageField>
 						<S.Label htmlFor="instructorName">* 강사 이름</S.Label>

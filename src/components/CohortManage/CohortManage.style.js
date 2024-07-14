@@ -46,9 +46,38 @@ export const ManageField = styled.div`
 	align-items: center;
 	width: 100%;
 `;
+export const ManageDateFieldsContainer = styled.div`
+	display: flex;
+	gap: 70px;
+`;
+
+export const ManageDateField = styled.div`
+	flex: 1;
+	margin: 0 120px 20px -10px;
+	text-align: left;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	/*align-items: center;*/
+	width: 100%;
+`;
+export const DateLabel = styled.label`
+	margin: 10px 28px 0 -12px;
+	text-align: left;
+	width: 100%;
+`;
+
+export const DateInput = styled.input`
+	padding: 8px;
+	width: 150%;
+	color: #555;
+	margin-top: 5px;
+	border-radius: 8px;
+	border: 1px solid #888;
+`;
 
 export const Label = styled.label`
-	margin: 10px 0;
+	margin: 10px 28px 0 0;
 	text-align: left;
 	width: 100%;
 `;
@@ -57,18 +86,23 @@ export const Input = styled.input`
 	padding: 10px;
 	width: 100%;
 	margin-top: 5px;
+	border-radius: 8px;
+	border: 1px solid #777;
 `;
 
 export const Select = styled.select`
 	padding: 10px;
 	width: 100%;
 	margin-top: 5px;
+	color: #666;
+	border-radius: 8px;
 `;
 
 export const TextArea = styled.textarea`
 	padding: 10px;
 	width: 100%;
 	margin-top: 5px;
+	border-radius: 8px;
 `;
 
 export const ErrorMsg = styled.div`
