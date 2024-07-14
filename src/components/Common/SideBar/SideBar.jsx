@@ -78,17 +78,18 @@ const SideBar = ({ isAdmin }) => {
 
   const menuItems = isAdmin
     ? [{ path: "/students", icon: Bookmark, label: "학생 관리" }]
-    : [
-        { path: "/attendance", icon: Bluetooth, label: "출결" },
-        { path: "/board/curriculum", icon: Flag, label: "커리큘럼" },
-        { path: "/board/general", icon: Folder, label: "통합게시판" },
-        { path: "/board/classContents", icon: Code, label: "수업내용" },
-        { path: "/board/congratulations", icon: Gift, label: "축하해주세요!" },
-        { path: "/board/announcements", icon: AlertCircle, label: "공지사항" },
-        { path: "/board/complaints", icon: MessageCircle, label: "민원게시판" },
-        { path: "/board/studyGroup", icon: Bookmark, label: "스터디모집" },
-        { path: "/faq", icon: Info, label: "FAQ게시판" },
-      ];
+    : [{ path: "/attendance", icon: Bluetooth, label: "출결" }];
+
+  const commonMenuItems = [
+    { path: "/board/curriculum", icon: Flag, label: "커리큘럼" },
+    { path: "/board/general", icon: Folder, label: "통합게시판" },
+    { path: "/board/classContents", icon: Code, label: "수업내용" },
+    { path: "/board/congratulations", icon: Gift, label: "축하해주세요!" },
+    { path: "/board/announcements", icon: AlertCircle, label: "공지사항" },
+    { path: "/board/complaints", icon: MessageCircle, label: "민원게시판" },
+    { path: "/board/studyGroup", icon: Bookmark, label: "스터디모집" },
+    { path: "/faq", icon: Info, label: "FAQ게시판" },
+  ];
 
   return (
     <S.SideBarContainer ref={sidebarRef} isOpen={isOpen}>
@@ -99,7 +100,7 @@ const SideBar = ({ isAdmin }) => {
           </S.TopToggleButton>
           <nav>
             <ul style={{ listStyleType: "none", padding: 0 }}>
-              {menuItems.map((item, index) => (
+              {menuItems.concat(commonMenuItems).map((item, index) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}

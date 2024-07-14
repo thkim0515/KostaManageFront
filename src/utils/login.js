@@ -38,11 +38,16 @@ export const handleLogin = async (
       }
     );
 
+    const isAdmin =
+      userResponse.data.role === "Admin" ||
+      userResponse.data.role === "Researcher";
+
     dispatch(
       loginSuccess({
         checkUserName: getUserName,
         token: token,
         userInfo: userResponse.data,
+        isAdmin: isAdmin,
       })
     );
   } catch (error) {

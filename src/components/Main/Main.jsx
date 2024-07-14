@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import * as S from "./Main.style";
+import { useSelector } from "react-redux";
 
 import Board from "../../pages/Board/Board";
 import MainPage from "../../pages/MainPage/MainPage";
@@ -9,10 +10,12 @@ import Attendance from "../../pages/Attendance/Attendance";
 import FAQPage from "../../pages/FAQ/FAQPage";
 import Login from "../../pages/Login/Login";
 import SignUp from "../Common/SignUp/SignUp";
-
+import BranchManage from "./../Common/BranchManage/BranchManage";
 const Main = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  const isAdmin = useSelector((state) => state.user.isAdmin);
 
   const toggleSideBar = () => {
     setIsOpen(!isOpen);
@@ -32,15 +35,19 @@ const Main = () => {
   return (
     <S.Container>
       <S.Wrapper>
-        <SideBar isOpen={isOpen} toggleSideBar={toggleSideBar} />
+        <SideBar
+          isOpen={isOpen}
+          toggleSideBar={toggleSideBar}
+          isAdmin={isAdmin}
+        />
       </S.Wrapper>
       <S.Content isOpen={isOpen} isMobile={isMobile}>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
-
           <Route path="/attendance" element={<Attendance />} />
+          <Route path="/branchManage" element={<BranchManage />} />
 
           <Route
             path="/board/curriculum"

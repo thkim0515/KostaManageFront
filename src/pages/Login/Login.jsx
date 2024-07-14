@@ -21,6 +21,8 @@ const Login = () => {
     dispatch(logout());
   };
 
+  const isAdmin = userInfo?.role === "Admin" || userInfo?.role === "Researcher";
+
   return (
     <div>
       {!user ? (
@@ -51,6 +53,7 @@ const Login = () => {
               <p>전화번호: {userInfo.phoneNumber}</p>
               <p>역할: {userInfo.role}</p>
               <p>승인 상태: {userInfo.approvalStatus}</p>
+              {isAdmin && <p>관리자 계정입니다.</p>}
             </div>
           )}
           <Button variant="outline-primary" onClick={handleLogout}>

@@ -6,6 +6,7 @@ const initialState = {
   userInfo: null,
   isLoading: false,
   error: null,
+  isAdmin: false,
 };
 
 const encodedKey = btoa("jwtToken");
@@ -23,6 +24,7 @@ export const userSlice = createSlice({
       state.userInfo = action.payload.userInfo;
       state.isLoading = false;
       state.error = null;
+      state.isAdmin = action.payload.isAdmin;
     },
     loginFail: (state, action) => {
       state.isLoading = false;
@@ -33,6 +35,7 @@ export const userSlice = createSlice({
       state.token = null;
       state.userInfo = null;
       state.error = null;
+      state.isAdmin = false;
       localStorage.removeItem(encodedKey);
     },
   },
