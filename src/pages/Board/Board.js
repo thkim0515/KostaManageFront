@@ -10,6 +10,7 @@ const Board = ({ BoardType }) => {
   return (
     <S.Container>
       <S.Wrapper>
+        <div>{BoardType}</div>
         <ContentHeader boardName={boardName} />
         <BoardList />
       </S.Wrapper>
