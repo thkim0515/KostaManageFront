@@ -14,17 +14,17 @@ export const Container = styled.div`
 `;
 
 export const Group = styled.div`
-  width: 800px;
-  height: 500px;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #0068ff;
-  font-family: "Noto Sans CJK KR-Bold", Helvetica;
-  font-size: 30px;
-  font-weight: 700;
-  text-align: center;
-  margin: 200px 0 0 330px;
+	width: 700px;
+	height: 500px;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	color: #0068ff;
+	font-family: "Noto Sans CJK KR-Bold", Helvetica;
+	font-size: 30px;
+	font-weight: 700;
+	text-align: center;
+	margin: 200px 0 0 330px;
 `;
 
 export const LoginField = styled.div`
