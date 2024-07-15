@@ -191,7 +191,7 @@ const EducationForm = () => {
               <S.Label>2. 생년월일</S.Label>
               <DatePicker
                 selected={new Date()}
-                // onChange={(date) => console.log(date)}
+                onChange={(date) => console.log(date)}
                 dateFormat="yyyy/MM/dd"
                 customInput={<CustomDatePickerInput />}
               />
@@ -286,10 +286,20 @@ const EducationForm = () => {
                 <input type="radio" id="codingNo" name="codingExperience" />
                 <S.RadioLabel htmlFor="codingNo">없다</S.RadioLabel>
               </S.RadioWrapper>
-              <S.Input type="text" placeholder="기타: 직업경험 여부" />
+              <S.InlineWrapper>
+                <input type="checkbox" id="codingOtherCheckbox" />
+                <S.CheckboxLabel htmlFor="codingOtherCheckbox">
+                  기타:
+                </S.CheckboxLabel>
+                <S.InlineInput
+                  type="text"
+                  id="codingOther"
+                  placeholder="직접입력"
+                />
+              </S.InlineWrapper>
             </S.ManageField>
             <S.ManageField>
-              <S.Label>9. 직장경력 및 직업관련 경험 여부</S.Label>
+              <S.Label>9. 직장경력 및 직업훈련관련 경험 여부</S.Label>
               <S.RadioWrapper>
                 <input type="radio" id="jobYes" name="jobExperience" />
                 <S.RadioLabel htmlFor="jobYes">있다</S.RadioLabel>
@@ -298,23 +308,45 @@ const EducationForm = () => {
                 <input type="radio" id="jobNo" name="jobExperience" />
                 <S.RadioLabel htmlFor="jobNo">없다</S.RadioLabel>
               </S.RadioWrapper>
-              <S.Input
-                type="text"
-                placeholder="* 직장경력이 있을 경우 주요경력사항과 재직기관을 함께 기재해 주시기 바랍니다."
-              />
+              <S.SubLabel htmlFor="jobDetails">
+                * 직장경력이 있을 경우 주요경력사항과 재직기관을 함께 기재해
+                주시기 바랍니다.
+                <S.Input type="text" />
+              </S.SubLabel>
             </S.ManageField>
             <S.ManageField>
-              <S.Label>10. 교육정보 기입 여부</S.Label>
+              <S.Label>10. 고용보험 가입 여부</S.Label>
+              <S.RadioWrapper>
+                <input type="radio" id="insuranceYes" name="insuranceStatus" />
+                <S.RadioLabel htmlFor="insuranceYes">
+                  현재 고용보험에 가입이 되어 있다
+                </S.RadioLabel>
+              </S.RadioWrapper>
+              <S.RadioWrapper>
+                <input type="radio" id="insuranceNo" name="insuranceStatus" />
+                <S.RadioLabel htmlFor="insuranceNo">
+                  현재 고용보험에 가입이 되어 있지 않다
+                </S.RadioLabel>
+              </S.RadioWrapper>
+              <S.RadioWrapper>
+                <input type="radio" id="selfEmployed" name="insuranceStatus" />
+                <S.RadioLabel htmlFor="selfEmployed">
+                  사업자 등록증이 있다.
+                </S.RadioLabel>
+              </S.RadioWrapper>
+            </S.ManageField>
+            <S.ManageField>
+              <S.Label>11. 본 교육과정을 알게 된 경로(중복 선택 가능)</S.Label>
               <S.CheckboxWrapper>
                 <input type="checkbox" id="info1" />
                 <S.CheckboxLabel htmlFor="info1">
-                  KOSTA 홈페이지
+                  KOSTA 홍보 메일
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
                 <input type="checkbox" id="info2" />
                 <S.CheckboxLabel htmlFor="info2">
-                  지인추천(친구, 가족, 학교)
+                  지인추천(지인, 교수, 학교)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
@@ -326,15 +358,20 @@ const EducationForm = () => {
               <S.CheckboxWrapper>
                 <input type="checkbox" id="info4" />
                 <S.CheckboxLabel htmlFor="info4">
-                  포털사이트(네이버, 다음)
+                  국내 외 포털사이트
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
                 <input type="checkbox" id="info5" />
                 <S.CheckboxLabel htmlFor="info5">
-                  오프라인(학원방문, 대학 특강)
+                  오프라인(지하철, 대학 현수막)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
+              <S.InlineWrapper>
+                <input type="checkbox" id="info6" />
+                <S.CheckboxLabel htmlFor="info6">기타:</S.CheckboxLabel>
+                <S.InlineInput type="text" placeholder="직접입력" />
+              </S.InlineWrapper>
             </S.ManageField>
             <S.Button type="submit">신청서 제출</S.Button>
           </form>

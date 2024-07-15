@@ -4,7 +4,6 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	min-height: 100vh;
 	background-color: #f4f4f4;
 `;
 
@@ -28,9 +27,9 @@ export const TitleWrapper = styled.div`
 export const Group = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* 수직 가운데 정렬을 위해 추가 */
-	width: 750px;
-	padding: 90px;
+	align-items: center;
+	width: 730px;
+	padding: 60px 90px 100px 90px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
@@ -90,6 +89,42 @@ export const Label = styled.label`
 	color: #6c757d;
 	font-size: 18px;
 	font-weight: 400px;
+	margin-left: -70px;
+`;
+export const DateLabel = styled.label`
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 5px;
+	color: #6c757d;
+	font-size: 18px;
+	font-weight: 400px;
+`;
+export const GeneLabel = styled.label`
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+	color: #6c757d;
+	font-size: 18px;
+	font-weight: 400px;
+	margin-left: -480px;
+`;
+
+export const GeneSelect = styled.select`
+	height: 45px;
+	width: 40%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	outline: none;
+	background-color: white;
+	color: #6c757d;
+	font-size: 16px;
+	font-weight: 70px;
+
+	&:hover {
+		border: 1px solid #0056d2;
+	}
 `;
 
 export const Select = styled.select`

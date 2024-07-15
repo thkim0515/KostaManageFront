@@ -66,10 +66,18 @@ export const ManageField = styled.div`
 
 export const Label = styled.label`
 	display: block;
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 	margin-left: -10px;
 	font-weight: bold;
 	color: #555;
+`;
+export const SubLabel = styled.label`
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	color: #555;
+	font-size: 16px;
+	font-weight: 500;
 `;
 
 export const NameInput = styled.input`
@@ -147,6 +155,28 @@ export const RadioWrapper = styled.div`
 
 export const RadioLabel = styled.label`
 	margin-left: 8px;
+`;
+
+export const InlineWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+`;
+
+export const InlineInput = styled.input`
+	height: 35px;
+	padding: 8px;
+	margin-left: 4px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	outline: none;
+	background-color: white;
+	color: #6c757d;
+	font-size: 16px;
+
+	&:hover {
+		border: 1px solid #0056d2;
+	}
 `;
 
 export const Button = styled.button`

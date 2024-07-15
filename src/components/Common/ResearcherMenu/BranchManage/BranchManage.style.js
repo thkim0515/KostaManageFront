@@ -1,17 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	display: flex;
-	justify-content: center;
-	min-height: 100vh;
+	height: 120%;
 	width: 100%;
 	background-color: #f4f4f4;
 `;
 
 export const Wrapper = styled.div`
 	width: 100%;
-	max-width: 100%;
-	margin: 0 auto;
+	margin: 0 0 30px 0;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,7 +22,6 @@ export const Group = styled.div`
 	padding: 60px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	/*margin: 50px 0 0 150px;*/
 `;
 
 export const TitleWrapper = styled.div`
