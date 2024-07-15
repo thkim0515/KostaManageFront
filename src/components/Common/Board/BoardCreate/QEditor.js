@@ -1,7 +1,9 @@
-import React from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // import styles
-import styled from 'styled-components';
+import React, { useState, useMemo } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // import styles
+import styled from "styled-components";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 // Styled component for the editor wrapper
 const EditorWrapper = styled.div`
@@ -17,29 +19,81 @@ const EditorWrapper = styled.div`
 `;
 
 const QEditor = ({ value, onChange }) => {
-  const modules = {
-    toolbar: [
-      [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      ['bold', 'italic', 'underline'],
-      [{ 'color': [] }, { 'background': [] }],
-      [{ 'align': [] }],
-      ['link', 'image'],
-      ['clean']
-    ],
-  };
+  const localAddress = useSelector((state) => state.localAddress.value);
+
+  const modules = useMemo(
+    () => ({
+      toolbar: {
+        container: [
+          [{ header: "1" }, { header: "2" }, { font: [] }],
+          [{ list: "ordered" }, { list: "bullet" }],
+          ["bold", "italic", "underline"],
+          [{ color: [] }, { background: [] }],
+          [{ align: [] }],
+          ["link", "image"],
+          ["clean"],
+        ],
+        handlers: {
+          image: imageHandler,
+        },
+      },
+    }),
+    []
+  );
 
   const formats = [
-    'header', 'font', 'list', 'bullet',
-    'bold', 'italic', 'underline',
-    'color', 'background', 'align',
-    'link', 'image'
+    "header",
+    "font",
+    "list",
+    "bullet",
+    "bold",
+    "italic",
+    "underline",
+    "color",
+    "background",
+    "align",
+    "link",
+    "image",
   ];
+
+  async function imageHandler() {
+    const input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "image/*");
+    input.click();
+
+    input.onchange = async () => {
+      const file = input.files[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+          const response = await axios.post(
+            `${localAddress}api/posts/upload`,
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          );
+          const url = response.data.url;
+          const quill = this.quill;
+          const range = quill.getSelection();
+          console.log(url);
+          quill.insertEmbed(range.index, "image", url);
+        } catch (error) {
+          console.error("Error uploading image: ", error);
+        }
+      }
+    };
+  }
 
   return (
     <EditorWrapper>
-      <ReactQuill 
-        value={value} 
+      <ReactQuill
+        value={value}
         onChange={onChange}
         modules={modules}
         formats={formats}
