@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import Board from "../../pages/Board/Board";
 import BoardCreate from "./../Common/Board/BoardCreate/BoardCreate";
+import BoardDetail from "./../Common/Board/BoardDetail/BoardDetail"; // BoardDetail 추가
 import MainPage from "../../pages/MainPage/MainPage";
 import SideBar from "../Common/SideBar/SideBar";
 import Attendance from "../../pages/Attendance/Attendance";

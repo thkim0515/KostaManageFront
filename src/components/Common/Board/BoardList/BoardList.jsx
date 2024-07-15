@@ -44,14 +44,15 @@ const BoardList = ({ BoardType }) => {
     }
   };
 
-  const handleRowClick = (id) => {
-    navigate(`/board/${id}`); // 상세 페이지로 이동
+  const handleRowClick = (postId) => {
+    navigate(`/board/${postId}`); // 상세 페이지로 이동
   };
 
   const handleCreateClick = () => {
     navigate(`/board/create?boardType=${BoardType}`);
   };
 
+  console.log(data);
   return (
     <S.Container>
       <S.SearchContainer>
@@ -79,16 +80,16 @@ const BoardList = ({ BoardType }) => {
         </thead>
         <tbody>
           {data.map((board, index) => (
-            <S.TableRow key={board.id} onClick={() => handleRowClick(board.id)}>
-              {" "}
-              {/* Row 클릭 이벤트 추가 */}
+            <S.TableRow
+              key={board.id}
+              onClick={() => handleRowClick(board.postId)}
+            >
               <S.TableCell>{index + 1}</S.TableCell>
               <S.TableCell>{board.title}</S.TableCell>
               <S.TableCell>{board.user.userId}</S.TableCell>
               <S.TableCell>
                 {new Date(board.createdAt).toLocaleDateString()}
-              </S.TableCell>{" "}
-              {/* 날짜만 표시 */}
+              </S.TableCell>
               <S.TableCell>{board.likes}</S.TableCell>
             </S.TableRow>
           ))}

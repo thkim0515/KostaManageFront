@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // import styles
 import styled from "styled-components";
@@ -18,6 +18,13 @@ const EditorWrapper = styled.div`
   }
 `;
 
+// 아이콘을 추가하기 위한 CSS 스타일
+const iconStyle = `
+  .ql-attachment::before {
+    content: '📁'; // 여기서 원하는 아이콘으로 변경 가능합니다.
+  }
+`;
+
 const QEditor = ({ value, onChange }) => {
   const localAddress = useSelector((state) => state.localAddress.value);
 
@@ -31,14 +38,16 @@ const QEditor = ({ value, onChange }) => {
           [{ color: [] }, { background: [] }],
           [{ align: [] }],
           ["link", "image"],
+          ["attachment"], // 파일 업로드 버튼 추가
           ["clean"],
         ],
         handlers: {
           image: imageHandler,
+          attachment: attachmentHandler, // 파일 업로드 핸들러
         },
       },
     }),
-    []
+    [localAddress]
   );
 
   const formats = [
@@ -54,6 +63,7 @@ const QEditor = ({ value, onChange }) => {
     "align",
     "link",
     "image",
+    "attachment", // 파일 업로드 형식 추가
   ];
 
   async function imageHandler() {
@@ -81,7 +91,6 @@ const QEditor = ({ value, onChange }) => {
           const url = response.data.url;
           const quill = this.quill;
           const range = quill.getSelection();
-          console.log(url);
           quill.insertEmbed(range.index, "image", url);
         } catch (error) {
           console.error("Error uploading image: ", error);
@@ -90,8 +99,42 @@ const QEditor = ({ value, onChange }) => {
     };
   }
 
+  async function attachmentHandler() {
+    const input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.click();
+
+    input.onchange = async () => {
+      const file = input.files[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+          const response = await axios.post(
+            `${localAddress}api/posts/upload`,
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          );
+          const url = response.data.url;
+          const quill = this.quill;
+          const range = quill.getSelection();
+          const link = `<a href="${url}" target="_blank" style="text-decoration: underline;">📁 ${file.name}</a>`;
+          quill.clipboard.dangerouslyPasteHTML(range.index, link);
+        } catch (error) {
+          console.error("Error uploading attachment: ", error);
+        }
+      }
+    };
+  }
+
   return (
     <EditorWrapper>
+      <style>{iconStyle}</style> {/* 아이콘 스타일을 추가 */}
       <ReactQuill
         value={value}
         onChange={onChange}

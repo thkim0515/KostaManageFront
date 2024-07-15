@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./MainPage.style";
 import ResearcherMenu from "../../components/Common/ResearcherMenu/ResearcherMenu";
 import EducationForm from "../../components/EducationForm/EducationForm";
+import BoardDetail from "../../components/Common/Board/BoardDetail/BoardDetail";
 const MainPage = () => {
 	const count = useSelector((state) => state.counter.count);
 	const value = useSelector((state) => state.init.value);

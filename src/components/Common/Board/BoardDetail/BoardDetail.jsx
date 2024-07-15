@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import * as S from "./BoardDetail.style";
 import { useSelector } from "react-redux";
 
 const BoardDetail = () => {
   const navigate = useNavigate();
+  const { postId } = useParams(); // URL에서 postId를 가져옴
   const [getData, setGetData] = useState([]);
   const localAddress = useSelector((state) => state.localAddress.value);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${localAddress}boards/get/2`);
+        const response = await axios.get(`${localAddress}boards/get/${postId}`);
         const data = Array.isArray(response.data)
           ? response.data
           : [response.data];
@@ -23,7 +24,7 @@ const BoardDetail = () => {
     };
 
     fetchData();
-  }, []);
+  }, [postId, localAddress]);
 
   const onDeleteClick = async (id) => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
