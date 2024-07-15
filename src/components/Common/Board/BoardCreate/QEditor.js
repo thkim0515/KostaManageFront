@@ -5,7 +5,6 @@ import styled from "styled-components";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-// Styled component for the editor wrapper
 const EditorWrapper = styled.div`
   width: 100%; // 에디터의 너비를 100%로 설정
   .ql-toolbar.ql-snow {
@@ -21,7 +20,7 @@ const EditorWrapper = styled.div`
 // 아이콘을 추가하기 위한 CSS 스타일
 const iconStyle = `
   .ql-attachment::before {
-    content: '📁'; // 여기서 원하는 아이콘으로 변경 가능합니다.
+    content: '📁'; 
   }
 `;
 

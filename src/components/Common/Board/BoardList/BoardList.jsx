@@ -4,26 +4,35 @@ import * as S from "./BoardList.style";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Pagination from "../../Pagination/Pagination";
 
 const BoardList = ({ BoardType }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const localAddress = useSelector((state) => state.localAddress.value);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `${localAddress}boards/type/${BoardType}`
+          `${localAddress}boards/type/${BoardType}`,
+          {
+            params: { page: currentPage - 1, size: 10 },
+          }
         );
         if (response.status === 200) {
-          setData(response.data);
+          setData(response.data.content);
+          setTotalPages(response.data.totalPages);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
     };
     getData();
-  }, [BoardType]);
+  }, [BoardType, currentPage, localAddress]);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -34,10 +43,13 @@ const BoardList = ({ BoardType }) => {
       const response = await axios.get(`${localAddress}boards/all`, {
         params: {
           query: search,
+          page: currentPage,
+          size: 10,
         },
       });
       if (response.status === 200) {
-        setData(response.data);
+        setData(response.data.content);
+        setTotalPages(response.data.totalPages);
       }
     } catch (error) {
       alert("검색 내용을 찾을 수 없습니다");
@@ -52,19 +64,15 @@ const BoardList = ({ BoardType }) => {
     navigate(`/board/create?boardType=${BoardType}`);
   };
 
-  console.log(data);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const rowsPerPage = 10; // 한 페이지에 보여줄 행의 수
+  const emptyRows = rowsPerPage - data.length; // 빈 행의 수 계산
+
   return (
     <S.Container>
-      <S.SearchContainer>
-        <S.Input
-          type="text"
-          name="Search"
-          value={search}
-          onChange={handleSearchChange}
-          placeholder="검색"
-        />
-        <S.SearchIcon icon={faSearch} onClick={handleSearchClick} />
-      </S.SearchContainer>
       <S.ButtonContainer>
         <S.CreateButton onClick={handleCreateClick}>작성하기</S.CreateButton>
       </S.ButtonContainer>
@@ -93,8 +101,20 @@ const BoardList = ({ BoardType }) => {
               <S.TableCell>{board.likes}</S.TableCell>
             </S.TableRow>
           ))}
+          {Array.from({ length: emptyRows }).map((_, index) => (
+            <S.TableRow key={index}>
+              <S.TableCell colSpan="5">&nbsp;</S.TableCell>
+            </S.TableRow>
+          ))}
         </tbody>
       </S.Table>
+      <S.PaginationContainer>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </S.PaginationContainer>
     </S.Container>
   );
 };
