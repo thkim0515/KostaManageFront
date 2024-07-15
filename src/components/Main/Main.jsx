@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import Board from "../../pages/Board/Board";
 import BoardCreate from "./../Common/Board/BoardCreate/BoardCreate";
+import BoardDetail from "./../Common/Board/BoardDetail/BoardDetail"; // BoardDetail 추가
 import MainPage from "../../pages/MainPage/MainPage";
 import SideBar from "../Common/SideBar/SideBar";
 import Attendance from "../../pages/Attendance/Attendance";
@@ -50,9 +51,9 @@ const Main = () => {
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/researchermenu" element={<ResearcherMenu />} />
           <Route path="/attendance" element={<Attendance />} />
-
           <Route path="/board/create" element={<BoardCreate />} />
-
+          <Route path="/board/:postId" element={<BoardDetail />} />{" "}
+          {/* BoardDetail 추가 */}
           <Route
             path="/board/curriculum"
             element={<Board BoardType="curriculum" />}
@@ -73,7 +74,6 @@ const Main = () => {
             path="/board/announcements"
             element={<Board BoardType="announcements" />}
           />
-
           <Route
             path="/board/complaints"
             element={<Board BoardType="complaints" />}
@@ -82,7 +82,6 @@ const Main = () => {
             path="/board/studyGroup"
             element={<Board BoardType="studyGroup" />}
           />
-
           <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </S.Content>
