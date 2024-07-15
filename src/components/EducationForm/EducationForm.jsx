@@ -6,11 +6,56 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 const EducationForm = () => {
   const [agreed, setAgreed] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    birthdate: new Date(),
+    phone1: "",
+    phone2: "",
+    phone3: "",
+    email: "",
+    address: "",
+    detailAddress: "",
+    education: "",
+    courses: [],
+    codingExperience: "",
+    otherCoding: "",
+    jobExperience: "",
+    jobDetails: "",
+    insuranceStatus: "",
+    infoSources: [],
+    otherInfo: "",
+  });
 
   const handleAgreeChange = () => {
     setAgreed(!agreed);
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleCourseChange = (e) => {
+    const { value, checked } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      courses: checked
+        ? [...prevFormData.courses, value]
+        : prevFormData.courses.filter((course) => course !== value),
+    }));
+  };
+
+  const handleInfoChange = (e) => {
+    const { value, checked } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      infoSources: checked
+        ? [...prevFormData.infoSources, value]
+        : prevFormData.infoSources.filter((info) => info !== value),
+    }));
+  };
+
+  console.log(formData);
   const CustomDatePickerInput = ({ value, onClick, placeholder }) => (
     <div
       onClick={onClick}
@@ -149,6 +194,11 @@ const EducationForm = () => {
 제11조 개인정보 처리방침 변경
 이 개인정보 처리방침은 시행일부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 가능한 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다."
 `;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
   return (
     <S.Container>
       <S.Wrapper>
@@ -182,10 +232,16 @@ const EducationForm = () => {
               동의합니다.
             </label>
           </S.TitleWrapper>
-          <form>
+          <form onSubmit={handleSubmit}>
             <S.ManageField>
               <S.Label>1. 이름</S.Label>
-              <S.NameInput type="text" placeholder="홍길동" />
+              <S.NameInput
+                type="text"
+                placeholder="홍길동"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
             </S.ManageField>
             <S.ManageField>
               <S.Label>2. 생년월일</S.Label>
@@ -199,11 +255,30 @@ const EducationForm = () => {
             <S.ManageField>
               <S.Label>3. 연락처</S.Label>
               <S.PhoneInputWrapper>
-                <S.PhoneInput type="tel" maxLength="3" placeholder="010" />
+                <S.PhoneInput
+                  type="tel"
+                  maxLength="3"
+                  placeholder="010"
+                  name="phone1"
+                  value={formData.phone1}
+                  onChange={handleChange}
+                />
                 <span>-</span>
-                <S.PhoneInput type="tel" maxLength="4" />
+                <S.PhoneInput
+                  type="tel"
+                  maxLength="4"
+                  name="phone2"
+                  value={formData.phone2}
+                  onChange={handleChange}
+                />
                 <span>-</span>
-                <S.PhoneInput type="tel" maxLength="4" />
+                <S.PhoneInput
+                  type="tel"
+                  maxLength="4"
+                  name="phone3"
+                  value={formData.phone3}
+                  onChange={handleChange}
+                />
               </S.PhoneInputWrapper>
             </S.ManageField>
             <S.ManageField>
@@ -211,63 +286,116 @@ const EducationForm = () => {
               <S.Input
                 type="email"
                 placeholder="hanmail/daum/gmail은 메일발송이 불가하오니 다른 메일주소를 적어주시기 바랍니다."
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
               />
             </S.ManageField>
             <S.ManageField>
               <S.Label>5. 거주지 주소</S.Label>
-              <S.Input type="text" placeholder="주소" />
-              <S.Input type="text" placeholder="상세주소" />
+              <S.Input
+                type="text"
+                placeholder="주소"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+              />
+              <S.Input
+                type="text"
+                placeholder="상세주소"
+                name="detailAddress"
+                value={formData.detailAddress}
+                onChange={handleChange}
+              />
             </S.ManageField>
             <S.ManageField>
               <S.Label>6. 최종학력 </S.Label>
               <S.Input
                 type="text"
                 placeholder="학교명/전공/졸업구분/졸업년도"
+                name="education"
+                value={formData.education}
+                onChange={handleChange}
               />
             </S.ManageField>
             <S.ManageField>
               <S.Label>7. 신청하시는 과정을 선택해주세요.</S.Label>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="course1" />
+                <input
+                  type="checkbox"
+                  id="course1"
+                  value="[285기] JavaScript기반 Full-Stack 개발자 양성 과정 (종로교육센터)"
+                  onChange={handleCourseChange}
+                />
                 <S.CheckboxLabel htmlFor="course1">
                   [285기] JavaScript기반 Full-Stack 개발자 양성 과정
                   (종로교육센터)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="course2" />
+                <input
+                  type="checkbox"
+                  id="course2"
+                  value="[286기] Java기반 클라우드 개발자 양성 과정 (종로교육센터)"
+                  onChange={handleCourseChange}
+                />
                 <S.CheckboxLabel htmlFor="course2">
                   [286기] Java기반 클라우드 개발자 양성 과정 (종로교육센터)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="course3" />
+                <input
+                  type="checkbox"
+                  id="course3"
+                  value="[287기] Java기반 클라우드 개발자 양성 과정 (강남교육센터)"
+                  onChange={handleCourseChange}
+                />
                 <S.CheckboxLabel htmlFor="course3">
                   [287기] Java기반 클라우드 개발자 양성 과정 (강남교육센터)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="course4" />
+                <input
+                  type="checkbox"
+                  id="course4"
+                  value="[290기] IT 시스템 엔지니어 양성 과정 (강남교육센터)"
+                  onChange={handleCourseChange}
+                />
                 <S.CheckboxLabel htmlFor="course4">
                   [290기] IT 시스템 엔지니어 양성 과정 (강남교육센터)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="course5" />
+                <input
+                  type="checkbox"
+                  id="course5"
+                  value="[291기] JavaScript기반 Full-Stack 개발자 양성 과정 (강남교육센터)"
+                  onChange={handleCourseChange}
+                />
                 <S.CheckboxLabel htmlFor="course5">
                   [291기] JavaScript기반 Full-Stack 개발자 양성 과정
                   (강남교육센터)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="course6" />
+                <input
+                  type="checkbox"
+                  id="course6"
+                  value="[292기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정 (강남교육센터)"
+                  onChange={handleCourseChange}
+                />
                 <S.CheckboxLabel htmlFor="course6">
                   [292기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정
                   (강남교육센터)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="course7" />
+                <input
+                  type="checkbox"
+                  id="course7"
+                  value="[293기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정 (종로교육센터)"
+                  onChange={handleCourseChange}
+                />
                 <S.CheckboxLabel htmlFor="course7">
                   [293기] 클라우드 기반 AI활용 데이터 분석 전문가 양성 과정
                   (종로교육센터)
@@ -279,11 +407,23 @@ const EducationForm = () => {
                 8. 코딩경험 (있을 경우 사용했던 언어를 기타란에 기재)
               </S.Label>
               <S.RadioWrapper>
-                <input type="radio" id="codingYes" name="codingExperience" />
+                <input
+                  type="radio"
+                  id="codingYes"
+                  name="codingExperience"
+                  value="있다"
+                  onChange={handleChange}
+                />
                 <S.RadioLabel htmlFor="codingYes">있다</S.RadioLabel>
               </S.RadioWrapper>
               <S.RadioWrapper>
-                <input type="radio" id="codingNo" name="codingExperience" />
+                <input
+                  type="radio"
+                  id="codingNo"
+                  name="codingExperience"
+                  value="없다"
+                  onChange={handleChange}
+                />
                 <S.RadioLabel htmlFor="codingNo">없다</S.RadioLabel>
               </S.RadioWrapper>
               <S.Input type="text" placeholder="기타: 직업경험 여부" />
@@ -291,11 +431,23 @@ const EducationForm = () => {
             <S.ManageField>
               <S.Label>9. 직장경력 및 직업관련 경험 여부</S.Label>
               <S.RadioWrapper>
-                <input type="radio" id="jobYes" name="jobExperience" />
+                <input
+                  type="radio"
+                  id="jobYes"
+                  name="jobExperience"
+                  value="있다"
+                  onChange={handleChange}
+                />
                 <S.RadioLabel htmlFor="jobYes">있다</S.RadioLabel>
               </S.RadioWrapper>
               <S.RadioWrapper>
-                <input type="radio" id="jobNo" name="jobExperience" />
+                <input
+                  type="radio"
+                  id="jobNo"
+                  name="jobExperience"
+                  value="없다"
+                  onChange={handleChange}
+                />
                 <S.RadioLabel htmlFor="jobNo">없다</S.RadioLabel>
               </S.RadioWrapper>
               <S.Input
@@ -306,31 +458,56 @@ const EducationForm = () => {
             <S.ManageField>
               <S.Label>10. 교육정보 기입 여부</S.Label>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="info1" />
+                <input
+                  type="checkbox"
+                  id="info1"
+                  value="KOSTA 홍보 메일"
+                  onChange={handleInfoChange}
+                />
                 <S.CheckboxLabel htmlFor="info1">
                   KOSTA 홈페이지
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="info2" />
+                <input
+                  type="checkbox"
+                  id="info2"
+                  value="지인추천(지인, 교수, 학교)"
+                  onChange={handleInfoChange}
+                />
                 <S.CheckboxLabel htmlFor="info2">
                   지인추천(친구, 가족, 학교)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="info3" />
+                <input
+                  type="checkbox"
+                  id="info3"
+                  value="SNS(Facebook, 인스타그램)"
+                  onChange={handleInfoChange}
+                />
                 <S.CheckboxLabel htmlFor="info3">
                   SNS(Facebook, 인스타그램)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="info4" />
+                <input
+                  type="checkbox"
+                  id="info4"
+                  value="국내 외 포털사이트"
+                  onChange={handleInfoChange}
+                />
                 <S.CheckboxLabel htmlFor="info4">
                   포털사이트(네이버, 다음)
                 </S.CheckboxLabel>
               </S.CheckboxWrapper>
               <S.CheckboxWrapper>
-                <input type="checkbox" id="info5" />
+                <input
+                  type="checkbox"
+                  id="info5"
+                  value="오프라인(지하철, 대학 현수막)"
+                  onChange={handleInfoChange}
+                />
                 <S.CheckboxLabel htmlFor="info5">
                   오프라인(학원방문, 대학 특강)
                 </S.CheckboxLabel>
