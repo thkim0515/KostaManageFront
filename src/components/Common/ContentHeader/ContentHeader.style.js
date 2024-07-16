@@ -38,22 +38,4 @@ export const TextOverlay = styled.div`
 	font-family: "DungGeunMo", sans-serif;
 `;
 
-export const CreateButton = styled.button`
-	position: absolute;
-	z-index: 1;
-	right: 17px;
-	top: 250px;
-	width: 9%;
-	padding: 10px 20px;
-	font-size: 16px;
-	font-family: "DungGeunMo", sans-serif;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
 
-	&:hover {
-		background-color: #0056b3;
-	}
-`;
