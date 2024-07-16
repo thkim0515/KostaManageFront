@@ -1,12 +1,31 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	width: 80%;
-	margin: 200px auto;
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+    width: 80%;
+    margin: 200px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 유지 */
+    min-height: 100vh;
+    align-items: flex-end; /* 자식 요소를 왼쪽으로 정렬 */
+`;
+
+export const CreateButton = styled.button`
+    width: auto; /* 너비 자동 조정 */
+    height: 40px;
+    padding: 10px 20px;
+    align-items: center;
+    font-size: 18px;
+    font-family: "DungGeunMo", sans-serif;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0056b3;
+    }
 `;
 
 export const Input = styled.input`

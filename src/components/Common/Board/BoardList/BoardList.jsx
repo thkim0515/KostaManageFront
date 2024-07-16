@@ -42,50 +42,53 @@ const BoardList = ({ BoardType }) => {
 
 	const rowsPerPage = 10; // 한 페이지에 보여줄 행의 수
 	const emptyRows = rowsPerPage - data.length; // 빈 행의 수 계산
+	
+		const handleCreateClick = () => {};
 
-	return (
-		<S.Container>
-			<S.Table>
-				<thead>
-					<S.TableRow>
-						<S.TableHeader>번호</S.TableHeader>
-						<S.TableHeader>제목</S.TableHeader>
-						<S.TableHeader>글쓴이</S.TableHeader>
-						<S.TableHeader>작성일</S.TableHeader>
-						<S.TableHeader>추천</S.TableHeader>
-					</S.TableRow>
-				</thead>
-				<tbody>
-					{data.map((board, index) => (
-						<S.TableRow
-							key={board.id}
-							onClick={() => handleRowClick(board.postId)}
-						>
-							<S.TableCell>{index + 1}</S.TableCell>
-							<S.TableCell>{board.title}</S.TableCell>
-							<S.TableCell>{board.user.userId}</S.TableCell>
-							<S.TableCell>
-								{new Date(board.createdAt).toLocaleDateString()}
-							</S.TableCell>
-							<S.TableCell>{board.likes}</S.TableCell>
+		return (
+			<S.Container>
+				<S.CreateButton onClick={handleCreateClick}>작성하기</S.CreateButton>
+				<S.Table>
+					<thead>
+						<S.TableRow>
+							<S.TableHeader>번호</S.TableHeader>
+							<S.TableHeader>제목</S.TableHeader>
+							<S.TableHeader>글쓴이</S.TableHeader>
+							<S.TableHeader>작성일</S.TableHeader>
+							<S.TableHeader>추천</S.TableHeader>
 						</S.TableRow>
-					))}
-					{Array.from({ length: emptyRows }).map((_, index) => (
-						<S.TableRow key={index}>
-							<S.TableCell colSpan="5">&nbsp;</S.TableCell>
-						</S.TableRow>
-					))}
-				</tbody>
-			</S.Table>
-			<S.PaginationContainer>
-				<Pagination
-					currentPage={currentPage}
-					totalPages={totalPages}
-					onPageChange={handlePageChange}
-				/>
-			</S.PaginationContainer>
-		</S.Container>
-	);
+					</thead>
+					<tbody>
+						{data.map((board, index) => (
+							<S.TableRow
+								key={board.id}
+								onClick={() => handleRowClick(board.postId)}
+							>
+								<S.TableCell>{index + 1}</S.TableCell>
+								<S.TableCell>{board.title}</S.TableCell>
+								<S.TableCell>{board.user.userId}</S.TableCell>
+								<S.TableCell>
+									{new Date(board.createdAt).toLocaleDateString()}
+								</S.TableCell>
+								<S.TableCell>{board.likes}</S.TableCell>
+							</S.TableRow>
+						))}
+						{Array.from({ length: emptyRows }).map((_, index) => (
+							<S.TableRow key={index}>
+								<S.TableCell colSpan="5">&nbsp;</S.TableCell>
+							</S.TableRow>
+						))}
+					</tbody>
+				</S.Table>
+				<S.PaginationContainer>
+					<Pagination
+						currentPage={currentPage}
+						totalPages={totalPages}
+						onPageChange={handlePageChange}
+					/>
+				</S.PaginationContainer>
+			</S.Container>
+		);
 };
 
 export default BoardList;
