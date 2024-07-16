@@ -1,3 +1,3 @@
 export const localAddress = {
-  value: "http://localhost:8080/",
+	value: "http://192.168.0.5:8080/",
 };

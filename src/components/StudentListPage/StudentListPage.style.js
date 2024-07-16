@@ -21,6 +21,7 @@ export const Button = styled.button`
 	margin: 5px 10px 20px 0;
 	background-color: #007bff;
 	color: white;
+	font-family: "DungGeunMo", sans-serif;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -33,6 +34,7 @@ export const MenuItem = styled.div`
 	margin-bottom: 10px;
 	cursor: pointer;
 	color: #495057;
+	font-family: "DungGeunMo", sans-serif;
 
 	&:hover {
 		background-color: #e9ecef;
@@ -45,7 +47,7 @@ export const MenuText = styled.div`
 	font-weight: bold;
 	align-items: center;
 	margin-left: 20px;
-	font-family: "Noto Sans-Regular", Helvetica;
+	font-family: "DungGeunMo", sans-serif;
 `;
 
 export const SubMenuItem = styled.div`
@@ -56,6 +58,7 @@ export const SubMenuItem = styled.div`
 	align-items: center;
 	cursor: pointer;
 	font-size: 20px;
+	font-family: "DungGeunMo", sans-serif;
 	&:hover {
 		background-color: #e9ecef;
 	}
@@ -111,115 +114,123 @@ export const Content = styled.div`
 `;
 
 export const StudentList = styled.div`
-  width: 300px;
-  border-right: 1px solid #dee2e6;
-  overflow-y: auto;
-  background-color: #ffffff;
+	width: 300px;
+	border-right: 1px solid #dee2e6;
+	overflow-y: auto;
+	background-color: #ffffff;
 `;
 
 export const StudentItem = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  cursor: pointer;
-  &:hover {
-    background-color: #e9ecef;
-  }
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	cursor: pointer;
+	&:hover {
+		background-color: #e9ecef;
+	}
 `;
 
 export const StudentInfo = styled.div`
-  margin-left: 10px;
+	margin-left: 10px;
+	font-family: "DungGeunMo", sans-serif;
 `;
 
 export const StudentName = styled.div`
-  font-weight: bold;
+	font-weight: bold;
+	font-family: "DungGeunMo", sans-serif;
 `;
 
 export const StudentEmail = styled.div`
-  color: #6c757d;
+	color: #6c757d;
+	font-family: "DungGeunMo", sans-serif;
 `;
 
 export const DetailPanel = styled.div`
-  flex: 1;
-  padding: 20px;
-  background-color: #ffffff;
-  margin-left: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	flex: 1;
+	padding: 20px;
+	background-color: #ffffff;
+	margin-left: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const Details = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 `;
 
 export const ContactDetails = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 `;
 
 export const DetailsHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
 `;
 
 export const DetailsAvatar = styled.img`
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-right: 20px;
 `;
 
 export const DetailsBody = styled.div`
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 `;
 
 export const ContactInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
 `;
 
 export const ContactInfoItem = styled.div`
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 `;
 
 export const DetailsButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 `;
 
 export const EditButton = styled.button`
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	padding: 10px;
+	background-color: #28a745;
+	color: white;
+	font-family: "DungGeunMo", sans-serif;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 `;
 
 export const DeleteButton = styled.button`
-  padding: 10px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	padding: 10px;
+	background-color: #dc3545;
+	color: white;
+	font-family: "DungGeunMo", sans-serif;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 `;
 
 export const ContactTitle = styled.h2`
-  margin: 0;
+	margin: 0;
+	font-family: "DungGeunMo", sans-serif;
 `;
 
 export const ContactSubtitle = styled.h4`
-  margin: 0;
-  color: #6c757d;
+	margin: 0;
+	font-family: "DungGeunMo", sans-serif;
+	color: #6c757d;
 `;
 
 export const ContactText = styled.p`
-  margin: 0;
-  color: #6c757d;
+	margin: 0;
+	font-family: "DungGeunMo", sans-serif;
+	color: #6c757d;
 `;
 
 export const ContactLabel = styled.strong`

@@ -220,36 +220,36 @@ const CalendarComponent = () => {
   };
 
   return (
-    <div>
-      <AttendanceStats
-        totalDays={attendanceStats.total}
-        presentDays={attendanceStats.present}
-        absentsFromLateEarly={attendanceStats.absentsFromLateEarly}
-      />
-      <Calendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 600 }}
-        selectable
-        onSelectSlot={handleSelect}
-        onSelectEvent={handleEventSelect}
-        eventPropGetter={eventStyleGetter}
-        dayPropGetter={dayPropGetter}
-        onNavigate={onNavigate}
-        components={{
-          toolbar: CustomToolbar,
-        }}
-      />
-      <StatusModal
-        modalIsOpen={modalIsOpen}
-        handleClose={() => setModalIsOpen(false)}
-        handleStatusChange={handleStatusChange}
-        buttonStyles={buttonStyles}
-      />
-    </div>
-  );
+		<div>
+			<AttendanceStats
+				totalDays={attendanceStats.total}
+				presentDays={attendanceStats.present}
+				absentsFromLateEarly={attendanceStats.absentsFromLateEarly}
+			/>
+			<Calendar
+				localizer={localizer}
+				events={events}
+				startAccessor="start"
+				endAccessor="end"
+				style={{ height: 600, marginTop: 140 }}
+				selectable
+				onSelectSlot={handleSelect}
+				onSelectEvent={handleEventSelect}
+				eventPropGetter={eventStyleGetter}
+				dayPropGetter={dayPropGetter}
+				onNavigate={onNavigate}
+				components={{
+					toolbar: CustomToolbar,
+				}}
+			/>
+			<StatusModal
+				modalIsOpen={modalIsOpen}
+				handleClose={() => setModalIsOpen(false)}
+				handleStatusChange={handleStatusChange}
+				buttonStyles={buttonStyles}
+			/>
+		</div>
+	);
 };
 
 export default CalendarComponent;

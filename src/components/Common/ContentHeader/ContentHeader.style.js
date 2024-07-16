@@ -1,14 +1,59 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 5vh;
-  font-size: 3rem;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 5vh;
+	font-size: 3rem;
+	position: relative;
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
+	display: flex;
+	width: 100%;
+	position: relative; /* 추가: 포지션 상대 */
+`;
+
+export const Image = styled.div`
+	margin-top: 300px;
+	width: 100%;
+	height: 400px;
+	position: relative;
+	img {
+		width: 100%;
+		height: 240px;
+	}
+`;
+
+export const TextOverlay = styled.div`
+	position: absolute;
+	top: 21%;
+	left: 14%;
+	transform: translate(-50%, -50%);
+	z-index: 1; /* 이미지 위로 쌓이도록 설정 */
+	color: white; /* 텍스트 색상 */
+	font-weight: bold; /* 글자 굵기 */
+	font-size: 40px; /* 글자 크기 */
+	font-family: "DungGeunMo", sans-serif;
+`;
+
+export const CreateButton = styled.button`
+	position: absolute;
+	z-index: 1;
+	right: 17px;
+	top: 250px;
+	width: 9%;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-family: "DungGeunMo", sans-serif;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #0056b3;
+	}
 `;

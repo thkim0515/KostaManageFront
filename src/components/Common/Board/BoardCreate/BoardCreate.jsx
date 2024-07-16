@@ -39,7 +39,7 @@ const BoardCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      await axios.post(
         `${localAddress}boards/create`,
         { ...formData, content: formData.content }, // HTML 문자열 그대로 전송
         {

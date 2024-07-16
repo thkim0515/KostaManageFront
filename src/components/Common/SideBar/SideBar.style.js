@@ -97,19 +97,19 @@ export const MenuIcon = styled.div`
 `;
 
 export const MenuText = styled.div`
-  color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: "Noto Sans-Regular", Helvetica;
-  display: ${(props) => (props.isOpen ? "block" : "none")};
-  visibility: ${(props) => (props.isFullyOpen ? "visible" : "hidden")};
-  opacity: ${(props) => (props.isFullyOpen ? 1 : 0)};
-  transition: visibility 0s ${(props) => (props.isFullyOpen ? "0s" : "0.3s")},
-    opacity 0.3s;
+	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
+	font-size: 2rem;
+	font-weight: bold;
+	font-family: "DungGeunMo", sans-serif;
+	display: ${(props) => (props.isOpen ? "block" : "none")};
+	visibility: ${(props) => (props.isFullyOpen ? "visible" : "hidden")};
+	opacity: ${(props) => (props.isFullyOpen ? 1 : 0)};
+	transition: visibility 0s ${(props) => (props.isFullyOpen ? "0s" : "0.3s")},
+		opacity 0.3s;
 
-  // @media (max-width: 768px) {
-  //   font-size: 1.7rem; /* 모바일 버전에서 텍스트 크기 조정 */
-  // }
+	// @media (max-width: 768px) {
+	//   font-size: 1.7rem; /* 모바일 버전에서 텍스트 크기 조정 */
+	// }
 `;
 
 export const SubMenuItem = styled.div`

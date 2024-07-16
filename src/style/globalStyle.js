@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     font-size: 100%;
+    font-family: "DungGeunMo", sans-serif;
     font: inherit;
     vertical-align: baseline;
   }
@@ -60,12 +61,13 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 62.5%;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "DungGeunMo", sans-serif;
   }
 
   a {
     text-decoration: none;
     color: inherit;
+    font-family: "DungGeunMo", sans-serif;
   }
 
   .app {
