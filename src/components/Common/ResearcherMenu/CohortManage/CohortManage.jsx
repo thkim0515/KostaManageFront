@@ -33,40 +33,40 @@ const CohortManage = () => {
   };
 
   const handleManage = async () => {
-    const newErrors = {
-      batchNumber: Vali.validateName(formData.batchNumber),
-      batchName: Vali.validateName(formData.batchName),
-      courseTitle: Vali.validateName(formData.courseTitle),
-      courseDescription: Vali.validateName(formData.courseDescription),
-      courseDuration: Vali.validateName(formData.courseDuration),
-      startDate: Vali.validateDate(formData.startDate),
-      endDate: Vali.validateDate(formData.endDate),
-      instructorName: Vali.validateName(formData.instructorName),
-      instructorEmail: Vali.validateEmail(formData.instructorEmail),
-      maxStudents: Vali.validateNumber(formData.maxStudents),
-      currentStudents: Vali.validateNumber(formData.currentStudents),
-      status: Vali.validateName(formData.status),
-      notes: Vali.validateName(formData.notes),
-    };
+    // const newErrors = {
+    //   batchNumber: Vali.validateName(formData.batchNumber),
+    //   batchName: Vali.validateName(formData.batchName),
+    //   courseTitle: Vali.validateName(formData.courseTitle),
+    //   courseDescription: Vali.validateName(formData.courseDescription),
+    //   courseDuration: Vali.validateName(formData.courseDuration),
+    //   startDate: Vali.validateDate(formData.startDate),
+    //   endDate: Vali.validateDate(formData.endDate),
+    //   instructorName: Vali.validateName(formData.instructorName),
+    //   instructorEmail: Vali.validateEmail(formData.instructorEmail),
+    //   maxStudents: Vali.validateNumber(formData.maxStudents),
+    //   currentStudents: Vali.validateNumber(formData.currentStudents),
+    //   status: Vali.validateName(formData.status),
+    //   notes: Vali.validateName(formData.notes),
+    // };
 
-    setErrors(newErrors);
+    // setErrors(newErrors);
 
-    if (Object.values(newErrors).every((error) => error === "")) {
-      try {
-        const response = await axios.post(
-          `${localAddress}cohorts/register`,
-          formData
-        );
-        if (response.status === 200) {
-          alert("기수 등록 성공");
-        } else {
-          alert("기수 등록 실패");
-        }
-      } catch (error) {
-        console.error("There was an error!", error);
-        alert("기수 등록 중 오류가 발생했습니다.");
+    // if (Object.values(newErrors).every((error) => error === "")) {
+    try {
+      const response = await axios.post(
+        `${localAddress}cohorts/create`,
+        formData
+      );
+      if (response.status === 200) {
+        alert("기수 등록 성공");
+      } else {
+        alert("기수 등록 실패");
       }
+    } catch (error) {
+      console.error("There was an error!", error);
+      alert("기수 등록 중 오류가 발생했습니다.");
     }
+    // }
   };
 
   return (
