@@ -20,42 +20,44 @@ export const Inner = styled.div`
 `;
 
 export const Logo = styled.div`
-  color: #007bff;
-  margin-bottom: 20px;
-  font-size: 30px;
-  font-style: italic;
-  font-family: "Poppins-BlackItalic", Helvetica;
-  font-weight: 700;
+	color: #007bff;
+	margin-bottom: 20px;
+	font-size: 30px;
+	font-style: italic;
+	font-family: "DungGeunMo", sans-serif;
+	font-weight: 700;
 `;
 
 export const Info = styled.div`
-  margin-right: auto;
-  p {
-    margin: 5px 0;
-    color: #007bff;
-  }
+	margin-right: auto;
+	font-family: "DungGeunMo", sans-serif;
+	p {
+		margin: 5px 0;
+		color: #007bff;
+	}
 `;
 
 export const Nav = styled.nav`
-  margin-left: auto;
+	margin-left: auto;
+	font-family: "DungGeunMo", sans-serif;
 
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
+	ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		gap: 15px;
 
-    li {
-      a {
-        text-decoration: none;
-        color: #007bff;
+		li {
+			a {
+				text-decoration: none;
+				color: #007bff;
 
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
 `;
 
 export const Social = styled.div`

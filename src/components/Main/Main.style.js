@@ -9,9 +9,8 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  position: left;
-  margin-right: 20px;
+	display: flex;
+	position: left;
 `;
 
 export const Content = styled.div`

@@ -26,7 +26,7 @@ export const Group = styled.div`
 
 export const TitleWrapper = styled.div`
 	color: #0068ff;
-	font-family: "Noto Sans CJK KR-Bold", Helvetica;
+	font-family: "DungGeunMo", sans-serif;
 	font-size: 30px;
 	font-weight: 700;
 	text-align: center;
