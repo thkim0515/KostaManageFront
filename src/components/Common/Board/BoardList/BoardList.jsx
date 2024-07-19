@@ -47,7 +47,6 @@ const BoardList = ({ BoardType }) => {
 
 		return (
 			<S.Container>
-				<S.CreateButton onClick={handleCreateClick}>작성하기</S.CreateButton>
 				<S.Table>
 					<thead>
 						<S.TableRow>
@@ -80,13 +79,16 @@ const BoardList = ({ BoardType }) => {
 						))}
 					</tbody>
 				</S.Table>
-				<S.PaginationContainer>
-					<Pagination
-						currentPage={currentPage}
-						totalPages={totalPages}
-						onPageChange={handlePageChange}
-					/>
-				</S.PaginationContainer>
+				<S.BottomContainer>
+					<S.PaginationContainer>
+						<Pagination
+							currentPage={currentPage}
+							totalPages={totalPages}
+							onPageChange={handlePageChange}
+						/>
+					</S.PaginationContainer>
+					<S.CreateButton onClick={handleCreateClick}>작성하기</S.CreateButton>
+				</S.BottomContainer>
 			</S.Container>
 		);
 };

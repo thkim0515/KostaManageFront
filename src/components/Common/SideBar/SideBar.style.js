@@ -23,45 +23,45 @@ export const Rectangle = styled.div`
 `;
 
 export const TopToggleButton = styled.button`
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer;
-  display: none;
+	background-color: #444;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+	display: none;
 
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-  }
+	@media (max-width: 768px) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 10px 0;s
+	}
 
-  &:hover {
-    background-color: #000;
-  }
+	&:hover {
+		background-color: #444;
+	}
 `;
 
 export const BottomToggleButton = styled.button`
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px 0;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
+	@media (max-width: 768px) {
+		display: none;
+	}
 
-  &:hover {
-    background-color: #0056b3;
-  }
+	&:hover {
+		background-color: #0056b3;
+	}
 `;
 
 export const ListItem = styled.li`

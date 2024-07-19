@@ -35,6 +35,17 @@ export const Info = styled.div`
 		color: #007bff;
 	}
 `;
+export const NavContainer = styled.div`
+	position: flex;
+	width: 100%; /* 내부 요소가 가로폭 전체를 채움 */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end; /* 우측 정렬을 위한 설정 */
+	gap: 20px;
+	margin-top: -45px;
+	margin-bottom: 30px;
+`;
 
 export const Nav = styled.nav`
 	margin-left: auto;
