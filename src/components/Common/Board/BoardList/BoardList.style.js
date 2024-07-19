@@ -1,31 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 80%;
-    margin: 200px auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; /* 세로 정렬 유지 */
-    min-height: 100vh;
-    align-items: flex-end; /* 자식 요소를 왼쪽으로 정렬 */
-`;
-
-export const CreateButton = styled.button`
-    width: auto; /* 너비 자동 조정 */
-    height: 40px;
-    padding: 10px 20px;
-    align-items: center;
-    font-size: 18px;
-    font-family: "DungGeunMo", sans-serif;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #0056b3;
-    }
+	width: 80%;
+	margin: 200px auto;
+	padding: 20px;
+	display: flex;
+	flex-direction: column; /* 세로 정렬 유지 */
+	min-height: 100vh;
+	align-items: center;
+	position: relative;
 `;
 
 export const Input = styled.input`
@@ -46,8 +29,8 @@ export const Table = styled.table`
 
 export const TableRow = styled.tr`
 	border-bottom: 1px solid #ddd;
-	max-height: 50px; /* 행의 최대 높이 설정 */
-	&:hover {
+	max-height: 50px;
+	행의 최대 높이 설정 &:hover {
 		background-color: #f1f1f1;
 	}
 	cursor: pointer;
@@ -75,5 +58,29 @@ export const PaginationContainer = styled.div`
 	justify-content: center;
 	padding: 10px 0;
 	border-top: 1px solid #ddd;
-	margin-top: auto; /* 컨테이너 하단에 고정 */
+	margin-top: auto;
+	flex: 1;
+`;
+
+export const CreateButton = styled.button`
+	width: auto;
+	height: 40px;
+	padding: 10px 20px;
+	margin-left: px;
+	font-size: 18px;
+	font-family: "DungGeunMo", sans-serif;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+
+	&:hover {
+		background-color: #0056b3;
+	}
+`;
+export const BottomContainer = styled.div`
+	display: flex;
+	width: 48%;
+	justify-content: space-between;
+	align-items: center;
 `;

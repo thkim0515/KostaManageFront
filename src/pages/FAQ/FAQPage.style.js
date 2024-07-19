@@ -7,7 +7,7 @@ export const FAQWrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin: 210px 40px 0 130px;
+	margin: 210px 40px 0 160px;
 	width: 80%;
 	background-color: #f9f9f9;
 `;

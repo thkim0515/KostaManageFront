@@ -11,12 +11,10 @@ export const Container = styled.div`
 `;
 
 export const Inner = styled.div`
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 export const Logo = styled.div`
@@ -36,9 +34,19 @@ export const Info = styled.div`
 		color: #007bff;
 	}
 `;
+export const NavContainer = styled.div`
+	position: flex;
+	width: 100%; /* 내부 요소가 가로폭 전체를 채움 */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end; /* 우측 정렬을 위한 설정 */
+	gap: 20px;
+	margin-top: -45px;
+	margin-bottom: 30px;
+`;
 
 export const Nav = styled.nav`
-	margin-left: auto;
 	font-family: "DungGeunMo", sans-serif;
 
 	ul {
@@ -61,15 +69,15 @@ export const Nav = styled.nav`
 `;
 
 export const Social = styled.div`
-  display: flex;
-  gap: 10px;
+	display: flex;
+	gap: 10px;
 
-  a {
-    font-size: 10px;
-    color: #007bff;
+	a {
+		font-size: 10px;
+		color: #007bff;
 
-    &:hover {
-      color: #007bff;
-    }
-  }
+		&:hover {
+			color: #0056b3; /* hover 시 색상 변경 */
+		}
+	}
 `;
