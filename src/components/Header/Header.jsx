@@ -5,11 +5,13 @@ import { logout } from "../../redux/actions/userLoginSession";
 import * as S from "./Header.style";
 
 const Header = () => {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user.userInfo);
 
-	const goToMain = () => {
-		navigate("/mainpage");
-	};
+  const goToMain = () => {
+    navigate("/");
+  };
 
   const goToLogin = () => {
     navigate("/login");
@@ -26,23 +28,31 @@ const Header = () => {
   return (
     <S.Container>
       <S.Wrapper>
-        <S.Nav>
-          <ul>
-            <li>
-              <Link to="/">메인</Link>
-            </li>
-            <li>
-              <Link to="/FirstPage">서브1</Link>
-            </li>
-            <li>
-              <Link to="/SecondPage">서브2</Link>
-              <Link to="/firstPage">테스트</Link>
-            </li>
-          </ul>
-        </S.Nav>
-      </S.Wrapper>
-      <S.Wrapper>
-        <Login />
+        <S.InnerLeft>
+          <S.Logo onClick={goToMain}>
+            <img src="/logo.png" alt="Logo" style={{ height: "60px" }} />
+            <S.TextWrapper>KOSTA</S.TextWrapper>
+          </S.Logo>
+          {userInfo && (
+            <S.UserInfo>
+              <span>{userInfo.cohort.cohortNumber}기 - </span>
+              <span>{userInfo.cohort.branchName}</span>
+            </S.UserInfo>
+          )}
+        </S.InnerLeft>
+
+        <S.Group>
+          <S.InnerRight>
+            {userInfo ? (
+              <S.StyledButton onClick={handleLogout}>로그아웃</S.StyledButton>
+            ) : (
+              <>
+                <S.StyledButton onClick={goToLogin}>로그인</S.StyledButton>
+                <S.StyledButton onClick={goToSignUp}>회원가입</S.StyledButton>
+              </>
+            )}
+          </S.InnerRight>
+        </S.Group>
       </S.Wrapper>
     </S.Container>
   );

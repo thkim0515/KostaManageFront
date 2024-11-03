@@ -10,7 +10,7 @@ export const StatsContainer = styled.div`
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	width: 100%;
 	max-width: 800px;
-	margin: 200px auto 40px auto;
+	margin: 180px auto 50px auto;
 `;
 
 export const StatItem = styled.p`

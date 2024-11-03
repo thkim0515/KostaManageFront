@@ -1,62 +1,97 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: 525px;
-  min-height: 670px;
-  margin: auto;
-  position: relative;
-  background: url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
-  padding: 90px 70px 50px 70px;
-  background: rgba(40, 57, 101, .9);
-  border-radius: 10px;
-  color: #fff;
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+
+	background-color: #f4f4f4;
 `;
 
-export const warrap = styled.div`
+export const Wrapper = styled.div`
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 30px 210px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`;
 
+export const Group = styled.div`
+	width: 800px;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	color: #0068ff;
+	font-family: "DungGeunMo", sans-serif;
+	/*font-size: 40px;*/
+	font-weight: 700;
+	text-align: center;
+	margin: 0 0 20px 260px;
 `;
 
 export const SignUpField = styled.div`
-  margin-bottom: 15px;
-  flex-direction: column;
-  display:
+	margin-bottom: 30px;
+	text-align: left;
+	margin-left: 70px;
+	font-size: 16px;
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  padding: 15px 20px;
-  font-size: 14px;
-  border: none;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, .1);
-  color: #fff;
-  margin-bottom: 10px;
-  &:focus {
-    outline: none;
-    background: rgba(255, 255, 255, .2);
-  }
+	width: 88%;
+	justify-content: center;
+	padding: 10px;
+	margin-top: 5px 0 0 10px;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	outline: none;
+	box-sizing: border-box;
+`;
+
+export const Label = styled.label`
+	display: block;
+	margin-bottom: 5px;
+	color: #797979;
+	font-size: 18px;
+`;
+
+export const ErrorMsg = styled.div`
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
 `;
 
 export const Button = styled.button`
-  width: 100%;
-  padding: 15px 20px;
-  font-size: 16px;
-  background: #1161ee;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  margin-top: 10px;
-  &:hover {
-    background: #0e4eaa;
-  }
+	background-color: #0068ff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 20px;
+	width: 80%;
+	margin-top: 20px;
+
+	&:hover {
+		background-color: #0056d2;
+	}
 `;
 
-export const ErrorMsg = styled.p`
-  color: red;
-  font-size: 12px;
-  margin-top: -10px;
-  margin-bottom: 10px;
+export const RadioGroup = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+`;
+
+export const CheckboxWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+`;
+
+export const CheckboxLabel = styled.label`
+	margin-left: 5px;
+	font-size: 14px;
 `;

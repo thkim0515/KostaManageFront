@@ -231,7 +231,7 @@ const CalendarComponent = () => {
 				events={events}
 				startAccessor="start"
 				endAccessor="end"
-				style={{ height: 600 }}
+				style={{ height: 963 }}
 				selectable
 				onSelectSlot={handleSelect}
 				onSelectEvent={handleEventSelect}

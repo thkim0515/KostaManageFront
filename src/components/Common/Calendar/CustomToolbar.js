@@ -32,6 +32,7 @@ const LabelContainer = styled.div`
   justify-content: center;
   flex-grow: 1;
   font-size: 3rem;
+  padding-left: 180px; 
   font-weight: bold;
 `;
 

@@ -24,6 +24,7 @@ const Footer = () => {
 					<image src="/logo.png" alt="Logo" style={{ height: "50px" }} />
 					<span onClick={goToMainPage}>KOSTA</span>
 				</S.Logo>
+				<S.Wrapper>
 				<S.Info>
 					<p>70 Gasandigital1ro, Geumcheongu, 08590, Seoul, KOREA</p>
 					<p>info@KOSTA.com</p>
@@ -65,6 +66,7 @@ const Footer = () => {
 						</a>
 					</S.Social>
 				</S.Nav>
+					</S.Wrapper>
 			</S.Inner>
 		</S.Container>
 	);

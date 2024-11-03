@@ -1,27 +1,23 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
+
 import React from "react";
-import ReactDOM from "react-dom/client"; // 새로운 API를 사용합니다.
-import { Provider } from "react-redux"; // Redux Provider를 가져옵니다.
-import { BrowserRouter } from "react-router-dom"; // React Router를 가져옵니다.
-import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap CSS 불러오기.
+import ReactDOM from "react-dom";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import store from "./redux/store/store"; // Redux store를 가져옵니다.
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./redux/store/store"; // 수정된 경로로 임포트
 
-// 새로운 API를 사용하여 root 요소를 가져옵니다.
-const rootElement = document.getElementById("root");
-const root = ReactDOM.createRoot(rootElement);
-
-// Render 함수.
-root.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</Provider>
-	</React.StrictMode>
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-// Optional: 웹 성능 측정 함수.
-reportWebVitals();

@@ -35,7 +35,7 @@ export const TopToggleButton = styled.button`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin: 10px 0;s
+		margin: 10px 0;
 	}
 
 	&:hover {

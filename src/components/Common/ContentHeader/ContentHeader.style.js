@@ -16,21 +16,20 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.div`
-	margin-top: 300px;
+	margin-top: 135px;
 	width: 100%;
-	height: 400px;
+	height: 200px;
 	position: relative;
 	img {
 		width: 100%;
-		height: 240px;
+		height: 200px;
 	}
 `;
 
 export const TextOverlay = styled.div`
 	position: absolute;
 	top: 21%;
-	left: 14%;
-	transform: translate(-50%, -50%);
+	left: 3%;
 	z-index: 1; /* 이미지 위로 쌓이도록 설정 */
 	color: white; /* 텍스트 색상 */
 	font-weight: bold; /* 글자 굵기 */

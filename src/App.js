@@ -6,21 +6,20 @@ import Footer from "./components/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-	return (
-		<>
-			<GlobalStyle />
-			<div className="app">
-				<Header />
-				<main className="content">
-					<Routes>
-						<Route path="/*" element={<Main />} />
-					</Routes>
-					<ChatButton />
-				</main>
-			</div>
-			<Footer />
-		</>
-	);
+  return (
+    <>
+      <GlobalStyle />
+      <div className="app">
+        <Header />
+        <main className="content">
+          <Routes>
+            <Route path="/*" element={<Main />} />
+          </Routes>
+        </main>
+      </div>
+      <Footer />
+    </>
+  );
 }
 
 export default App;

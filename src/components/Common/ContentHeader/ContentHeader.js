@@ -8,7 +8,7 @@ const ContentHeader = ({ boardName, BoardType }) => {
 			<S.Wrapper>
 				<S.Image>
 					<img src="/board.png" alt="게시판 이미지" />
-					<S.TextOverlay>{boardName} 게시판</S.TextOverlay>
+					<S.TextOverlay>{boardName} </S.TextOverlay>
 				
 				</S.Image>
 			</S.Wrapper>

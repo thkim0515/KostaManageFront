@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Inner = styled.div`
-	max-width: 1200px;
+	max-width: 1600px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -24,8 +24,15 @@ export const Logo = styled.div`
 	margin-bottom: 20px;
 	font-size: 30px;
 	font-style: italic;
-	font-family: "Poppins-BlackItalic", Helvetica;
+	font-family: "DungGeunMo", sans-serif;
 	font-weight: 700;
+`;
+
+export const Wrapper = styled.div`
+width: 1400px;
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(-10px);
 `;
 
 export const Info = styled.div`

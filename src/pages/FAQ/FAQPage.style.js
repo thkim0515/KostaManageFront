@@ -17,9 +17,8 @@ export const CustomAccordion = styled(Accordion)`
 	width: 100%;
 	max-width: 100%;
 	border: 1px solid #dee2e6;
-	border-radius: 10px;
+	border-radius: 5ㄴpx;
 	background-color: white;
-	margin-bottom: 10px;
 
 	.accordion-item {
 	}

@@ -8,15 +8,19 @@ export const Container = styled.div`
 	font-size: 2rem;
 `;
 
+export const ContainerWrapper = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	
+`; 
 export const Wrapper = styled.div`
 	display: flex;
 	position: left;
-	margin-right: 20px;
 `;
 
 export const Content = styled.div`
 	flex: 4;
 	overflow-y: auto;
 	position: right;
-	margin-top: 20px;
 `;

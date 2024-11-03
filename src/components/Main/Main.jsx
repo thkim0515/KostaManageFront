@@ -15,58 +15,80 @@ import SignUp from "../Common/SignUp/SignUp";
 import ResearcherMenu from "../Common/ResearcherMenu/ResearcherMenu";
 
 const Main = () => {
-	return (
-		<S.Container>
-			<S.Wrapper>
-				<SideBar />
-			</S.Wrapper>
-			<S.Content>
-				<Routes>
-					<Route path="/" element={<MainPage />} />
-					<Route path="/firstPage" element={<FirstPage />} />
-					<Route path="/secondPage" element={<SecondPage />} />
-					<Route path="/student-list" element={<StudentListPage />} />
-					<Route path="/student-managePage" element={<StudentManagePage />} />
-					<Route path="/branch-managePage" element={<BranchManage />} />
-					<Route path="/educationForm" element={<EducationForm />} />
-					<Route path="/attendance" element={<Attendance />} />
-					<Route path="/curriculum" element={<Curriculum />} />
-					<Route path="/board" element={<Board />} />
-					<Route path="/class-content" element={<ClassContent />} />
-					<Route path="/congratulations" element={<Congratulations />} />
-					<Route path="/announcements" element={<Announcements />} />
-					<Route path="/complaints" element={<Complaints />} />
-					<Route path="/faq" element={<FAQ />} />
-					<Route path="/study-groups" element={<StudyGroups />} />
-					<Route path="/students/:id" element={<StudentDetailPage />} />
-					<Route
-						path="/student-list/starred"
-						element={<StudentListPage category="starred" />}
-					/>
-					<Route
-						path="/student-list/pending"
-						element={<StudentListPage category="pending" />}
-					/>
-					<Route
-						path="/student-list/blocked"
-						element={<StudentListPage category="blocked" />}
-					/>
-					<Route
-						path="/student-list/engineers"
-						element={<StudentListPage category="engineers" />}
-					/>
-					<Route
-						path="/student-list/support"
-						element={<StudentListPage category="support" />}
-					/>
-					<Route
-						path="/student-list/sales"
-						element={<StudentListPage category="sales" />}
-					/>
-				</Routes>
-			</S.Content>
-		</S.Container>
-	);
+  const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  const isAdmin = useSelector((state) => state.user.isAdmin);
+
+  const toggleSideBar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <S.Container>
+      <S.ContainerWrapper>
+      <S.Wrapper>
+        <SideBar
+          isOpen={isOpen}
+          toggleSideBar={toggleSideBar}
+          isAdmin={isAdmin}
+        />
+      </S.Wrapper>
+      <S.Content isOpen={isOpen} isMobile={isMobile}>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/researchermenu" element={<ResearcherMenu />} />
+          <Route path="/attendance" element={<Attendance />} />
+          <Route path="/board/create" element={<BoardCreate />} />
+          <Route path="/board/:postId" element={<BoardDetail />} />{" "}
+          {/* BoardDetail 추가 */}
+          <Route
+            path="/board/curriculum"
+            element={<Board BoardType="curriculum" />}
+          />
+          <Route
+            path="/board/general"
+            element={<Board BoardType="general" />}
+          />
+          <Route
+            path="/board/classContents"
+            element={<Board BoardType="classContents" />}
+          />
+          <Route
+            path="/board/congratulations"
+            element={<Board BoardType="congratulations" />}
+          />
+          <Route
+            path="/board/announcements"
+            element={<Board BoardType="announcements" />}
+          />
+          <Route
+            path="/board/complaints"
+            element={<Board BoardType="complaints" />}
+          />
+          <Route
+            path="/board/studyGroup"
+            element={<Board BoardType="studyGroup" />}
+          />
+          <Route path="/faq" element={<FAQPage />} />
+        </Routes>
+      </S.Content>
+      </S.ContainerWrapper>
+    </S.Container>
+  );
 };
 
 export default Main;
