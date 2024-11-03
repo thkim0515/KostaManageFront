@@ -20,7 +20,7 @@ export const Inner = styled.div`
 `;
 
 export const Logo = styled.div`
-	color: #007bff;
+	color: #4285f4;
 	margin-bottom: 20px;
 	font-size: 30px;
 	font-style: italic;
@@ -39,7 +39,7 @@ export const Info = styled.div`
 	margin-right: auto;
 	p {
 		margin: 5px 0;
-		color: #007bff;
+		color: #4285f4;
 	}
 `;
 export const NavContainer = styled.div`
@@ -66,7 +66,7 @@ export const Nav = styled.nav`
 		li {
 			a {
 				text-decoration: none;
-				color: #007bff;
+				color: #4285f4;
 
 				&:hover {
 					text-decoration: underline;
@@ -82,7 +82,7 @@ export const Social = styled.div`
 
 	a {
 		font-size: 10px;
-		color: #007bff;
+		color: #4285f4;
 
 		&:hover {
 			color: #007bff;

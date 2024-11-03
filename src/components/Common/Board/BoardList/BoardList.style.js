@@ -69,13 +69,13 @@ export const CreateButton = styled.button`
 	margin-left: px;
 	font-size: 18px;
 	font-family: "DungGeunMo", sans-serif;
-	background-color: #007bff;
+	background-color: #4285f4;
 	color: white;
 	border: none;
 	border-radius: 5px;
 
 	&:hover {
-		background-color: #0056b3;
+		background-color: #007bff;
 	}
 `;
 export const BottomContainer = styled.div`

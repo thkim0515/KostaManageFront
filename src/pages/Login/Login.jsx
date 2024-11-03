@@ -31,6 +31,7 @@ const Login = () => {
 				<h2>로그인</h2>
 				<br />
 				<br />
+
 				{!user ? (
 					<>
 						<S.LoginField>
@@ -49,6 +50,7 @@ const Login = () => {
 								onChange={(e) => setPassword(e.target.value)}
 							/>
 						</S.LoginField>
+						<br />
 						<S.StyledButton onClick={handleLoginClick}>Login</S.StyledButton>
 					</>
 				) : (

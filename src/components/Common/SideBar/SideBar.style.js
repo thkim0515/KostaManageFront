@@ -44,7 +44,7 @@ export const TopToggleButton = styled.button`
 `;
 
 export const BottomToggleButton = styled.button`
-	background-color: #007bff;
+	background-color: #4285f4;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -60,7 +60,7 @@ export const BottomToggleButton = styled.button`
 	}
 
 	&:hover {
-		background-color: #0056b3;
+		background-color: #007bff;
 	}
 `;
 
@@ -92,12 +92,12 @@ export const MenuItem = styled.div`
 `;
 
 export const MenuIcon = styled.div`
-  color: ${(props) => (props.selected ? "#007bff" : "#6c757d")};
+  color: ${(props) => (props.selected ? "#4285f4" : "#6c757d")};
   margin-right: ${(props) => (props.isOpen ? "10px" : "0")};
 `;
 
 export const MenuText = styled.div`
-	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
+	color: ${(props) => (props.active ? "#4285f4" : "#6c757d")};
 	font-size: 2rem;
 	font-weight: bold;
 	font-family: "DungGeunMo", sans-serif;

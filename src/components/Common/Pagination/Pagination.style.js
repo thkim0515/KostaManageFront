@@ -12,9 +12,9 @@ export const PaginationButton = styled.button`
   padding: 8px 12px;
  margin: 0 2px;
   font-size: 14px;
-  border: 1px solid #007bff;
+  border: 1px solid #4285f4;
   background-color: white;
-  color: #007bff;
+  color: #4285f4;
   border-radius: 4px;
   cursor: pointer;
 

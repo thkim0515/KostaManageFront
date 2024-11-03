@@ -37,14 +37,14 @@ export const Button = styled.button`
   padding: 20px 200px; // 버튼 크기를 넓게 설정
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #4285f4;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   display: block; // 중앙 정렬을 위해 블록 요소로 변경
   margin: 20px auto; // 중앙 정렬을 위해 상하 여백 20px, 좌우 자동
   &:hover {
-    background-color: #0056b3;
+    background-color: #007bff;
   }
 `;
 

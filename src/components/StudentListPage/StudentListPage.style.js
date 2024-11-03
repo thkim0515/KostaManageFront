@@ -19,7 +19,7 @@ export const Button = styled.button`
 	width: 100%;
 	padding: 10px;
 	margin: 5px 10px 20px 0;
-	background-color: #007bff;
+	background-color: #4285f4;
 	color: white;
 	font-family: "DungGeunMo", sans-serif;
 	border: none;
@@ -42,7 +42,7 @@ export const MenuItem = styled.div`
 `;
 
 export const MenuText = styled.div`
-	color: ${(props) => (props.active ? "#007bff" : "#6c757d")};
+	color: ${(props) => (props.active ? "#4285f4" : "#6c757d")};
 	font-size: 25px;
 	font-weight: bold;
 	align-items: center;
@@ -64,25 +64,6 @@ export const SubMenuItem = styled.div`
 	}
 `;
 
-//export const CategoryTitle = styled.h3`
-//	margin-top: 20px;
-//	margin-bottom: 10px;
-//	margin-left: 15px;
-//	font-weight: bold;
-//	color: #495057;
-//`;
-//
-//export const CategoryItem = styled.div`
-//	display: flex;
-//	align-items: center;
-//	padding: 10px;
-//	margin-bottom: 10px;
-//	cursor: pointer;
-//	color: #495057;
-//	&:hover {
-//		background-color: #e9ecef;
-//	}
-//`;
 
 export const MainContent = styled.div`
 	display: flex;

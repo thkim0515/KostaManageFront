@@ -1,57 +1,77 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	height: 120%;
 	width: 100%;
+	height: 100%;
 	background-color: #f4f4f4;
+	box-sizing: border-box;
+
+	@media (max-width: 768px) {
+		padding: 10px;
+	}
 `;
 
 export const Wrapper = styled.div`
 	width: 100%;
-	margin: 0 0 30px 0;
+	max-width: 1200px;
+	margin: 0 auto 30px auto;
 	background-color: #ffffff;
-	border-radius: 10px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+
+	@media (max-width: 768px) {
+		padding: 15px;
+	}
 `;
 
 export const Group = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* 수직 가운데 정렬을 위해 추가 */
-	width: 750px;
-	padding: 60px;
+	align-items: center;
+	width: clamp(700px, 80%, 1200px);
+	padding: clamp(20px, 5vw, 60px);
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		padding: 20px;
+	}
 `;
 
 export const TitleWrapper = styled.div`
-	color: #0068ff;
+	color: #4285f4;
 	font-family: "DungGeunMo", sans-serif;
-	font-size: 30px;
+	font-size: clamp(20px, 5vw, 30px);
 	font-weight: 700;
 	text-align: center;
-	margin: 0 0 70px 0;
+	margin: 0 0 50px 0;
 `;
+
 export const ManageField = styled.div`
+	width: 100%;
 	margin-bottom: 30px;
 	text-align: left;
-	margin: 0 0 20px 0px;
 	font-size: 16px;
 	display: flex;
-	flex-direction: column; /* 세로 방향으로 정렬 추가 */
-	align-items: center;
-	width: 100%;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0 10px;
+
+	@media (max-width: 768px) {
+		align-items: center;
+	}
 `;
 
 export const Label = styled.label`
 	display: block;
 	margin-bottom: 5px;
 	color: #797979;
-	font-size: 18px;
+	font-size: clamp(14px, 1.5vw, 18px);
 `;
+
 export const Input = styled.input`
 	width: 100%;
-	/*justify-content: center;*/
 	padding: 10px;
 	margin: 5px 0;
 	border: 1px solid #dcdcdc;
@@ -67,19 +87,24 @@ export const ErrorMsg = styled.div`
 `;
 
 export const Button = styled.button`
-	background-color: #0068ff;
+	background-color: #4285f4;
 	color: #ffffff;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 8px;
 	cursor: pointer;
 	font-size: 20px;
-	width: 60%;
+	width: clamp(150px, 60%, 300px);
 	margin-top: 20px;
+	text-align: center;
 
 	&:hover {
-		background-color: #ffffff;
-		color: black;
+		background-color: #0068ff;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+		font-size: 18px;
 	}
 `;
 
@@ -99,5 +124,5 @@ export const CheckboxWrapper = styled.div`
 
 export const CheckboxLabel = styled.label`
 	margin-left: 5px;
-	font-size: 14px;
+	font-size: clamp(12px, 1.5vw, 14px);
 `;

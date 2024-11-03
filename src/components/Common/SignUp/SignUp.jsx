@@ -59,8 +59,7 @@ const SignUp = () => {
     <S.Container>
       <S.Wrapper>
         <S.Group>
-          <h2>회원가입을 위해 정보를 입력 해주세요</h2>
-          <br />
+          <h2>회원가입을 위해 <br />정보를 입력 해주세요</h2>
           <br />
 
           <S.SignUpField>
@@ -126,7 +125,7 @@ const SignUp = () => {
           </S.SignUpField>
 
           <S.SignUpField>
-            <S.Label htmlFor="cohortId">코호트 ID</S.Label>
+            <S.Label htmlFor="cohortId">* 코호트 ID</S.Label>
             <S.Input
               type="number"
               name="cohortId"

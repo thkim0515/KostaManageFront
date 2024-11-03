@@ -5,6 +5,10 @@ export const Container = styled.div`
 	margin: 0 auto;
 	padding: 20px;
 	box-sizing: border-box;
+
+	@media (max-width: 768px) {
+		padding: 10px;
+	}
 `;
 
 export const Wrapper = styled.div`
@@ -13,11 +17,22 @@ export const Wrapper = styled.div`
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	display: flex;
+	flex-direction: row;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		padding: 15px;
+	}
 `;
 
 export const LeftColumn = styled.div`
 	flex: 1;
 	margin-right: 20px;
+
+	@media (max-width: 768px) {
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
 `;
 
 export const RightColumn = styled.div`
@@ -25,23 +40,29 @@ export const RightColumn = styled.div`
 `;
 
 export const Image = styled.img`
-	width: 300px;
+	width: 100%;
+	max-width: 300px;
 	height: auto;
 	margin-bottom: 10px;
+
+	@media (max-width: 768px) {
+		max-width: 100%;
+		margin-bottom: 20px;
+	}
 `;
 
 export const TitleWrapper = styled.div`
 	margin-bottom: 20px;
 
 	h1 {
-		font-size: 24px;
+		font-size: clamp(20px, 2.5vw, 24px);
 		font-weight: bold;
 		margin-bottom: 10px;
 		color: #555555;
 	}
 
 	p {
-		font-size: 16px;
+		font-size: clamp(14px, 2vw, 16px);
 		margin-bottom: 5px;
 	}
 `;
@@ -57,6 +78,7 @@ export const AgreeWrapper = styled.div`
 
 	p {
 		margin: 0;
+		font-size: clamp(12px, 1.8vw, 14px);
 	}
 `;
 
@@ -67,36 +89,48 @@ export const ManageField = styled.div`
 export const Label = styled.label`
 	display: block;
 	margin-bottom: 10px;
-	margin-left: -10px;
 	font-weight: bold;
 	color: #555;
+	font-size: clamp(14px, 1.8vw, 16px);
 `;
+
 export const SubLabel = styled.label`
 	display: block;
 	margin-top: 10px;
 	margin-bottom: 5px;
 	color: #555;
-	font-size: 16px;
+	font-size: clamp(14px, 1.8vw, 16px);
 	font-weight: 500;
 `;
 
 export const NameInput = styled.input`
-	width: 15%;
+	width: clamp(150px, 15%, 200px);
 	padding: 7px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
 	margin-bottom: 8px;
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 `;
 
 export const Input = styled.input`
-	width: 80%;
+	width: 100%;
+	max-width: 80%;
 	padding: 8px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
 	margin-bottom: 10px;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		max-width: 100%;
+	}
 `;
+
 export const PhoneInputWrapper = styled.div`
 	display: flex;
 	align-items: center;
@@ -114,6 +148,7 @@ export const PhoneInput = styled.input`
 	box-sizing: border-box;
 	text-align: center;
 `;
+
 export const Select = styled.select`
 	width: 100%;
 	padding: 8px;
@@ -123,13 +158,18 @@ export const Select = styled.select`
 `;
 
 export const TextArea = styled.textarea`
-	width: 80%;
+	width: 100%;
+	max-width: 80%;
 	height: 250px;
 	padding: 8px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
 	resize: none;
+
+	@media (max-width: 768px) {
+		max-width: 100%;
+	}
 `;
 
 export const TextAreaWrapper = styled.div`
@@ -175,14 +215,14 @@ export const InlineInput = styled.input`
 	font-size: 16px;
 
 	&:hover {
-		border: 1px solid #0056d2;
+		border: 1px solid #007bff;
 	}
 `;
 
 export const Button = styled.button`
 	width: 80%;
 	padding: 10px;
-	background-color: #007bff;
+	background-color: #4285f4;
 	color: #ffffff;
 	border: 1px solid #ffffff;
 	border-radius: 8px;
@@ -190,8 +230,11 @@ export const Button = styled.button`
 	font-size: 16px;
 
 	&:hover {
-		background-color: #007bfa;
+		background-color: #007bff;
 		border: 1px solid #ffffff;
-		color: black;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
 	}
 `;

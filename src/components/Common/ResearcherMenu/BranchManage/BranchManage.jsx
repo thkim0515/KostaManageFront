@@ -73,7 +73,7 @@ const BranchManage = () => {
       <S.Wrapper>
         <S.Group>
           <S.TitleWrapper>
-            <h2>지점등록을 위해 정보를 입력 해주세요</h2>
+            <h2>지점등록을 위해 <br />정보를 입력 해주세요</h2>
           </S.TitleWrapper>
           <S.ManageField>
             <S.Label htmlFor="branchName">* 학원 지점 이름</S.Label>

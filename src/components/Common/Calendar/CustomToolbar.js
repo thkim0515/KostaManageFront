@@ -13,7 +13,7 @@ const ToolbarContainer = styled.div`
 `;
 
 const ToolbarButton = styled.button`
-  background-color: #007bff;
+  background-color: #4285f4;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -23,7 +23,7 @@ const ToolbarButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #007bff;
   }
 `;
 

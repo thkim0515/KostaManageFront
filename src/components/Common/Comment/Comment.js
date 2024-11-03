@@ -17,7 +17,7 @@ const CommentContent = styled.div`
 const ReplyButton = styled.button`
   margin-top: 5px;
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #4285f4;
   color: white;
   border: none;
   border-radius: 5px;

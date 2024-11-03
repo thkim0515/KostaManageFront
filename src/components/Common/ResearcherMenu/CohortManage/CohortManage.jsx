@@ -33,25 +33,7 @@ const CohortManage = () => {
   };
 
   const handleManage = async () => {
-    // const newErrors = {
-    //   batchNumber: Vali.validateName(formData.batchNumber),
-    //   batchName: Vali.validateName(formData.batchName),
-    //   courseTitle: Vali.validateName(formData.courseTitle),
-    //   courseDescription: Vali.validateName(formData.courseDescription),
-    //   courseDuration: Vali.validateName(formData.courseDuration),
-    //   startDate: Vali.validateDate(formData.startDate),
-    //   endDate: Vali.validateDate(formData.endDate),
-    //   instructorName: Vali.validateName(formData.instructorName),
-    //   instructorEmail: Vali.validateEmail(formData.instructorEmail),
-    //   maxStudents: Vali.validateNumber(formData.maxStudents),
-    //   currentStudents: Vali.validateNumber(formData.currentStudents),
-    //   status: Vali.validateName(formData.status),
-    //   notes: Vali.validateName(formData.notes),
-    // };
-
-    // setErrors(newErrors);
-
-    // if (Object.values(newErrors).every((error) => error === "")) {
+   
     try {
       const response = await axios.post(
         `${localAddress}cohorts/create`,
@@ -74,7 +56,7 @@ const CohortManage = () => {
       <S.Wrapper>
         <S.Group>
           <S.TitleWrapper>
-            <h2>기수 등록을 위해 정보를 입력 해주세요</h2>
+            <h2>기수 등록을 위해 <br />정보를 입력 해주세요</h2>
           </S.TitleWrapper>
           <S.ManageField>
             <S.Label htmlFor="batchNumber">* 기수 번호</S.Label>

@@ -70,7 +70,7 @@ export const StyledButton = styled.button`
 	margin-left: 10px;
 
 	&:hover {
-		background-color: #2a6bb4;
+		background-color: #0068ff;
 	}
 `;
 
