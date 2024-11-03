@@ -1,0 +1,7 @@
+<DataGrid
+  slots={{
+    loadingOverlay: LinearProgress as GridSlots['loadingOverlay'],
+  }}
+  loading
+  {...data}
+/>

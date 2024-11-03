@@ -1,0 +1,11 @@
+<DataGrid
+  autoHeight
+  disableColumnFilter
+  disableRowSelectionOnClick
+  hideFooter
+  showCellVerticalBorder
+  showColumnVerticalBorder
+  getCellClassName={getCellClassName}
+  columns={columns}
+  rows={rows}
+/>
